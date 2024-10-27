@@ -160,7 +160,7 @@ const ProfilePage = () => {
       <div className={styles.profileInfo}>
         <img src={DefaultImage} alt="Profile" className={styles.profileImage} />
         <div className={styles.profileDetails}>
-          <h1 className={styles.profileAddress}>{formatAddress(address)}</h1>
+          <h1 className={styles.profileAddress}>{address}</h1>
           {/* <button className={styles.editButton}>Edit Profile</button> */}
           <div className={styles.profileStats}>
           <p>Total Collections: {collections.length}</p>

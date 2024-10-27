@@ -41,7 +41,7 @@ function ProfileMenu({ isOpen, onClose, address, balance,onDisconnect  }) {
     >
       <div className={styles.menuHeader}>
         <img src={DefaultImage} alt="Profile" className={styles.largeProfileImage} />
-        <h3 className={styles.addressMenu}>{formatAddress(address)}</h3>
+        <h3 className={styles.addressMenu}>{address}</h3>
         {/* <p>{balance} SOL</p> */}
       </div>
       <div className={styles.walletInfo}>
@@ -66,7 +66,7 @@ function ProfileMenu({ isOpen, onClose, address, balance,onDisconnect  }) {
               // className={styles.chainIcon}
             />
           <div className={styles.tronInfo}>
-            <span>{balance} ETH</span>
+            <span>{balance} NEAR</span>
             <div className={styles.addressContainer}>
               <h3 className={styles.addressMenusmall}>{formatAddress(address)}</h3>
               <button 
