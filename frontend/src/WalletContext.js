@@ -1,217 +1,117 @@
-// src/WalletContext.js
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
+import * as nearAPI from 'near-api-js';
 
+const { connect, keyStores, WalletConnection } = nearAPI;
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [coinbaseState, setcoinbaseState] = useState({
+  const [coinbaseState, setCoinbaseState] = useState({
     installed: false,
     loggedIn: false,
   });
   const [address, setAddress] = useState(null);
   const [balance, setBalance] = useState(null);
-  const [coinbaseWallet, setCoinbaseWallet] = useState(null);
-  const [provider, setProvider] = useState(null);
+  const [walletConnection, setWalletConnection] = useState(null);
 
-// src/WalletContext.js
-// const checkTronWebState = () => {
-//   if (window.tronWeb) {
-//     setTronWebState((prevState) => ({
-//       ...prevState,
-//       installed: true,
-//     }));
-//   } else {
-//     setTronWebState({
-//       installed: false,
-//       loggedIn: false,
-//     });
-//   }
-// };
-
-
-// // src/WalletContext.js
-// useEffect(() => {
-//   checkTronWebState();
-//   const interval = setInterval(checkTronWebState, 5000);
-//   return () => clearInterval(interval);
-// }, []);
-
-// UUID v4 implementation
-function generateUUID() {
-  // Use crypto.getRandomValues instead of randomUUID
-  const getRandomValues = (arr) => {
-    if (typeof crypto !== 'undefined' && crypto.getRandomValues) {
-      return crypto.getRandomValues(arr);
-    }
-    // Fallback to Math.random()
-    for (let i = 0; i < arr.length; i++) {
-      arr[i] = Math.floor(Math.random() * 256);
-    }
-    return arr;
+  const APP_KEY_PREFIX = "near_app";
+  const connectionConfig = {
+    networkId: "testnet",
+    keyStore: new keyStores.BrowserLocalStorageKeyStore(),
+    nodeUrl: "https://rpc.testnet.near.org",
+    walletUrl: "https://testnet.mynearwallet.com/",
+    helperUrl: "https://helper.testnet.near.org",
+    explorerUrl: "https://testnet.nearblocks.io",
   };
 
-  const randomBytes = new Uint8Array(16);
-  getRandomValues(randomBytes);
+  useEffect(() => {
+    const init = async () => {
+      try {
+        const nearConnection = await connect(connectionConfig);
+        const walletConn = new WalletConnection(nearConnection, APP_KEY_PREFIX);
+        setWalletConnection(walletConn);
+        setCoinbaseState(prev => ({ ...prev, installed: true }));
 
-  // Set version (4) and variant (RFC4122)
-  randomBytes[6] = (randomBytes[6] & 0x0f) | 0x40;
-  randomBytes[8] = (randomBytes[8] & 0x3f) | 0x80;
+        // Check if user is already signed in
+        if (walletConn.isSignedIn()) {
+          const accountId = walletConn.getAccountId();
+          setAddress(accountId);
+          setCoinbaseState({
+            installed: true,
+            loggedIn: true,
+          });
 
-  // Convert to hex string
-  let uuid = '';
-  for (let i = 0; i < 16; i++) {
-    uuid += randomBytes[i].toString(16).padStart(2, '0');
-    if (i === 3 || i === 5 || i === 7 || i === 9) {
-      uuid += '-';
-    }
-  }
-  return uuid;
-}
+          // Get balance
+          const account = await walletConn.account();
+          const balanceInfo = await account.getAccountBalance();
+          setBalance(nearAPI.utils.format.formatNearAmount(balanceInfo.total));
+        }
+      } catch (error) {
+        console.error('Error initializing NEAR wallet:', error);
+      }
+    };
 
-const redirectToWalletInstall = () => {
-  // Open Coinbase Wallet download page in a new tab
-  window.open('https://www.coinbase.com/wallet/downloads', '_blank');
-};
-
-useEffect(() => {
-  const initializeCoinbaseWallet = () => {
-    const wallet = new CoinbaseWalletSDK({
-      appName: 'My Crypto App',
-      appLogoUrl: 'https://example.com/logo.png',
-      darkMode: false
-    });
-
-    const ethereum = wallet.makeWeb3Provider('https://base-sepolia-rpc.publicnode.com', 84532);
-
-    setCoinbaseWallet(wallet);
-    setProvider(ethereum);
-    setcoinbaseState((prevState) => ({
-      ...prevState,
-      installed: true,
-    }));
-  };
-
-  initializeCoinbaseWallet();
-}, []);
-
-const updateBalance = async (userAddress, currentProvider) => {
-  try {
-    const balanceInWei = await currentProvider.request({
-      method: 'eth_getBalance',
-      params: [userAddress, 'latest']
-    });
-    
-    // Convert balance from Wei to Ether
-    const balanceInEth = parseInt(balanceInWei, 16) / 1e18;
-    
-    // Set balance with 6 decimal places
-    setBalance(balanceInEth.toFixed(6));
-  } catch (error) {
-    console.error('Error fetching balance:', error);
-    setBalance('Error');
-  }
-};
-
-
+    init();
+  }, []);
 
   const connectWallet = async () => {
-    if (!provider) {
-      // Check if the provider is available in window.ethereum
-      if (!window.ethereum) {
-        const shouldInstall = window.confirm(
-          'Coinbase Wallet is not installed. Would you like to install it now?'
-        );
-        if (shouldInstall) {
-          redirectToWalletInstall();
-        }
+    try {
+      if (!walletConnection) {
+        console.error('Wallet connection not initialized');
         return;
       }
-      alert('Initializing wallet connection...');
-      return;
-    }
 
-    await provider.request({
-      method: 'wallet_switchEthereumChain',
-      params: [{ chainId: '0x14A34' }], // 84532 in hex
-    });
-    
-    try {
-      const accounts = await provider.request({
-        method: 'eth_requestAccounts'
+      const currentDomain = window.location.origin;
+      await walletConnection.requestSignIn({
+        successUrl: `${currentDomain}/`,
+        failureUrl: `${currentDomain}/`,
       });
 
-      const userAddress = accounts[0];
-      setAddress(userAddress);
-      
-      console.log('User address:', userAddress);
-      
-      // const balanceInSun = await window.tronWeb.trx.getBalance(userAddress);
-      // const balanceInTRX = window.tronWeb.fromSun(balanceInSun);
-      // setBalance(parseFloat(balanceInTRX).toFixed(3));
+      if (walletConnection.isSignedIn()) {
+        const accountId = walletConnection.getAccountId();
+        setAddress(accountId);
+        setCoinbaseState({
+          installed: true,
+          loggedIn: true,
+        });
 
-      await updateBalance(userAddress, provider);
-
-      setcoinbaseState({
-        installed: true,
-        loggedIn: true,
-      });
+        // Get balance after connection
+        const account = await walletConnection.account();
+        const balanceInfo = await account.getAccountBalance();
+        setBalance(nearAPI.utils.format.formatNearAmount(balanceInfo.total));
+      }
     } catch (error) {
       console.error('Error connecting wallet:', error);
       alert('Failed to connect wallet. Please try again.');
     }
   };
-  const handleAccountsChanged = (accounts) => {
-    if (accounts.length === 0) {
-      // User has disconnected
-      handleDisconnect();
-    } else {
-      // User switched accounts
-      setAddress(accounts[0]);
-      updateBalance(accounts[0], provider);
-    }
-  };
-
-  const handleChainChanged = () => {
-    // Reload the page when chain changes
-    window.location.reload();
-  };
-  const handleDisconnect = () => {
-    // Reset all state
-    setcoinbaseState({
-      installed: true,
-      loggedIn: false,
-    });
-    setAddress(null);
-    setBalance(null);
-  };
 
   const disconnectWallet = async () => {
     try {
-      // For Coinbase Wallet, we can force disconnect by clearing localStorage
-      // and resetting the provider state
-      if (provider) {
-        // Remove event listeners
-        provider.removeListener('accountsChanged', handleAccountsChanged);
-        provider.removeListener('chainChanged', handleChainChanged);
-      }
+      if (!walletConnection) return;
 
-      // Clear any stored connection data
-      localStorage.clear(); // This will clear all localStorage items
-      
-      // If you want to be more specific about what you clear:
-      // localStorage.removeItem('walletconnect');
-      // localStorage.removeItem('WALLETCONNECT_DEEPLINK_CHOICE');
-      // localStorage.removeItem('-cbwsdb-'); // Coinbase Wallet specific storage
-
-      // Reset all state
-      handleDisconnect();
-
-
+      walletConnection.signOut();
+      setCoinbaseState({
+        installed: true,
+        loggedIn: false,
+      });
+      setAddress(null);
+      setBalance(null);
     } catch (error) {
       console.error('Error disconnecting wallet:', error);
-      // Even if there's an error, try to reset the state
-      handleDisconnect();
+    }
+  };
+
+  const checkAccountExists = async (accountId) => {
+    try {
+      const nearConnection = await connect(connectionConfig);
+      const account = await nearConnection.account(accountId);
+      await account.state();
+      return true;
+    } catch (error) {
+      if (error.toString().includes('does not exist')) {
+        return false;
+      }
+      throw error;
     }
   };
 
@@ -221,7 +121,7 @@ const updateBalance = async (userAddress, currentProvider) => {
     balance,
     connectWallet,
     disconnectWallet,
-    provider
+    checkAccountExists,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
