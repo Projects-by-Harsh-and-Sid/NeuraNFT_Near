@@ -13,205 +13,178 @@ Welcome to the comprehensive guide for developing on the Ethereum blockchain. Th
 
 ## Additional Resources
 
-### Ethereum Documentation
-- [Ethereum Developer Documentation](https://ethereum.org/developers)
-- [Truffle Documentation](https://trufflesuite.com/docs/)
-- [Solidity Documentation](https://docs.soliditylang.org/)
-- [Web3.js Documentation](https://web3js.readthedocs.io/)
-- [Ethers.js Documentation](https://docs.ethers.org/)
+### Documentation
+- [NEAR Documentation](https://docs.near.org)
+- [Rust Book](https://doc.rust-lang.org/book/)
+- [Anaconda Documentation](https://docs.anaconda.com)
+- [WSL Documentation](https://docs.microsoft.com/en-us/windows/wsl/)
+- [Windows installation](https://docs.near.org/blog/getting-started-on-windows)
 
-### Ethereum Networks
-- [Sepolia Testnet](https://sepolia.dev/)
-- [Goerli Testnet](https://goerli.net/)
-- [Ethereum Mainnet](https://ethereum.org/)
+## Useful Links
 
-### Block Explorers
-- [Etherscan](https://etherscan.io/)
-- [Sepolia Etherscan](https://sepolia.etherscan.io/)
-- [Goerli Etherscan](https://goerli.etherscan.io/)
+- [cargo-near](https://github.com/near/cargo-near) - NEAR smart contract development toolkit for Rust
+- [near CLI](https://near.cli.rs) - Interact with NEAR blockchain from command line
+- [NEAR Rust SDK Documentation](https://docs.near.org/sdk/rust/introduction)
+- [NEAR Documentation](https://docs.near.org)
+- [NEAR StackOverflow](https://stackoverflow.com/questions/tagged/nearprotocol)
+- [NEAR Discord](https://near.chat)
+- [NEAR Telegram Developers Community Group](https://t.me/neardev)
+- NEAR DevHub: [Telegram](https://t.me/neardevhub), [Twitter](https://twitter.com/neardevhub)
 
-# Ethereum Blockchain Overview and Setup
 
-## What is Ethereum?
 
-Ethereum is a decentralized, open-source blockchain platform that supports smart contracts and decentralized applications (dApps). It uses a Proof of Stake (PoS) consensus mechanism and is the most widely used blockchain for smart contract development.
+# NEAR Development Environment Setup Guide
 
-## Setting Up Your Development Environment
+This guide provides step-by-step instructions for setting up a NEAR development environment using WSL, Anaconda, Rust, and Node.js.
 
-### 1. Install Node.js and npm
+## 1. WSL and Anaconda Base Setup
 
-1. Download and install Node.js from [nodejs.org](https://nodejs.org/)
-2. Verify installation:
+### Install WSL
 ```bash
+# Open PowerShell as Administrator and run:
+wsl --install
+# Restart your computer
+```
+
+### Basic WSL Dependencies
+```bash
+sudo apt update && sudo apt upgrade
+sudo apt install -y build-essential curl wget git pkg-config libssl-dev
+```
+
+### Install Anaconda
+```bash
+# Download Anaconda
+wget https://repo.anaconda.com/archive/Anaconda3-2024.02-Linux-x86_64.sh
+
+# Install Anaconda
+bash Anaconda3-2024.02-Linux-x86_64.sh
+# Follow the prompts and accept the license agreement
+# Say 'yes' to initializing conda
+
+# Activate Anaconda
+source ~/.bashrc
+
+# Verify installation
+conda --version
+```
+
+## 2. Rust and Node.js Setup
+
+### Install Rust
+```bash
+# Install Rust toolchain
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# Choose option 1 for default installation
+
+# Add Rust to current shell
+source $HOME/.cargo/env
+
+# Verify installation
+rustc --version
+cargo --version
+
+# Add WebAssembly target
+rustup target add wasm32-unknown-unknown
+```
+
+### Install Node.js in Anaconda Environment
+```bash
+# Create a new conda environment for NEAR development
+conda create -n near-dev python=3.12
+conda activate near-dev
+
+# Install Node.js through conda
+conda install nodejs
+
+# Verify Node.js installation
 node --version
 npm --version
 ```
 
-### 2. Install Development Tools
+## 3. NEAR Development Setup
 
+### Install NEAR CLI
 ```bash
-# Install Truffle globally
-npm install -g truffle
+# Install NEAR CLI globally
+npm install -g near-cli
 
-# Install Ganache for local blockchain
-npm install -g ganache
-
-# Install web3.js
-npm install web3
+# Verify NEAR CLI installation
+near --version
 ```
 
-### 3. Install MetaMask
-
-1. Download MetaMask browser extension from [metamask.io](https://metamask.io/)
-2. Create a new wallet or import existing one
-3. Connect to desired network (Mainnet, Sepolia, or local network)
-
-### 4. Set Up a New Truffle Project
-
+### Setup NEAR Development Tools
 ```bash
-# Create a new directory
-mkdir my_ethereum_project
-cd my_ethereum_project
+# Install cargo-near for creating NEAR projects
+cargo install cargo-near
 
-# Initialize a new Truffle project
-truffle init
+# Create a new NEAR project
+cargo near new your_project_name
+cd your_project_name
 ```
 
-### 5. Configure Truffle
-
-Edit the `truffle-config.js` file in your project root:
-
-```javascript
-require('dotenv').config();
-const HDWalletProvider = require('@truffle/hdwallet-provider');
-
-module.exports = {
-  networks: {
-    development: {
-      host: "127.0.0.1",
-      port: 8545,
-      network_id: "*"
-    },
-    sepolia: {
-      provider: () => new HDWalletProvider(
-        process.env.MNEMONIC,
-        `https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`
-      ),
-      network_id: 11155111,
-      gas: 5500000,
-      confirmations: 2,
-      timeoutBlocks: 200,
-      skipDryRun: true
-    }
-  },
-  compilers: {
-    solc: {
-      version: "0.8.19"
-    }
-  }
-};
+### Project Structure
+After creating a new project, you'll have the following structure:
+```
+your_project_name/
+├── Cargo.toml
+├── README.md
+├── src/
+│   └── lib.rs
+└── target/
 ```
 
-### 6. Set Up Environment Variables
-
-Create a `.env` file in your project root:
-
+### Build and Test
 ```bash
-touch .env
-```
-
-Add your configuration:
-
-```plaintext
-MNEMONIC=your twelve word mnemonic phrase here
-INFURA_PROJECT_ID=your_infura_project_id_here
-```
-
-Install required dependencies:
-
-```bash
-npm install dotenv @truffle/hdwallet-provider
-```
-
-### 7. Get Test Ether
-
-To deploy contracts and interact with testnets, you'll need test ETH:
-
-1. Create a wallet using MetaMask
-2. For Sepolia:
-   - Visit [Sepolia Faucet](https://sepoliafaucet.com/)
-   - Or [Alchemy Sepolia Faucet](https://sepoliafaucet.com/)
-3. For Goerli:
-   - Visit [Goerli Faucet](https://goerlifaucet.com/)
-
-### 8. Start Local Development Blockchain
-
-Start Ganache for local development:
-
-```bash
-# CLI version
-ganache
-
-# Or with specific configuration
-ganache --deterministic --networkId 5777 --port 8545
-```
-
-### 9. Basic Commands
-
-```bash
-# Compile contracts
-truffle compile
-
-# Deploy contracts
-truffle migrate
-
-# Deploy to specific network
-truffle migrate --network sepolia
+# Build the contract
+cargo build --target wasm32-unknown-unknown --release
 
 # Run tests
-truffle test
-
-# Start truffle console
-truffle console
-
-# Start truffle console on specific network
-truffle console --network sepolia
+cargo test
 ```
 
-## Development Best Practices
-
-1. Always use `.gitignore` to exclude sensitive files:
-```plaintext
-node_modules
-.env
-build/
+### Environment Management
+Remember to activate your conda environment before working:
+```bash
+conda activate near-dev
 ```
 
-2. Use the latest stable Solidity version
-3. Test contracts thoroughly before deployment
-4. Always verify contracts on Etherscan after deployment
-5. Use OpenZeppelin contracts for common patterns
-6. Follow gas optimization practices
+### Useful Commands
+```bash
+# View NEAR account status
+near state <account_id>
 
-## Common Development Tools
+# Deploy contract
+near deploy --accountId <account_id> --wasmFile target/wasm32-unknown-unknown/release/<contract_name>.wasm
 
-1. **Hardhat**: Advanced Ethereum development environment
-   ```bash
-   npm install --save-dev hardhat
-   ```
+# Call contract methods
+near call <contract_id> <method_name> '{"param": "value"}' --accountId <account_id>
+```
 
-2. **OpenZeppelin**: Smart contract library
-   ```bash
-   npm install @openzeppelin/contracts
-   ```
+## Troubleshooting
 
-3. **Web3.js/Ethers.js**: JavaScript libraries for Ethereum interaction
-   ```bash
-   npm install web3
-   # or
-   npm install ethers
-   ```
+Common issues and solutions:
 
-4. **Remix IDE**: Browser-based Solidity IDE at [remix.ethereum.org](https://remix.ethereum.org)
+1. If Rust commands aren't found:
+```bash
+source $HOME/.cargo/env
+```
 
-You're now ready to start developing on the Ethereum blockchain!
+2. If conda commands aren't found:
+```bash
+source ~/.bashrc
+```
+
+3. If Node.js packages aren't found:
+```bash
+npm config set prefix '~/.npm-global'
+export PATH=~/.npm-global/bin:$PATH
+```
+
+4. WSL filesystem issues:
+```bash
+# Run from Windows PowerShell:
+wsl --shutdown
+wsl
+```
+
