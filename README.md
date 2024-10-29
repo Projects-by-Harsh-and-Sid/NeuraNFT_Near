@@ -159,6 +159,38 @@ NeuraNFT addresses several key challenges in the current AI ecosystem:
 
 NeuraNFT's architecture is designed with security, scalability, and user control at its forefront. It consists of several key components:
 
+```mermaid
+
+graph TB
+    subgraph Core Contracts
+        MC[Master Contract]
+        NC[NFT Contract]
+        CC[Collection Contract]
+    end
+    
+    subgraph Storage Contracts
+        MS[Metadata Storage]
+        AS[Access Control Storage]
+    end
+    
+    MC --> NC
+    MC --> CC
+    NC --> MS
+    NC --> AS
+    CC --> NC
+    
+    subgraph Storage Types
+        CMS[Collection Metadata]
+        NMS[NFT Metadata]
+        ACS[Access Control State]
+    end
+    
+    MS --> CMS
+    MS --> NMS
+    AS --> ACS
+
+```
+
 ### Smart Contracts
 - **MasterAccessControl**: Manages overall access rights across the platform.
 - **NFTAccessControl**: Handles granular permissions for individual NFTs.
