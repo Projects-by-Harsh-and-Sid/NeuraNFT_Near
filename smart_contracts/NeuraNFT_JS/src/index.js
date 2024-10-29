@@ -40,21 +40,33 @@ export class Contract {
         }
     }
 
+
+    // Initialize state and cores
+    state          = new NFTContractState();
+    nftCore        = new NFTCore(null);
+    metadataCore   = new MetadataCore(null);
+    accessCore     = new AccessCore(null);
+    collectionCore = new CollectionCore(null);
+    
+    // Initialize standards
+    standards      = new NFTStandards(nftCore);
+    // standards.init();
+
     @initialize({})
     init() {
         // Prevent double initialization
-        if (this.state) {
-            near.panicUtf8("Contract is already initialized");
-        }
+        // if (this.state) {
+        //     near.panicUtf8("Contract is already initialized");
+        // }
 
-        // Initialize state and cores
+        // // Initialize state and cores
         this.state          = new NFTContractState();
         this.nftCore        = new NFTCore(this.state);
         this.metadataCore   = new MetadataCore(this.state);
         this.accessCore     = new AccessCore(this.state);
         this.collectionCore = new CollectionCore(this.state);
         
-        // Initialize standards
+        // // Initialize standards
         this.standards      = new NFTStandards(this.nftCore);
         this.standards.init();
 
