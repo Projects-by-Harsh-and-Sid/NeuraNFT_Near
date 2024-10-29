@@ -3,8 +3,11 @@ import { NFTInfo, AccessLevel } from "../models";
 
 // core/collection_core.js
 export class CollectionCore {
+
+    
     constructor(state) {
         this.state = state;
+        this.state.collections.length = 0;
     }
 
     internal_create_collection(name, contextWindow, baseModel, image, description, creator) {
