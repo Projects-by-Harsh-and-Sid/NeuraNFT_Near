@@ -1,17 +1,9 @@
-# Ethereum Blockchain Development Guide
+# Near Blockchain Development Guide
 
-Welcome to the comprehensive guide for developing on the Ethereum blockchain. This guide will walk you through the entire process of setting up your environment, writing smart contracts, deploying them, and interacting with them using various tools.
+Welcome to the comprehensive guide for developing on the Near blockchain. This guide will walk you through the entire process of setting up your environment, writing smart contracts, deploying them, and interacting with them using various tools.
 
 ## Table of Contents
 
-1. [Overview and Setup](#ethereum-blockchain-overview-and-setup)
-2. [Compiling Smart Contracts](02_compiling_smart_contracts.md)
-3. [Migration and Deployment](03_migration.md)
-4. [Testing](04_testing.md)
-5. [Using Smart Contracts in React](05_using_contracts_in_react.md)
-6. [Using Smart Contracts in Python](06_using_contracts_in_python.md)
-
-## Additional Resources
 
 ### Documentation
 - [NEAR Documentation](https://docs.near.org)

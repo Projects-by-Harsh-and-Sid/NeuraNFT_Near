@@ -1,7 +1,7 @@
 import anyTest from 'ava';
 import { Worker } from 'near-workspaces';
 import { setDefaultResultOrder } from 'dns';
-import { NFTInfo } from 'src/models';
+// import { NFTInfo } from 'src/models';
 setDefaultResultOrder('ipv4first');
 
 const test = anyTest;

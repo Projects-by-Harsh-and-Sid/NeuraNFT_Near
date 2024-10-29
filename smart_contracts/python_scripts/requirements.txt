@@ -1,4 +1,3 @@
-tronpy
 numpy
 pandas
 flask
@@ -6,3 +5,4 @@ jupyter
 notebook
 matplotlib
 seaborn
+near-api-py
