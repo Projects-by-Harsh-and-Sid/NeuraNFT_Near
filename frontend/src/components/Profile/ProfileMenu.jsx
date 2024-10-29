@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import DefaultImage from './DefaultImage.jpg';
 import styles from './styles/ProfileMenu.module.css';
 import classNames from 'classnames';
-import TronLinkLogo from './styles/base.svg';
+import TronLinkLogo from './styles/mynearwallet.jpg';
 import { Copy } from 'lucide-react'; // Import the Copy icon from lucide-react
 
 function ProfileMenu({ isOpen, onClose, address, balance,onDisconnect  }) {
@@ -33,6 +33,10 @@ function ProfileMenu({ isOpen, onClose, address, balance,onDisconnect  }) {
     });
   };
 
+  function formatbalance(balance) {
+    return balance ? parseFloat(balance).toFixed(2) : '0.00';
+  }
+
   return (
     <div
       className={classNames(styles.profileMenu, {
@@ -52,7 +56,7 @@ function ProfileMenu({ isOpen, onClose, address, balance,onDisconnect  }) {
               alt="Tron"
               className={styles.WalletIcon}
               />
-            <span className={styles.Walletheader}>Base Wallet(1 wallet)</span>
+            <span className={styles.Walletheader}>Near Wallet(1 wallet)</span>
             <div className={styles.activeStatus}>
               <span className={styles.walletStatus}>Active</span>
             </div>
@@ -60,15 +64,15 @@ function ProfileMenu({ isOpen, onClose, address, balance,onDisconnect  }) {
           <div className={styles.tronBalance}>
 
                         <img 
-              src={'/base-logo-in-blue.svg' } 
+              src={'/near-protocol-near-logo.svg' } 
               alt="Tron"
               className={styles.chainIcon}
               // className={styles.chainIcon}
             />
           <div className={styles.tronInfo}>
-            <span>{balance} NEAR</span>
+            <span>{formatbalance(balance)} NEAR</span>
             <div className={styles.addressContainer}>
-              <h3 className={styles.addressMenusmall}>{formatAddress(address)}</h3>
+              <h3 className={styles.addressMenusmall}>{(address)}</h3>
               <button 
                 className={styles.copyButton} 
                 onClick={() => copyToClipboard(address)}

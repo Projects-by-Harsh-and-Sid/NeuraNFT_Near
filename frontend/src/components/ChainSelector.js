@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styles from '../styles/chainselector.module.css';
 
 const ChainSelector = () => {
-    const [selectedChain, setSelectedChain] = useState('Sepolia');
-    const chains = ['All Chains','Sepolia'];
+    const [selectedChain, setSelectedChain] = useState('Near Testnet');
+    const chains = ['All Chains','Near Testnet'];
     const handleChainSelect = (chain) => {
         setSelectedChain(chain);
       };
@@ -33,15 +33,15 @@ const ChainSelector = () => {
             {selectedChain === 'Tron' && <span className={styles.chainText}>Tron</span>}
           </div> */}
           <div 
-            className={`${styles.chainOption} ${selectedChain === 'Sepolia' ? styles.selected : ''}`}
-            onClick={() => handleChainSelect('Sepolia')}
+            className={`${styles.chainOption} ${selectedChain === 'Near Testnet' ? styles.selected : ''}`}
+            onClick={() => handleChainSelect('Near Testnet')}
           >
             <img 
-              src={selectedChain === 'Sepolia' ? '/base-logo-in-blue.svg' : '/tron-grey.svg'} 
+              src={selectedChain === 'Near Testnet' ? '/near-protocol-near-logo.svg' : '/near-protocol-grey.svg'} 
               alt="Tron"
               className={styles.chainIcon}
             />
-            {selectedChain === 'Sepolia' && <span className={styles.chainText}>Sepolia</span>}
+            {selectedChain === 'Near Testnet' && <span className={styles.chainText}>Near Testnet</span>}
           </div>
         </div>
       );

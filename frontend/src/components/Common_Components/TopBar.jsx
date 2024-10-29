@@ -46,6 +46,9 @@ const TopBar = ({ onConnectWallet }) => {
     }
   };
 
+  function formatbalance(balance) {
+    return balance ? parseFloat(balance).toFixed(2) : '0.00';
+  }
 
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -142,7 +145,7 @@ const TopBar = ({ onConnectWallet }) => {
         ) : (
           <div className={styles.walletInfo}>
             <div className={styles.balanceDisplay} onClick={toggleMenu}>
-              <span className={styles.balance}>{balance} NEAR</span>
+              <span className={styles.balance}>{formatbalance(balance)} NEAR</span>
               <img src={UserProfileImage} alt="Profile" className={styles.profileImage} />
             </div>
           </div>
