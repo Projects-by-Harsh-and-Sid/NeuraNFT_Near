@@ -3,53 +3,7 @@ import { NearBindgen, near, call, view, initialize, UnorderedMap, LookupMap } fr
 @NearBindgen({})
 export class NeuraNFT {
 
-    // constructor() {
-    //     // Storage for NFTs and metadata
-    //     this.nftTokens = new UnorderedMap('t');           // collectionId_tokenId -> NFTInfo
-    //     this.nftMetadata = new LookupMap('m');           // collectionId_tokenId -> Metadata
-    //     this.tokenBalances = new LookupMap('b');         // owner -> total NFTs
-    //     this.collectionBalances = new LookupMap('cb');   // owner_collectionId -> collection NFTs
-        
-    //     // Collections storage
-    //     this.collections = new UnorderedMap('c');        // collectionId -> CollectionMetadata
-    //     this.nextTokenId = new LookupMap('n');          // collectionId -> next token id
-    //     this.nextCollectionId = 1;
-        
-    //     // Access control storage
-    //     this.nftAccess = new LookupMap('a');            // collectionId_tokenId_user -> AccessLevel
-    //     this.defaultAccess = new LookupMap('da');       // collectionId_tokenId -> AccessLevel
-    //     this.maxAccess = new LookupMap('ma');          // collectionId_tokenId -> AccessLevel
-        
-    //     // Contract owner
-    //     this.owner = null;
-    // }
 
-
-
-    // // Initialization
-    // @initialize({})
-    // init() {
-    //     if (this.owner) {
-    //         near.panicUtf8("Contract already initialized");
-    //     }
-    //     this.owner = near.predecessorAccountId();
-    // }
-
-    //     // Storage for NFTs and metadata
-    // nftTokens          = new UnorderedMap('t');           // collectionId_tokenId -> NFTInfo
-    // nftMetadata        = new LookupMap('m');           // collectionId_tokenId -> Metadata
-    // tokenBalances      = new LookupMap('b');         // owner -> total NFTs
-    // collectionBalances = new LookupMap('cb');   // owner_collectionId -> collection NFTs
-    
-    // // Collections storage
-    // collections        = new UnorderedMap('c');        // collectionId -> CollectionMetadata
-    // nextTokenId        = new LookupMap('n');          // collectionId -> next token id
-    // nextCollectionId   = 1;
-    
-    // // Access control storage
-    // nftAccess          = new LookupMap('a');            // collectionId_tokenId_user -> AccessLevel
-    // defaultAccess      = new LookupMap('da');       // collectionId_tokenId -> AccessLevel
-    // maxAccess          = new LookupMap('ma');          // collectionId_tokenId -> AccessLevel
 
 
         // Storage for NFTs and metadata
@@ -74,28 +28,6 @@ export class NeuraNFT {
     
     @initialize({})
     init() {
-        // // Storage for NFTs and metadata
-        // this.nftTokens          = new UnorderedMap('t');           // collectionId_tokenId -> NFTInfo
-        // this.nftMetadata        = new LookupMap('m');           // collectionId_tokenId -> Metadata
-        // this.tokenBalances      = new LookupMap('b');         // owner -> total NFTs
-        // this.collectionBalances = new LookupMap('cb');   // owner_collectionId -> collection NFTs
-        
-        // // Collections storage
-        // this.collections        = new UnorderedMap('c');        // collectionId -> CollectionMetadata
-        // this.nextTokenId        = new LookupMap('n');          // collectionId -> next token id
-        // this.nextCollectionId   = 1;
-        
-        // // Access control storage
-        // this.nftAccess          = new LookupMap('a');            // collectionId_tokenId_user -> AccessLevel
-        // this.defaultAccess = new LookupMap('da');       // collectionId_tokenId -> AccessLevel
-        // this.maxAccess = new LookupMap('ma');          // collectionId_tokenId -> AccessLevel
-        
-        // // Contract owner
-        // this.owner = null;
-
-        // if (this.owner) {
-        //     near.panicUtf8("Contract already initialized");
-        // }
 
         this.owner = near.predecessorAccountId();
     }

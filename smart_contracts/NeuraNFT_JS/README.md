@@ -47,8 +47,12 @@ near create-account <your-account.testnet> --useFaucet
 near deploy <your-account.testnet> build/release/hello_near.wasm
 ```
 
+keys are saved at
+`Saving key to '~/.near-cresdentials/testnet/your-account.testnet.json`
+
 <br />
 
+https://github.com/near/abi
 
 ## 3. Retrieve the Greeting
 

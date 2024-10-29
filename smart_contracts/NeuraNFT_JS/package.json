@@ -11,7 +11,7 @@
     "test:master": "$npm_execpath run build:master && ava tests/master.ava.js -- ./build/MasterAccess.wasm",
 
 
-    "build:optimize": "near-sdk-js build src/optimized-mini.js build/NeuraNFTOptimized.wasm",
+    "build:optimize": "near-sdk-js build --generateABI src/optimized-mini.js build/NeuraNFTOptimized.wasm",
     "test:optimize": "$npm_execpath run build:optimize && ava tests/optimized.ava.js -- ./build/NeuraNFTOptimized.wasm",
 
     "build:nft": "BUILD_CONTRACT=nft near-sdk-js build src/contract.js build/NFTContract.wasm",
