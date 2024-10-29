@@ -33,7 +33,7 @@ export class MasterAccessControl {
         const key           = this._getAccessKey(contractName, caller);
         
         if (!this.accessRights.get(key)) {
-            near.panic("MasterAccessControl: Not authorized");
+            near.panicUtf8("MasterAccessControl: Not authorized");
         }
     }
 

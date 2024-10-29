@@ -4,8 +4,8 @@
   "license": "(MIT AND Apache-2.0)",
   "type": "module",
   "scripts": {
-    "build": "near-sdk-js build src/contract.js build/NeuraNFT.wasm",
-    "test": "npm run build && ava tests/master.ava.js",
+    "build": "near-sdk-js build src/index.js build/NeuraNFT.wasm",
+    "test": "$npm_execpath run build && ava tests/test.ava.js -- ./build/NeuraNFT.wasm",
 
     "build:master": "near-sdk-js build src/master/master_contract.js build/MasterAccess.wasm",
     "test:master": "$npm_execpath run build:master && ava tests/master.ava.js -- ./build/MasterAccess.wasm",
@@ -18,8 +18,7 @@
     "build:collection": "BUILD_CONTRACT=collection near-sdk-js build src/contract.js build/Collection.wasm",
     "test:collection": "npm run build:collection && ava tests/collection.ava.js",
 
-    "build:all": "npm run build:master && npm run build:nft && npm run build:collection",
-    "test": "npm run build:all && ava tests/**/*.ava.js"
+    "build:all": "npm run build:master && npm run build:nft && npm run build:collection"
 
   },
   "dependencies": {
