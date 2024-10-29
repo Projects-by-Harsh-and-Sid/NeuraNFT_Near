@@ -7,19 +7,25 @@
     "build": "near-sdk-js build src/contract.js build/NeuraNFT.wasm",
     "test": "npm run build && ava tests/master.ava.js",
 
-    "build:master": "BUILD_CONTRACT=master near-sdk-js build src/master/master_contract.js build/MasterAccess.wasm",
+    "build:master": "near-sdk-js build src/master/master_contract.js build/MasterAccess.wasm",
+    "test:master": "$npm_execpath run build:master && ava tests/master.ava.js -- ./build/MasterAccess.wasm",
+
+
     "build:nft": "BUILD_CONTRACT=nft near-sdk-js build src/contract.js build/NFTContract.wasm",
-    "build:collection": "BUILD_CONTRACT=collection near-sdk-js build src/contract.js build/Collection.wasm",
-    "build:all": "npm run build:master && npm run build:nft && npm run build:collection",
-    
-    "test:master": "npm run build:master && ava tests/master.ava.js",
     "test:nft": "npm run build:nft && ava tests/nft.ava.js",
+
+
+    "build:collection": "BUILD_CONTRACT=collection near-sdk-js build src/contract.js build/Collection.wasm",
     "test:collection": "npm run build:collection && ava tests/collection.ava.js",
+
+    "build:all": "npm run build:master && npm run build:nft && npm run build:collection",
     "test": "npm run build:all && ava tests/**/*.ava.js"
 
   },
   "dependencies": {
-    "near-sdk-js": "2.0.0"
+    "near-sdk-js": "2.0.0",
+    "near-workspaces": "3.3.0",
+    "ava": "latest"
   },
   "devDependencies": {
     "ava": "^6.1.3",
