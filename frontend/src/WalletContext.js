@@ -5,7 +5,7 @@ const { connect, keyStores, WalletConnection } = nearAPI;
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [coinbaseState, setCoinbaseState] = useState({
+  const [nearState, setnearState] = useState({
     installed: false,
     loggedIn: false,
   });
@@ -29,13 +29,13 @@ export const AppProvider = ({ children }) => {
         const nearConnection = await connect(connectionConfig);
         const walletConn = new WalletConnection(nearConnection, APP_KEY_PREFIX);
         setWalletConnection(walletConn);
-        setCoinbaseState(prev => ({ ...prev, installed: true }));
+        setnearState(prev => ({ ...prev, installed: true }));
 
         // Check if user is already signed in
         if (walletConn.isSignedIn()) {
           const accountId = walletConn.getAccountId();
           setAddress(accountId);
-          setCoinbaseState({
+          setnearState({
             installed: true,
             loggedIn: true,
           });
@@ -69,7 +69,7 @@ export const AppProvider = ({ children }) => {
       if (walletConnection.isSignedIn()) {
         const accountId = walletConnection.getAccountId();
         setAddress(accountId);
-        setCoinbaseState({
+        setnearState({
           installed: true,
           loggedIn: true,
         });
@@ -90,7 +90,7 @@ export const AppProvider = ({ children }) => {
       if (!walletConnection) return;
 
       walletConnection.signOut();
-      setCoinbaseState({
+      setnearState({
         installed: true,
         loggedIn: false,
       });
@@ -116,7 +116,7 @@ export const AppProvider = ({ children }) => {
   };
 
   const value = {
-    coinbaseState,
+    nearState,
     address,
     balance,
     connectWallet,

@@ -18,7 +18,7 @@ const ProfilePage = () => {
   const navigate                        = useNavigate();
   const [collections, setCollections]   = useState([]);
   const [nfts, setNFTs]                 = useState([]);
-  const { coinbaseState, address, balance, connectWallet, disconnectWallet } = useAppContext();
+  const { nearState, address, balance, connectWallet, disconnectWallet } = useAppContext();
   const [showCollectionModal, setShowCollectionModal] = useState(false);
   const [showNFTModal, setShowNFTModal] = useState(false);
 
@@ -127,7 +127,7 @@ const ProfilePage = () => {
   };
 
   const handleConnectWallet = async () => {
-    if (!coinbaseState.loggedIn) {
+    if (!nearState.loggedIn) {
       await connectWallet();
     }
     //  else {

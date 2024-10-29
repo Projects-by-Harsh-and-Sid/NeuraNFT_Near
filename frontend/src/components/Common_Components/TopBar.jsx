@@ -10,7 +10,7 @@ import { useNavigate,Link  } from 'react-router-dom';
 
 const TopBar = ({ onConnectWallet }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { coinbaseState, balance, address,disconnectWallet } = useAppContext();
+  const { nearState, balance, address,disconnectWallet } = useAppContext();
   const [isDiscoverOpen, setIsDiscoverOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const TopBar = ({ onConnectWallet }) => {
   };
 
   const handleWalletClick = () => {
-    window.open('https://www.coinbase.com/wallet', '_blank');
+    window.open('https://www.mynearwallet.com/', '_blank');
   };
 
   const handleoptionclick = () => {
@@ -138,7 +138,7 @@ const TopBar = ({ onConnectWallet }) => {
 
 
       <div className={styles.navbarMenu}>
-        {!coinbaseState.loggedIn ? (
+        {!nearState.loggedIn ? (
           <button className={styles.fancybutton} onClick={onConnectWallet}>
             Connect Wallet
           </button>

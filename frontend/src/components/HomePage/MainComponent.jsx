@@ -42,7 +42,7 @@ function MainComponent() {
 
 
 
-  const { coinbaseState, address, balance, connectWallet, disconnectWallet } = useAppContext();
+  const { nearState, address, balance, connectWallet, disconnectWallet } = useAppContext();
   const {
     navigate,
     activeTab,
@@ -57,7 +57,7 @@ function MainComponent() {
 
   
   const handleConnectWallet = async () => {
-    if (!coinbaseState.loggedIn) {
+    if (!nearState.loggedIn) {
       await connectWallet();
     } 
     // else {
