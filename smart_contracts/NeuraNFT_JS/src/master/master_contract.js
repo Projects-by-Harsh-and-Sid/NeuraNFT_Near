@@ -28,9 +28,9 @@ export class MasterAccessControl {
     }
 
     _assertAuthorized() {
-        const caller = near.predecessorAccountId();
-        const contractName = near.currentAccountId();
-        const key = this._getAccessKey(contractName, caller);
+        const caller        = near.predecessorAccountId();
+        const contractName  = near.currentAccountId();
+        const key           = this._getAccessKey(contractName, caller);
         
         if (!this.accessRights.get(key)) {
             near.panic("MasterAccessControl: Not authorized");

@@ -35,7 +35,7 @@ test.afterEach.always(async t => {
     });
 });
 
-// Test if deployer has initial access
+// Basic access test
 test('deployer has initial access', async t => {
     const { root, contract } = t.context.accounts;
     const hasAccess = await contract.view('hasAccess', {
@@ -45,25 +45,22 @@ test('deployer has initial access', async t => {
     t.true(hasAccess);
 });
 
-// Test granting and checking access
+// Grant and check access
 test('can grant and check access', async t => {
     const { root, contract } = t.context.accounts;
     const testUser = await root.createSubAccount('test-user');
     
-    // Initially should not have access
     let hasAccess = await contract.view('hasAccess', {
         contractAddress: contract.accountId,
         caller: testUser.accountId
     });
     t.false(hasAccess);
 
-    // Grant access
     await root.call(contract, 'grantAccess', {
         contractAddress: contract.accountId,
         caller: testUser.accountId
     });
 
-    // Should now have access
     hasAccess = await contract.view('hasAccess', {
         contractAddress: contract.accountId,
         caller: testUser.accountId
@@ -71,220 +68,223 @@ test('can grant and check access', async t => {
     t.true(hasAccess);
 });
 
-
-
-
-
-
-// import anyTest from 'ava';
-// import { Worker, NEAR } from 'near-workspaces';
-// import { setDefaultResultOrder } from 'dns';
-// import * as fs from 'fs';
-// import * as path from 'path';
-// setDefaultResultOrder('ipv4first');
-
-// const test = anyTest;
-
-// test.beforeEach(async t => {
-//     // Create sandbox
-//     const worker = t.context.worker = await Worker.init();
-//     const root = worker.rootAccount;
-
-//     // Read the WASM file
-//     const wasmPath = path.resolve(process.argv[2]);
-//     const wasm = fs.readFileSync(wasmPath);
+// Test access revocation
+test('can revoke access', async t => {
+    const { root, contract } = t.context.accounts;
+    const testUser = await root.createSubAccount('test-user');
     
-//     // Create contract account
-//     const contract = await root.createSubAccount('master-access');
+    // Grant access
+    await root.call(contract, 'grantAccess', {
+        contractAddress: contract.accountId,
+        caller: testUser.accountId
+    });
     
-//     // Deploy contract
-//     await contract.deploy(wasm);
+    // Revoke access
+    await root.call(contract, 'revokeAccess', {
+        contractAddress: contract.accountId,
+        caller: testUser.accountId
+    });
+    
+    const hasAccess = await contract.view('hasAccess', {
+        contractAddress: contract.accountId,
+        caller: testUser.accountId
+    });
+    t.false(hasAccess);
+});
 
-//     // Create test accounts
-//     const alice = await root.createSubAccount('alice');
-//     const bob = await root.createSubAccount('bob');
-//     const testContract = await root.createSubAccount('test-contract');
+// Test unauthorized access
+test('unauthorized users cannot grant access', async t => {
+    const { root, contract } = t.context.accounts;
+    const unauthorizedUser = await root.createSubAccount('unauthorized');
+    const targetUser = await root.createSubAccount('target');
+    
+    await t.throwsAsync(async () => {
+        await unauthorizedUser.call(contract, 'grantAccess', {
+            contractAddress: contract.accountId,
+            caller: targetUser.accountId
+        });
+    }, { instanceOf: Error });
+});
 
-//     // Initialize the contract
-//     await contract.call(contract, 'init', {});
+// Test self access management
+test('contract can manage self access', async t => {
+    const { root, contract } = t.context.accounts;
+    const testContract = await root.createSubAccount('test-contract');
+    const testUser = await root.createSubAccount('test-user');
+    
+    // Grant self access
+    await testContract.call(contract, 'grantSelfAccess', {
+        addressToGrant: testUser.accountId
+    });
+    
+    const hasAccess = await contract.view('hasAccess', {
+        contractAddress: testContract.accountId,
+        caller: testUser.accountId
+    });
+    t.true(hasAccess);
+});
 
-//     // Save state for test runs
-//     t.context.accounts = { root, contract, alice, bob, testContract };
-// });
+// Complex test: Multiple users and contracts
+test('can manage complex access patterns', async t => {
+    const { root, contract } = t.context.accounts;
+    
+    // Create multiple users and contracts
+    const user1 = await root.createSubAccount('user1');
+    const user2 = await root.createSubAccount('user2');
+    const contract1 = await root.createSubAccount('contract1');
+    const contract2 = await root.createSubAccount('contract2');
+    
+    // Set up complex access patterns
+    await root.call(contract, 'grantAccess', {
+        contractAddress: contract1.accountId,
+        caller: user1.accountId
+    });
+    
+    await contract1.call(contract, 'grantSelfAccess', {
+        addressToGrant: user2.accountId
+    });
+    
+    // Verify complex access patterns
+    const user1Contract1Access = await contract.view('hasAccess', {
+        contractAddress: contract1.accountId,
+        caller: user1.accountId
+    });
+    t.true(user1Contract1Access);
+    
+    const user2Contract1Access = await contract.view('hasAccess', {
+        contractAddress: contract1.accountId,
+        caller: user2.accountId
+    });
+    t.true(user2Contract1Access);
+    
+    const user1Contract2Access = await contract.view('hasAccess', {
+        contractAddress: contract2.accountId,
+        caller: user1.accountId
+    });
+    t.false(user1Contract2Access);
+});
 
-
-// // import anyTest from 'ava';
-// // import { Worker, NEAR } from 'near-workspaces';
-// // import { setDefaultResultOrder } from 'dns';
-// // setDefaultResultOrder('ipv4first');
-
-// // const test = anyTest;
-
-// // test.beforeEach(async t => {
-// //     // Create sandbox
-// //     const worker = t.context.worker = await Worker.init();
-
-// //     // Deploy contract
-// //     const root = worker.rootAccount;
-// //     const contract = await root.createAndDeploy(
-// //         'master-access',
-// //         process.argv[2],
-// //         { initialBalance: NEAR.parse('30 N').toString() }
-// //     );
-
-// //     // Create test accounts with initial balance
-// //     const alice = await root.createAccount('alice', {
-// //         initialBalance: NEAR.parse('30 N').toString()
-// //     });
-// //     const bob = await root.createAccount('bob', {
-// //         initialBalance: NEAR.parse('30 N').toString()
-// //     });
-// //     const testContract = await root.createAccount('test-contract', {
-// //         initialBalance: NEAR.parse('30 N').toString()
-// //     });
-
-// //     // Initialize the contract
-// //     await contract.call(contract, 'init', {});
-
-// //     // Save state for test runs
-// //     t.context.accounts = { root, contract, alice, bob, testContract };
-// // });
-
-
-// test.afterEach.always(async (t) => {
-//     await t.context.worker.tearDown().catch((error) => {
-//         console.log('Failed to stop the Sandbox:', error);
-//     });
-// });
-
-// // Test initial deployer access
-// test('deployer has initial access', async (t) => {
+// // Test access hierarchy
+// test('access hierarchy is properly enforced', async t => {
 //     const { root, contract } = t.context.accounts;
-//     const hasAccess = await contract.view('hasAccess', {
-//         contractAddress: contract.accountId,
-//         caller: root.accountId
-//     });
-//     t.true(hasAccess);
-// });
-
-// // Test granting access
-// test('can grant access to new user', async (t) => {
-//     const { contract, alice, root } = t.context.accounts;
+//     const admin = await root.createSubAccount('admin');
+//     const user = await root.createSubAccount('user');
     
-//     // Grant access to Alice
+//     // Grant admin access
 //     await root.call(contract, 'grantAccess', {
 //         contractAddress: contract.accountId,
-//         caller: alice.accountId
+//         caller: admin.accountId
 //     });
-
-//     // Check if Alice has access
+    
+//     // Admin grants access to user
+//     await admin.call(contract, 'grantAccess', {
+//         contractAddress: contract.accountId,
+//         caller: user.accountId
+//     });
+    
+//     // Verify user access
 //     const hasAccess = await contract.view('hasAccess', {
 //         contractAddress: contract.accountId,
-//         caller: alice.accountId
+//         caller: user.accountId
 //     });
 //     t.true(hasAccess);
-// });
-
-// // Test revoking access
-// test('can revoke access from user', async (t) => {
-//     const { contract, alice, root } = t.context.accounts;
     
-//     // First grant access
-//     await root.call(contract, 'grantAccess', {
-//         contractAddress: contract.accountId,
-//         caller: alice.accountId
-//     });
-
-//     // Then revoke it
-//     await root.call(contract, 'revokeAccess', {
-//         contractAddress: contract.accountId,
-//         caller: alice.accountId
-//     });
-
-//     // Check access is revoked
-//     const hasAccess = await contract.view('hasAccess', {
-//         contractAddress: contract.accountId,
-//         caller: alice.accountId
-//     });
-//     t.false(hasAccess);
-// });
-
-// // Test unauthorized access
-// test('unauthorized user cannot grant access', async (t) => {
-//     const { contract, alice, bob } = t.context.accounts;
-    
-//     // Alice tries to grant access to Bob without having permission
+//     // User cannot grant access to others
 //     await t.throwsAsync(async () => {
-//         await alice.call(contract, 'grantAccess', {
+//         await user.call(contract, 'grantAccess', {
 //             contractAddress: contract.accountId,
-//             caller: bob.accountId
+//             caller: (await root.createSubAccount('another-user')).accountId
 //         });
 //     }, { instanceOf: Error });
 // });
 
-// // Test self access granting
-// test('contract can grant self access', async (t) => {
-//     const { contract, testContract, alice } = t.context.accounts;
+// Test access hierarchy
+test('access hierarchy is properly enforced', async t => {
+
+    t.timeout(60000); // 60 seconds timeout
+
+    const { root, contract } = t.context.accounts;
+    const admin = await root.createSubAccount('admin');
+    const test_contract = await root.createSubAccount('test-contract');
+    const user = await root.createSubAccount('user-129');
+    const anotherUser = await root.createSubAccount('another-user-149');
     
-//     // Test contract grants self access to Alice
-//     await testContract.call(contract, 'grantSelfAccess', {
-//         addressToGrant: alice.accountId
-//     });
-
-//     // Verify Alice has access to test contract
-//     const hasAccess = await contract.view('hasAccess', {
-//         contractAddress: testContract.accountId,
-//         caller: alice.accountId
-//     });
-//     t.true(hasAccess);
-// });
-
-// // Test self access check
-// test('self check access returns correct status', async (t) => {
-//     const { contract, testContract, alice } = t.context.accounts;
+    // Grant admin access
+    await root.call(contract, 'grantAccess', {
+        contractAddress: contract.accountId,
+        caller: admin.accountId
+    });
     
-//     // Grant self access
-//     await testContract.call(contract, 'grantSelfAccess', {
-//         addressToGrant: alice.accountId
-//     });
-
-//     // Check access using selfCheckAccess
-//     const hasAccess = await contract.view('selfCheckAccess', {
-//         addressToCheck: alice.accountId
-//     });
-//     t.true(hasAccess);
-// });
-
-// // Test multiple access management
-// test('can manage multiple access rights', async (t) => {
-//     const { contract, alice, bob, testContract, root } = t.context.accounts;
+    // Admin grants access to user
+    await admin.call(contract, 'grantAccess', {
+        contractAddress: test_contract.accountId,
+        caller: user.accountId
+    });
     
-//     // Grant different access rights
-//     await root.call(contract, 'grantAccess', {
-//         contractAddress: contract.accountId,
-//         caller: alice.accountId
-//     });
+    // Verify user access
+    let hasAccess = await contract.view('hasAccess', {
+        contractAddress: test_contract.accountId,
+        caller: user.accountId
+    });
+    t.true(hasAccess);
 
-//     await testContract.call(contract, 'grantSelfAccess', {
-//         addressToGrant: bob.accountId
-//     });
+    
+    await t.throwsAsync(async () => {
+        await user.call(contract, 'grantAccess', {
+            contractAddress: test_contract.accountId,
+            caller: anotherUser.accountId
+        });
+    }, { instanceOf: Error });
 
-//     // Verify different access rights
-//     const aliceMainAccess = await contract.view('hasAccess', {
-//         contractAddress: contract.accountId,
-//         caller: alice.accountId
-//     });
-//     t.true(aliceMainAccess);
 
-//     const bobTestAccess = await contract.view('hasAccess', {
-//         contractAddress: testContract.accountId,
-//         caller: bob.accountId
-//     });
-//     t.true(bobTestAccess);
+    // // User cannot grant access to others
 
-//     const bobMainAccess = await contract.view('hasAccess', {
-//         contractAddress: contract.accountId,
-//         caller: bob.accountId
-//     });
-//     t.false(bobMainAccess);
-// });
+    // let complete = true;
+    // try {
+        // await user.call(contract, 'grantAccess', {
+        //     contractAddress: test_contract.accountId,
+        //     caller: anotherUser.accountId
+        // });
+    // } catch (error) {
+    //     complete = false;
+    // }
+
+
+    // // Verify user access
+    // hasAccess = await contract.view('hasAccess', {
+    //     contractAddress: contract.accountId,
+    //     caller: anotherUser.accountId
+    // });
+
+
+    // t.false(complete);
+    
+});
+
+
+// Test concurrent access operations
+test('handles concurrent access operations correctly', async t => {
+    const { root, contract } = t.context.accounts;
+    const users = await Promise.all([
+        root.createSubAccount('concurrent1'),
+        root.createSubAccount('concurrent2'),
+        root.createSubAccount('concurrent3')
+    ]);
+    
+    // Perform concurrent operations
+    await Promise.all(users.map(user => 
+        root.call(contract, 'grantAccess', {
+            contractAddress: contract.accountId,
+            caller: user.accountId
+        })
+    ));
+    
+    // Verify all accesses
+    for (const user of users) {
+        const hasAccess = await contract.view('hasAccess', {
+            contractAddress: contract.accountId,
+            caller: user.accountId
+        });
+        t.true(hasAccess);
+    }
+});
