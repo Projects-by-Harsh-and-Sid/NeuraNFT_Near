@@ -16,14 +16,14 @@ import { AccessLevel } from "./models";
 
 @NearBindgen({})
 export class Contract {
-    constructor() {
-        this.state = null;
-        this.nftCore = null;
-        this.metadataCore = null;
-        this.accessCore = null;
-        this.collectionCore = null;
-        this.standards = null;
-    }
+    // constructor() {
+    //     this.state = null;
+    //     this.nftCore = null;
+    //     this.metadataCore = null;
+    //     this.accessCore = null;
+    //     this.collectionCore = null;
+    //     this.standards = null;
+    // }
 
     #assertInitialized() {
         if (!this.state) {
