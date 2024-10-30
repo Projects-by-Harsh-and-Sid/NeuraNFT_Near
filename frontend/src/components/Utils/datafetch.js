@@ -23,9 +23,12 @@ const baseURL = endpoints.BACKEND_URL;
 
 export const fetchAllCollections = async () => {
   try {
-    const response = await axios.get(`${baseURL}/get_all_collections`);
+    // const response = await axios.get(`${baseURL}/api/get_all_collections`);
+    const response = await axios.get('api/get_all_collections');
+
     //   console.log("collection data expected", collectionsData.collections);
     // console.log("Collection data.collections: ",response.data.collections);
+    console.log("Collection data: ",response);
     return response.data;
   } catch (error) {
     console.error('Error fetching collections:', error);
@@ -33,9 +36,11 @@ export const fetchAllCollections = async () => {
   }
 };
 
-export const fetchAllNFTs = async () => {
+export const fetchAllNFTs = async () => { // not working
   try {
+    // const response = await axios.get(`${baseURL}/get_all_nfts`);
     const response = await axios.get(`${baseURL}/get_all_nfts`);
+
     console.log("NFT data: ", response.data);
     return response.data.nfts;
   } catch (error) {
@@ -47,9 +52,9 @@ export const fetchAllNFTs = async () => {
 
 export const getCollectionById = async (collectionId) => {
   try {
-    const response = await axios.get(`${baseURL}/get_collection_by_id`, {
-      params: { collection_id: collectionId }
-    });
+    const url = `/api/get_collection_by_id?collection_id=${collectionId}`;
+    
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     console.error('Error fetching collection by ID:', error);
@@ -72,11 +77,11 @@ export const getParticularNFT = async (nftId, collectionAddress) => {
   }
 };
 
-export const getNFTsByCollection = async (id) => { // done
+export const getNFTsByCollection = async (id) => { // not working
   try {
-    const response = await axios.get(`${baseURL}/get_nfts_by_collection`, {
-      params: { collection_id: id }
-    });
+    const url = `/api/get_nfts_by_collection?collection_id=${id}`;
+    
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     console.error('Error fetching NFTs by collection:', error);
@@ -87,9 +92,10 @@ export const getNFTsByCollection = async (id) => { // done
 
 export const getCollectionsByAddress = async (address) => {
   try {
-    const response = await axios.get(`${baseURL}/get_collections_by_address`, {
-      params: { address }
-    });
+
+    const url = `/api/get_collections_by_address?address=${address}`;
+    
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     console.error('Error fetching collections by address:', error);
@@ -112,8 +118,14 @@ export const getNFTsByAddress = async (address) => {
 export const getAllDataforAddress = async (address) => {
   try {
 
-    const nfts            = await getNFTsByAddress(address);
+
     const myCollections   = await getCollectionsByAddress(address);
+
+    console.log("collelctions",myCollections);
+
+    
+    const nfts            = await getNFTsByAddress(address);
+
 
     // console.log('All data for address:', { myCollections, nfts });
 
@@ -148,12 +160,17 @@ export const getCompoundedNFTData = async (collectionid,nftid) => {
 
 
 export const fetchMyData = (address) => {
+
+
   const myCollections = collectionsData.collections.filter(
     collection => collection.creator === address
   );
+
   const myNFTs = nftsData.nfts.filter(
     nft => nft.owner === address
   );
+
+  console.log("myNFTs",myNFTs);
 
   return { myCollections, myNFTs };
 };

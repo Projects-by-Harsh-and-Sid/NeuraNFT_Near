@@ -33,7 +33,7 @@ const NFTDetailPopup = ({ nft, onClose }) => {
 
     const navigate = useNavigate();
 
-    const { nearState, address, balance, connectWallet, disconnectWallet } = useAppContext();
+    const { nearState, address, balance, connectWallet, disconnectWallet,walletConnection } = useAppContext();
 
     // const accessLevelDescriptions = {
     //     'Level 1': 'UseModel - Can use the model',
@@ -97,7 +97,7 @@ const NFTDetailPopup = ({ nft, onClose }) => {
       // Implement the logic to add access
       // get nftis and collection id and address and accesslevel
 
-      await UpdateAcceess(nft.collectionId, nft.id, address, parseInt(accessLevel));
+      await UpdateAcceess(walletConnection,nft.collectionId, nft.id, address, parseInt(accessLevel));
 
       console.log(`Adding access for ${address} with level ${accessLevel}`);
     };
@@ -105,7 +105,7 @@ const NFTDetailPopup = ({ nft, onClose }) => {
     async function handleUpdateAccess (address, newAccessLevel) {
       // Implement the logic to update access
       // get nftis and collection id and address and accesslevel
-      await UpdateAcceess(nft.collectionId, nft.id, address, parseInt(newAccessLevel));
+      await UpdateAcceess(walletConnection,nft.collectionId, nft.id, address, parseInt(newAccessLevel));
       console.log(`Updating access for ${address} to level ${newAccessLevel}`);
   };
 

@@ -42,7 +42,7 @@ function CreateNFT ()
   const [currentStep, setCurrentStep]         = useState(0);
   const [collectionsid, setCollectionsId]     = useState({});
   const [isUploading, setIsUploading]         = useState(false);
-  const { nearState, address, balance, connectWallet, disconnectWallet } = useAppContext();
+  const { nearState, address, balance, connectWallet, disconnectWallet ,walletConnection } = useAppContext();
   
   
   // console.log('Inside CreateNFT.jsx');
@@ -234,14 +234,14 @@ function CreateNFT ()
       
       // collectionid, name, accesslevel = 6
       
-      const nftResult = await createNFT(collectionID, NFTname, accesslevel);
+      const nftResult = await createNFT(walletConnection,collectionID, NFTname, accesslevel);
       
       console.log('NFT created:', nftResult);
 
       await new Promise(resolve => setTimeout(resolve, 5000));
 
 
-      const newNFTId = await extractNFTIdFromTransaction(nftResult.transactionHash);
+      const newNFTId = await extractNFTIdFromTransaction(walletConnection,nftResult.transactionHash);
 
       console.log('New NFT ID:', newNFTId);
 
@@ -275,7 +275,7 @@ function CreateNFT ()
 
       // const newNFTId = 1;
 
-      const metadataResult = await createNFTMetadata(collectionID, parseInt(newNFTId), metadata);
+      const metadataResult = await createNFTMetadata(walletConnection,collectionID, parseInt(newNFTId), metadata);
       console.log('Metadata created:', metadataResult);
 
 

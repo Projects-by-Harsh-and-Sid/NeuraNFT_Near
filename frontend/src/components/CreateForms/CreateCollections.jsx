@@ -10,7 +10,7 @@ import {createCollection} from '../Utils/signData';
 
 const CreateNFTCollection = () => {
   const navigate = useNavigate();
-  const { nearState, address, balance, connectWallet, disconnectWallet } = useAppContext();
+  const { nearState, address, balance, connectWallet, disconnectWallet,walletConnection } = useAppContext();
   const [collectionName, setCollectionName] = useState('');
   const [collectionDescription, setCollectionDescription] = useState('');
   const [selectedModel, setSelectedModel] = useState('');
@@ -61,6 +61,7 @@ const CreateNFTCollection = () => {
 
         try {
             const result = await createCollection(
+              walletConnection,
                 collectionName,
                 1024,
                 selectedModel,

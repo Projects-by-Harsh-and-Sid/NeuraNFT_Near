@@ -29,7 +29,7 @@ const FullNFTPage = () => {
   const [isUpdateAccessDialogOpen, setIsUpdateAccessDialogOpen] = useState(false);
 
 
-  const { nearState, address, balance, connectWallet, disconnectWallet } = useAppContext();
+  const { nearState, address, balance, connectWallet, disconnectWallet,walletConnection } = useAppContext();
 
   const [isApiDialogOpen, setIsApiDialogOpen] = useState(false);
   const [isTestApiDialogOpen, setIsTestApiDialogOpen] = useState(false);

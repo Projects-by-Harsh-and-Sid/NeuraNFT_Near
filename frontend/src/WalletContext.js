@@ -119,6 +119,7 @@ export const AppProvider = ({ children }) => {
     nearState,
     address,
     balance,
+    walletConnection,
     connectWallet,
     disconnectWallet,
     checkAccountExists,

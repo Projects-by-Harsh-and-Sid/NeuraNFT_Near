@@ -2,11 +2,12 @@
   "dependencies": {
     "express": "^4.21.1",
     "near-api-js": "^5.0.1",
-    "dotenv": "^10.0.0"
+    "dotenv": "^5.0.0"
   },
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
+    "dev:env": "nodemon -r dotenv/config src/index.js dotenv_config_path=.env", 
     "test": "jest"
   },
 

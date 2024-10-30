@@ -8,3 +8,9 @@
 /.logs/error.log
 /.nginx_logs/access.log
 /.nginx_logs/error.log
+
+/app/uploads/images/*
+
+# dont ingore the following files
+
+!/app/uploads/images/__placeholder__

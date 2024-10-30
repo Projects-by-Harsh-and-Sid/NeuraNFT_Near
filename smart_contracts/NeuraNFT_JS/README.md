@@ -234,6 +234,21 @@ near call <contract-id> setMetadata '{
 }' --accountId <your-account.testnet>
 ```
 
+### Create NFT with Metadata
+```bash
+near call <contract-id> createNFTWithMetadata '{
+  "collectionId": 1,
+  "name": "My AI Model NFT",
+  "levelOfOwnership": 6,
+    "metadata": {
+    "image": "https://example.com/nft-image.jpg",
+    "baseModel": "GPT-4",
+    "data": "ipfs://QmXxx...",
+    "description": "Fine-tuned model for specific task"
+  }
+}' --accountId <your-account.testnet>
+```
+
 ### Set Access Level
 ```bash
 near call <contract-id> setAccess '{
@@ -278,6 +293,13 @@ near view <contract-id> getMetadata '{
 ### Get User's NFTs
 ```bash
 near view <contract-id> getUserNFTs '{
+  "user": "user.testnet"
+}'
+```
+
+### Get User's Accessible NFTs
+```bash
+near view <contract-id> getUserAccessibleNFTs '{
   "user": "user.testnet"
 }'
 ```

@@ -4,6 +4,62 @@ import { fetchData } from "../Utils/datafetch";
 import styles from "./styles/allcollection.module.css";
 import classNames from "classnames"; // Import classnames library
 
+
+// Dummy data for NFTs
+const dummyNFTs = [
+  {
+    id: 1,
+    name: "Cosmic Dream #1",
+    owner: "0x1234567890abcdef",
+    collection: "AI Art Gallery",
+    model: "DALL-E",
+    numberOfOwners: 1,
+    collectionId: 2,
+    image: "/api/placeholder/50/50"
+  },
+  {
+    id: 2,
+    name: "Digital Punk #042",
+    owner: "0xabcdef1234567890",
+    collection: "Crypto Punks Collection",
+    model: "GPT-4",
+    numberOfOwners: 3,
+    collectionId: 1,
+    image: "/api/placeholder/50/50"
+  },
+  {
+    id: 3,
+    name: "Quantum Portal #7",
+    owner: "0x2468101214161820",
+    collection: "Quantum Art Collective",
+    model: "Claude",
+    numberOfOwners: 2,
+    collectionId: 5,
+    image: "/api/placeholder/50/50"
+  },
+  {
+    id: 4,
+    name: "Neural Dream #23",
+    owner: "0x1357911131517192",
+    collection: "Neural Network Narratives",
+    model: "GPT-3",
+    numberOfOwners: 1,
+    collectionId: 4,
+    image: "/api/placeholder/50/50"
+  },
+  {
+    id: 5,
+    name: "Meta Explorer #11",
+    owner: "0x9876543210fedcba",
+    collection: "Meta Multiverse",
+    model: "GPT-4",
+    numberOfOwners: 4,
+    collectionId: 6,
+    image: "/api/placeholder/50/50"
+  }
+];
+
+
 // Adjust the path as needed
 function AllCollections({ activeTab, setActiveTab }) {
   useEffect(() => {
@@ -11,8 +67,8 @@ function AllCollections({ activeTab, setActiveTab }) {
       const allCollectionsData = await fetchData("allCollections");
       console.log("Collectiondata",allCollectionsData);
       setCollectionsData(allCollectionsData);
-      const allNFTsData = await fetchData("allNFTs");
-      setNftsData(allNFTsData);
+      // const allNFTsData = await fetchData("allNFTs");
+      setNftsData(dummyNFTs);
     })();
   }, []);
 
