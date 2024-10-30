@@ -155,6 +155,13 @@ Example with options:
 near-sdk-js build --generateABI --optimizer src/contract.js build/Contract.wasm
 ```
 
+> Note as of 2024 Novmeber Near does not support ABI generation for Vanilla JS. We can only generate ABI for TypeScript and rust. For more information visit
+
+https://github.com/near/abi
+
+
+
+
 #### Running Build and Test Commands
 
  Basic Commands

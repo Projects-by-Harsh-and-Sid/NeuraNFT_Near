@@ -6,15 +6,13 @@
   "scripts": {
     "build": "near-sdk-js build src/index.js build/NeuraNFT.wasm",
     "test": "$npm_execpath run build && ava tests/test.ava.js -- ./build/NeuraNFT.wasm",
+    
     "build:master": "near-sdk-js build src/master/master_contract.js build/MasterAccess.wasm",
     "test:master": "$npm_execpath run build:master && ava tests/master.ava.js -- ./build/MasterAccess.wasm",
+    
     "build:optimize": "near-sdk-js build --generateABI src/optimized-mini.js build/NeuraNFTOptimized.wasm",
     "test:optimize": "$npm_execpath run build:optimize && ava tests/optimized.ava.js -- ./build/NeuraNFTOptimized.wasm",
-    "build:nft": "BUILD_CONTRACT=nft near-sdk-js build src/contract.js build/NFTContract.wasm",
-    "test:nft": "npm run build:nft && ava tests/nft.ava.js",
-    "build:collection": "BUILD_CONTRACT=collection near-sdk-js build src/contract.js build/Collection.wasm",
-    "test:collection": "npm run build:collection && ava tests/collection.ava.js",
-    "build:all": "npm run build:master && npm run build:nft && npm run build:collection",
+    
     "build:optimizeTS": "near-sdk-js build --generateABI src/optimized-mini.ts build/NeuraNFTOptimizedTS.wasm",
     "test:optimizeTS": "$npm_execpath run build:optimizeTS && ava tests/optimized.ava.js -- build/NeuraNFTOptimized.wasm"
   },
