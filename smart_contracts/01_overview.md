@@ -4,6 +4,24 @@ Welcome to the comprehensive guide for developing on the Near blockchain. This g
 
 ## Table of Contents
 
+- [Near Blockchain Development Guide](#near-blockchain-development-guide)
+  - [Table of Contents](#table-of-contents)
+    - [Documentation](#documentation)
+  - [Useful Links](#useful-links)
+- [NEAR Development Environment Setup Guide](#near-development-environment-setup-guide)
+  - [1. WSL and Anaconda Base Setup](#1-wsl-and-anaconda-base-setup)
+    - [Install WSL](#install-wsl)
+    - [Basic WSL Dependencies](#basic-wsl-dependencies)
+    - [Install Anaconda](#install-anaconda)
+  - [2. Rust and Node.js Setup](#2-rust-and-nodejs-setup)
+    - [Install Rust](#install-rust)
+    - [Install Node.js in Anaconda Environment](#install-nodejs-in-anaconda-environment)
+  - [3. NEAR Development Setup](#3-near-development-setup)
+    - [Install NEAR CLI](#install-near-cli)
+  - [Useful Commands for Development](#useful-commands-for-development)
+- [Troubleshooting](#troubleshooting)
+
+
 
 ### Documentation
 - [NEAR Documentation](https://docs.near.org)
@@ -105,7 +123,21 @@ npm install -g near-cli
 near --version
 ```
 
+## Useful Commands for Development
 
+```bash
+# Create new account
+near create-account your-account.testnet --masterAccount testnet
+
+# Delete account
+near delete your-account.testnet your-master-account.testnet
+
+# View account details
+near state your-account.testnet
+
+# View logs
+near view-state your-account.testnet --finality final
+```
 
 
 

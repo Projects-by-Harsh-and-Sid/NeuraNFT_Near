@@ -1,3 +1,23 @@
+- [Setup NEAR Development Tools](#setup-near-development-tools)
+  - [1. Install Node.js and npm](#1-install-nodejs-and-npm)
+  - [2. Install NEAR CLI](#2-install-near-cli)
+    - [Prerequisites](#prerequisites)
+  - [3. Create a new NEAR project](#3-create-a-new-near-project)
+    - [Project Structure](#project-structure)
+  - [4. Project Configuration](#4-project-configuration)
+  - [5. Create Basic Project Structure](#5-create-basic-project-structure)
+  - [6. Initialize NEAR Development Environment](#6-initialize-near-development-environment)
+  - [7. Setup Basic Contract Structure](#7-setup-basic-contract-structure)
+  - [Additional Setup (Optional)](#additional-setup-optional)
+    - [Contract Development Best Practices](#contract-development-best-practices)
+      - [File Organization](#file-organization)
+      - [Testing](#testing)
+      - [Security Considerations](#security-considerations)
+    - [Troubleshooting](#troubleshooting)
+    - [Resources](#resources)
+    - [Support](#support)
+
+
 # Setup NEAR Development Tools
 
 ## 1. Install Node.js and npm
@@ -166,57 +186,9 @@ class Contract {
 export default Contract;
 ```
 
-## 8. Setup Testing Environment
-
-Create jest.config.js:
-```javascript
-module.exports = {
-    testEnvironment: 'node',
-    transform: {
-        '^.+\\.jsx?$': 'babel-jest'
-    },
-    testRegex: '(/tests/.*|(\\.|/)(test|spec))\\.[jt]sx?$'
-};
-```
-
-Create .babelrc:
-```json
-{
-  "presets": ["@babel/preset-env"]
-}
-```
-
-## 9. Deploy and Test
-```bash
-# Build the contract
-npm run build
-
-# Deploy to testnet
-npm run deploy
-
-# Run tests
-npm test
-
-# Run local development environment
-npm run dev
-
-# Call a contract method
-near call your-test-account.testnet set_greeting '{"message":"Hello World"}' --accountId your-account.testnet
-
-# View contract state
-near view your-test-account.testnet get_greeting
-```
 
 
-```bash
-# Deploy to testnet
-near deploy --accountId your-test-account.testnet --wasmFile build/contract.wasm
-
-# Deploy to mainnet
-near deploy --accountId your-account.near --wasmFile build/contract.wasm
-```
-
-## 10. Additional Setup (Optional)
+## Additional Setup (Optional)
 
 Create .gitignore:
 ```
@@ -234,40 +206,8 @@ NEAR_ACCOUNT_ID=your-test-account.testnet
 NEAR_PRIVATE_KEY=your-private-key
 ```
 
-## 11. Setup VS Code Configuration (Optional)
 
-Create .vscode/settings.json:
-```json
-{
-  "editor.formatOnSave": true,
-  "javascript.suggestionActions.enabled": false,
-  "javascript.validate.enable": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
-}
-```
 
-This completes the setup for a NEAR JavaScript development environment. You now have:
-- A fully configured NEAR development environment
-- Basic contract structure
-- Testing setup
-- Deployment scripts
-- Development tools integration
-
-You can start developing your smart contract by modifying the src/index.js file and adding additional functionality as needed.
-
-#### Contract Methods
-```bash
-# Call view methods (free, no gas)
-near view contract.testnet method_name '{"param": "value"}'
-
-# Call change methods (requires gas)
-near call contract.testnet method_name '{"param": "value"}' --accountId your-account.testnet
-
-# Check account state
-near state account.testnet
-```
 
 ### Contract Development Best Practices
 
@@ -290,21 +230,7 @@ near state account.testnet
 - Use safe math operations
 - Follow NEAR security best practices
 
-### Useful Commands for Development
 
-```bash
-# Create new account
-near create-account your-account.testnet --masterAccount testnet
-
-# Delete account
-near delete your-account.testnet your-master-account.testnet
-
-# View account details
-near state your-account.testnet
-
-# View logs
-near view-state your-account.testnet --finality final
-```
 
 ### Troubleshooting
 
