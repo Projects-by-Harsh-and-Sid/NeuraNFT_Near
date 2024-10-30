@@ -27,6 +27,14 @@ const TopBar = ({ onConnectWallet }) => {
   const handleMintClick = () => {
     navigate('/create_collection');
   };
+  const handleDocumentationClick = () => {
+    window.open('https://github.com/Projects-by-Harsh-and-Sid/NeuraNFT_Near', '_blank');
+  };
+
+  const handleGPUClick = () => {
+    navigate('/');
+  };
+
 
   const handleWalletClick = () => {
     window.open('https://www.mynearwallet.com/', '_blank');
@@ -128,8 +136,8 @@ const TopBar = ({ onConnectWallet }) => {
           )}
         </div>
         <div className={styles.navItem} onClick={handleMintClick}>Mint</div>
-        <div className={styles.navItem} onClick={handleMintClick}>Documentation</div>
-        <div className={styles.navItem} onClick={handleMintClick}>GPU Lending</div>
+        <div className={styles.navItem} onClick={handleDocumentationClick}>Documentation</div>
+        <div className={styles.navItem} onClick={handleGPUClick}>GPU Lending</div>
 
         <div className={`${styles.navItem} ${styles.walletGradient}`} onClick={handleWalletClick}>Wallet</div>
       </div>
