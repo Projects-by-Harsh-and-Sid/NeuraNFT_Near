@@ -3,16 +3,21 @@ const { connect, keyStores, Near, Account, Contract } = require('near-api-js');
 const path = require('path');
 const router = express.Router();
 
+
+const getConfig  = require('../config/near.config');
+
 // NEAR connection configuration
-const config = {
-  networkId: 'testnet',
-  nodeUrl: 'https://rpc.testnet.near.org',
-  walletUrl: 'https://wallet.testnet.near.org',
-  helperUrl: 'https://helper.testnet.near.org',
-  explorerUrl: 'https://explorer.testnet.near.org',
-  keyStore: new keyStores.InMemoryKeyStore(),
-  contractName: 'neuranft_test1.testnet'  // Replace with your deployed contract name
-};
+// const config = {
+//   networkId: 'testnet',
+//   nodeUrl: 'https://rpc.testnet.near.org',
+//   walletUrl: 'https://wallet.testnet.near.org',
+//   helperUrl: 'https://helper.testnet.near.org',
+//   explorerUrl: 'https://explorer.testnet.near.org',
+//   keyStore: new keyStores.InMemoryKeyStore(),
+//   contractName: 'neuranft_test1.testnet'  // Replace with your deployed contract name
+// };
+
+const config = getConfig("testnet");
 
 // Initialize NEAR connection
 let near ;

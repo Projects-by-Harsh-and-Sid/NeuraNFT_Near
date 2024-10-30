@@ -1,5 +1,10 @@
 # NEAR Backend Server Documentation
 
+# UPDATE .ENV FILE
+NEAR_CONTRACT_NAME=your-contract-name.testnet
+
+
+
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
 2. [Project Setup](#project-setup)

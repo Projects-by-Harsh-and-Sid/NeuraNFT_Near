@@ -50,12 +50,13 @@ services:
       - ./node_scripts:/app
       - ./node_scripts/.logs:/app/.logs
     environment:
-      - NODE_ENV=development
+      # - NODE_ENV=development
+      - NODE_ENV=production
       - PORT=3000
       - NEAR_NETWORK=testnet
-      - NEAR_CONTRACT_NAME="neuranft_test1.testnet"
+      - NEAR_CONTRACT_NAME=neuranft_test1.testnet
     container_name: near_neuranft_near_api_container
-    command: npm run dev
+    command: npm run start
     networks:
       - near_neuranft_network
 
