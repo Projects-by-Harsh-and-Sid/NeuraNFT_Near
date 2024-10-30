@@ -1,7 +1,7 @@
 version: '1.0'
 services:
 
-  neuranft_backend:
+  near_neuranft_backend:
     build:
       context: ./master_node  # Build the image from the Dockerfile in ./master_node
     # ports:
@@ -11,17 +11,17 @@ services:
       - ./master_node/.logs:/app/.logs  # Mount the .logs folder to persist logs
     # environment:
       # - FLASK_ENV=development  # Optional: Set Flask to development mode
-    container_name: neuranft_backend_container
-
     command: >
       gunicorn -w 5 -b 0.0.0.0:5500 app:app
       --access-logfile /app/.logs/access.log 
       --error-logfile /app/.logs/error.log
     networks:
-      - neuranft_network
+      - near_neuranft_network
+    
+    container_name: near_neuranft_backend_container
 
 
-  neuranft_frontend:
+  near_neuranft_frontend:
     build: 
       context: ./frontend
       dockerfile: Dockerfile
@@ -37,13 +37,15 @@ services:
     command: ["nginx", "-g", "daemon off;"]
 
     networks:
-      - neuranft_network
+      - near_neuranft_network
 
   
-  neuranft_near_api:
+  near_neuranft_near_api:
     build:
       context: ./node_scripts
       dockerfile: Dockerfile
+    # ports:
+    #   - "0.0.0.0:3000:3000"  # Map host port 6010 to container port 5500
     volumes:
       - ./node_scripts:/app
       - ./node_scripts/.logs:/app/.logs
@@ -51,14 +53,14 @@ services:
       - NODE_ENV=development
       - PORT=3000
       - NEAR_NETWORK=testnet
-      - NEAR_CONTRACT_NAME=${NEAR_CONTRACT_NAME}
-    container_name: neuranft_backend_container
+      - NEAR_CONTRACT_NAME="neuranft_test1.testnet"
+    container_name: near_neuranft_near_api_container
     command: npm run dev
     networks:
-      - neuranft_network
+      - near_neuranft_network
 
 
-  backend_nginx:
+  near_backend_nginx:
     image: nginx:alpine
     ports:
       - "6010:80"
@@ -69,9 +71,9 @@ services:
       - ./master_node/app/uploads/images/default.jpg:/usr/share/nginx/html/default.jpg:ro  # Mount default image
       - ./master_node/.nginx_logs:/var/log/nginx  # Mount nginx logs
     depends_on:
-      - neuranft_backend
+      - near_neuranft_backend
     networks:
-      - neuranft_network
+      - near_neuranft_network
     container_name: neuranft_nginx
 
 
@@ -99,11 +101,11 @@ services:
   #   environment:
   #     - GOACCESS_WEBSOCKET_URL=ws://localhost:7890
   #   networks:
-  #     - base_neuranft_network
+  #     - near_neuranft_network
   #   depends_on:
-  #     - coinbase_neuranft_frontend
+  #     - neuranft_frontend
 
 networks:
-  base_neuranft_network:
+  near_neuranft_network:
     driver: bridge
 

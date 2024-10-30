@@ -4,6 +4,8 @@ WORKDIR /app
 
 # Copy only necessary files for npm install
 COPY package*.json ./
+COPY config-overrides.js ./
+
 RUN npm install
 
 # Copy only necessary source files
