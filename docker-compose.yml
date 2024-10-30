@@ -1,7 +1,7 @@
 version: '1.0'
 services:
 
-  coinbase_neuranft_backend:
+  neuranft_backend:
     build:
       context: ./master_node  # Build the image from the Dockerfile in ./master_node
     # ports:
@@ -11,17 +11,17 @@ services:
       - ./master_node/.logs:/app/.logs  # Mount the .logs folder to persist logs
     # environment:
       # - FLASK_ENV=development  # Optional: Set Flask to development mode
-    container_name: coinbase_neuranft_backend_container
+    container_name: neuranft_backend_container
 
     command: >
       gunicorn -w 5 -b 0.0.0.0:5500 app:app
       --access-logfile /app/.logs/access.log 
       --error-logfile /app/.logs/error.log
     networks:
-      - base_neuranft_network
+      - neuranft_network
 
 
-  coinbase_neuranft_frontend:
+  neuranft_frontend:
     build: 
       context: ./frontend
       dockerfile: Dockerfile
@@ -37,9 +37,27 @@ services:
     command: ["nginx", "-g", "daemon off;"]
 
     networks:
-      - base_neuranft_network
+      - neuranft_network
 
-    
+  
+  neuranft_near_api:
+    build:
+      context: ./node_scripts
+      dockerfile: Dockerfile
+    volumes:
+      - ./node_scripts:/app
+      - ./node_scripts/.logs:/app/.logs
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - NEAR_NETWORK=testnet
+      - NEAR_CONTRACT_NAME=${NEAR_CONTRACT_NAME}
+    container_name: neuranft_backend_container
+    command: npm run dev
+    networks:
+      - neuranft_network
+
+
   backend_nginx:
     image: nginx:alpine
     ports:
@@ -51,10 +69,10 @@ services:
       - ./master_node/app/uploads/images/default.jpg:/usr/share/nginx/html/default.jpg:ro  # Mount default image
       - ./master_node/.nginx_logs:/var/log/nginx  # Mount nginx logs
     depends_on:
-      - coinbase_neuranft_backend
+      - neuranft_backend
     networks:
-      - base_neuranft_network
-    container_name: coinbase_neuranft_nginx
+      - neuranft_network
+    container_name: neuranft_nginx
 
 
 

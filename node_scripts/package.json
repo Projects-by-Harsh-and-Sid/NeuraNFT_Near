@@ -12,7 +12,6 @@
 
   "name": "neuranft_node_scripts",
   "version": "1.0.0",
-  "main": "app.js",
   "devDependencies": {
     "jest": "^29.7.0",
     "nodemon": "^3.1.7"

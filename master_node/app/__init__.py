@@ -36,15 +36,15 @@ app.config["Load_balancer_Endpoints"] = {
     "hpcEndpointPort": "6010",
 }
 
-app.config["filestorage_endpoint"] = "http://localhost:6010"
+# app.config["filestorage_endpoint"] = "http://localhost:6010"
 
 
 # app.config["Load_balancer_Endpoints"] = {
-#     "hpcEndpoint": "https://base.backend.neuranft.com",
+#     "hpcEndpoint": "https://near.backend.neuranft.com",
 #     "hpcEndpointPort": "443",
 # }
 
-# app.config["filestorage_endpoint"] = "https://base.backend.neuranft.com"
+app.config["filestorage_endpoint"] = "https://near.backend.neuranft.com"
 
 
 
