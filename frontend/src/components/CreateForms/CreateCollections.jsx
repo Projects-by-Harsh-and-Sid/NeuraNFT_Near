@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Alert, Snackbar } from '@mui/material';
 import { Image } from 'lucide-react';
@@ -26,6 +26,38 @@ const CreateNFTCollection = () => {
   const handleCollectionNameChange = (event) => setCollectionName(event.target.value);
   const handleCollectionDescriptionChange = (event) => setCollectionDescription(event.target.value);
   const handleModelChange = (event) => setSelectedModel(event.target.value);
+
+
+
+  useEffect(() => {
+    const checkTransaction = async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const txHash = urlParams.get('transactionHashes');
+
+      console.log("Transaction Hash:",txHash);
+      
+      if (txHash) {
+
+            const explorerUrl = `https://testnet.nearblocks.io/txns/${txHash}`;
+  setMintResult(
+            <span>
+              Collection created successfully! View it in{' '}
+              <a 
+                href={explorerUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ color: '#0000EE', textDecoration: 'underline', cursor: 'pointer' }}
+              >
+                Explorer
+              </a>
+            </span>
+            );
+      }
+    };
+
+    checkTransaction();
+  }, []);
+
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -107,7 +139,7 @@ const CreateNFTCollection = () => {
         onClose={handleCloseAlert}
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
-        <Alert onClose={handleCloseAlert} severity={mintResult.includes('Error') ? 'error' : 'success'} sx={{ width: '100%' }}>
+        <Alert onClose={handleCloseAlert} severity={'success'} sx={{ width: '100%' }}>
           {mintResult}
         </Alert>
       </Snackbar>

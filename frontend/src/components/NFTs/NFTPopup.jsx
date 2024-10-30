@@ -189,7 +189,7 @@ const NFTDetailPopup = ({ nft, onClose }) => {
                                 <div className={styles.listingStatusSection}>
                             <h2 className={styles.listingStatus}>{nft.name}</h2>
                             <p className={styles.ownerInfo}>
-                                Owned by: <span className={styles.ownerAddress}>{formatAddress(nft.owner)}</span>
+                                Owned by: <span className={styles.ownerAddress}>{(nft.owner)}</span>
                             </p>
                             {!nearState.loggedIn && (
                                 <button className={styles.connectWalletButton} onClick={connectWallet}>
@@ -221,7 +221,7 @@ const NFTDetailPopup = ({ nft, onClose }) => {
                         <div className={styles.detailsContent}>
                           <div className={styles.detailItem}>
                             <span className={styles.detailLabel}>Collection Address</span>
-                            <span className={styles.detailValue}>{formatAddress(nft.collectionId)}</span>
+                            <span className={styles.detailValue}>{(nft.collectionId)}</span>
                           </div>
                           <div className={styles.detailItem}>
                             <span className={styles.detailLabel}>Token ID</span>
@@ -233,7 +233,7 @@ const NFTDetailPopup = ({ nft, onClose }) => {
                           </div>
                           <div className={styles.detailItem}>
                             <span className={styles.detailLabel}>Owner</span>
-                            <span className={styles.detailValue}>{formatAddress(nft.owner)}</span>
+                            <span className={styles.detailValue}>{(nft.owner)}</span>
                           </div>
                           <div className={styles.detailItem}>
                             <span className={styles.detailLabel}>Chain</span>
@@ -263,11 +263,11 @@ const NFTDetailPopup = ({ nft, onClose }) => {
                         <div className={styles.accessDetailContent}>
                           <div className={styles.detailItem}>
                             <span className={styles.detailLabel}>Creator Address</span>
-                            <span className={styles.detailValue}>{formatAddress(nft.creator)}</span>
+                            <span className={styles.detailValue}>{(nft.creator)}</span>
                           </div>
                           <div className={styles.detailItem}>
                             <span className={styles.detailLabel}>Owner Address</span>
-                            <span className={styles.detailValue}>{formatAddress(nft.owner)}</span>
+                            <span className={styles.detailValue}>{(nft.owner)}</span>
                           </div>
                         </div>
           
@@ -281,7 +281,7 @@ const NFTDetailPopup = ({ nft, onClose }) => {
                     </div>
                     {nft.accessList.map((accessItem, index) => (
                       <div key={index} className={styles.accessListItem}>
-                        <div className={styles.address}>{formatAddress(accessItem.user)}</div>
+                        <div className={styles.address}>{(accessItem.user)}</div>
                         <div
                           className={styles.accessLevel}
                           title={accessLevelDescriptions[accessItem.accessLevel]}

@@ -43,7 +43,51 @@ function CreateNFT ()
   const [collectionsid, setCollectionsId]     = useState({});
   const [isUploading, setIsUploading]         = useState(false);
   const { nearState, address, balance, connectWallet, disconnectWallet ,walletConnection } = useAppContext();
-  
+  const [transactionHash, setTransactionHash] = useState('');
+  const [message, setMessage]                 = useState('');
+  useEffect(() => {
+    const checkTransaction = async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const txHash = urlParams.get('transactionHashes');
+
+      console.log("Transaction Hash:",txHash);
+      
+      if (txHash) {
+        // try {
+          // const result = await walletConnection.account().connection.provider.txStatus(
+          //   txHash,
+          //   walletConnection.getAccountId()
+          // );
+          
+          // if (result.status && result.status.SuccessValue) {
+            setTransactionHash(txHash);
+            setNftCreated(true);
+            const explorerUrl = `https://testnet.nearblocks.io/txns/${txHash}`;
+            // console.log('Transaction hash:', transactionHash);
+  setMessage(
+            <span>
+              NFT created successfully! View it in{' '}
+              <a 
+                href={explorerUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ color: '#0000EE', textDecoration: 'underline', cursor: 'pointer' }}
+              >
+                Explorer
+              </a>
+            </span>
+            );
+
+          // }
+        // } catch (error) {
+          // console.error('Error checking transaction:', error);
+        // }
+      }
+    };
+
+    checkTransaction();
+  }, []);
+
   
   // console.log('Inside CreateNFT.jsx');
 
@@ -353,7 +397,7 @@ function CreateNFT ()
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
         <Alert onClose={handleCloseAlert} severity="success" sx={{ width: '100%' }}>
-          NFT Created Successfully!
+         {message}
         </Alert>
       </Snackbar>
       

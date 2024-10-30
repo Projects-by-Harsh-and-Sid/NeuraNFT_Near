@@ -176,7 +176,7 @@ function AllCollections({ activeTab, setActiveTab }) {
                   <span className={styles.itemName}>{item.name}</span>
                 </div>
                 <div className={styles.rowItem}>
-                  {formatAddress(item.creator)}
+                  {(item.creator)}
                 </div>
                 <div className={styles.rowItem}>{item.model}</div>
                 <div className={styles.rowItem}>{String(item.description).substring(0,30)}...</div>
@@ -212,7 +212,7 @@ function AllCollections({ activeTab, setActiveTab }) {
                   <span className={styles.itemName}>{item.name}</span>
                 </div>
                 <div className={styles.rowItem}>
-                  {formatAddress(item.owner)}
+                  {(item.owner)}
                 </div>
 
                 <div className={styles.rowItem}>{item.collection}</div>
