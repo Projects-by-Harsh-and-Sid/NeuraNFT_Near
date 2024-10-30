@@ -1,5 +1,7 @@
 {
   
-    "BACKEND_URL": "http://localhost:6010"
+    "BACKEND_URL": "https://near.backend.neuranft.com",
+    "BACKEND_URL_TEMP": "http://localhost:6010"
+
 
 }

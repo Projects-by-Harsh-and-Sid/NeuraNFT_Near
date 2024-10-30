@@ -1,16 +1,17 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^5.0.1",
     "express": "^4.21.1",
-    "near-api-js": "^5.0.1",
-    "dotenv": "^5.0.0"
+    "helmet": "^8.0.0",
+    "near-api-js": "^5.0.1"
   },
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "dev:env": "nodemon -r dotenv/config src/index.js dotenv_config_path=.env", 
+    "dev:env": "nodemon -r dotenv/config src/index.js dotenv_config_path=.env",
     "test": "jest"
   },
-
   "name": "neuranft_node_scripts",
   "version": "1.0.0",
   "devDependencies": {

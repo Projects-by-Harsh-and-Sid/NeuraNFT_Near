@@ -12,7 +12,7 @@ import { signJsonData } from '../Utils/signData'; // Adjust the path based on yo
 import uploadImage from '../Utils/imageupload';
 
 import convertPdfToText from '../Utils/upload_data';
-import { createNFT, createNFTMetadata } from '../Utils/signData';
+import { createNFT, createNFTWithMetadata } from '../Utils/signData';
 import { extractNFTIdFromTransaction } from '../Utils/signData';
 
 import { sha3 } from 'web3-utils';
@@ -197,8 +197,6 @@ function CreateNFT ()
                                       image: image_url,
                                       baseModel: "llama-3.1",
                                       data: data_url,
-                                      rag: "",
-                                      fineTuneData: "",
                                       description: description
                                   }
 
@@ -231,19 +229,22 @@ function CreateNFT ()
 
 
       // wait for 5 seconds
-      
+      await new Promise(resolve => setTimeout(resolve, 5000));
+
+      incrementStep();
+
       // collectionid, name, accesslevel = 6
       
-      const nftResult = await createNFT(walletConnection,collectionID, NFTname, accesslevel);
+      const nftResult = await createNFTWithMetadata(walletConnection,collectionID, NFTname, accesslevel, metadata);
       
       console.log('NFT created:', nftResult);
 
       await new Promise(resolve => setTimeout(resolve, 5000));
 
 
-      const newNFTId = await extractNFTIdFromTransaction(walletConnection,nftResult.transactionHash);
+      // const newNFTId = await extractNFTIdFromTransaction(walletConnection,nftResult.transactionHash);
 
-      console.log('New NFT ID:', newNFTId);
+      // console.log('New NFT ID:', newNFTId);
 
 
 
@@ -275,13 +276,13 @@ function CreateNFT ()
 
       // const newNFTId = 1;
 
-      const metadataResult = await createNFTMetadata(walletConnection,collectionID, parseInt(newNFTId), metadata);
-      console.log('Metadata created:', metadataResult);
+      // const metadataResult = await createNFTMetadata(walletConnection,collectionID, parseInt(newNFTId), metadata);
+      // console.log('Metadata created:', metadataResult);
 
 
 
 
-      incrementStep();
+      // incrementStep();
       // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       // ---------------------------------------------------Finalizing-------------------------------------------------------------------------------------------------------------------
       // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

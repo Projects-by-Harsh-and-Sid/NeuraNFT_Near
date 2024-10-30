@@ -102,6 +102,41 @@ async function createNFT( walletConnection,collectionId, name, levelOfOwnership)
 }
 
 
+async function createNFTWithMetadata ( walletConnection,collectionId, name, levelOfOwnership,metadata) {
+  // const { walletConnection, nearState } = useAppContext();
+
+  // if (!nearState.loggedIn) {
+  //   throw new Error('Wallet not connected');
+  // }
+
+  const account = walletConnection.account();
+  const contractId = 'neuranft_test1.testnet'; // Replace with your contract's account ID
+
+  const contract = getContract(account, contractId, [], ['createNFTWithMetadata']);
+
+  try {
+    const result = await contract.createNFTWithMetadata(
+      {
+        collectionId,
+        name,
+        levelOfOwnership,
+        metadata
+      },
+      '300000000000000', // Attached gas
+      '0' // Attached deposit (if any)
+    );
+
+    console.log('NFT created successfully:', result);
+    // Assuming the contract method returns the new tokenId
+    return result;
+  } catch (error) {
+    console.error('Error creating NFT:', error);
+    throw error;
+  }
+}
+
+
+
 
 
 
@@ -251,5 +286,5 @@ async function extractNFTIdFromTransaction( walletConnection,transactionHash) {
   // export const UpdateAcceessWithChainCheck = withChainCheck(UpdateAcceess);
 
 
-export {createCollection, createNFT, createNFTMetadata, extractNFTIdFromTransaction, UpdateAcceess };
+export {createCollection,createNFTWithMetadata, createNFT, createNFTMetadata, extractNFTIdFromTransaction, UpdateAcceess };
 

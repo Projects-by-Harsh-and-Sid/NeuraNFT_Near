@@ -1,15 +1,15 @@
 // require('dotenv').config();
 const express = require('express');
-// const cors = require('cors');
-// const helmet = require('helmet');
+const cors = require('cors');
+const helmet = require('helmet');
 const nearRoutes = require('./routes/near-routes.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-// app.use(helmet());
-// app.use(cors());
+app.use(helmet());
+app.use(cors());
 app.use(express.json());
 
 // Routes
