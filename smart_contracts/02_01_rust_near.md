@@ -1,4 +1,13 @@
 
+- [Rust Smart Contract Development](#rust-smart-contract-development)
+  - [Setup NEAR Development Tools](#setup-near-development-tools)
+  - [Project Structure](#project-structure)
+  - [Build and Test](#build-and-test)
+  - [Environment Management](#environment-management)
+  - [Useful Commands](#useful-commands)
+- [Navigation](#navigation)
+
+
 # Rust Smart Contract Development
 
 
@@ -52,6 +61,9 @@ near deploy --accountId <account_id> --wasmFile target/wasm32-unknown-unknown/re
 near call <contract_id> <method_name> '{"param": "value"}' --accountId <account_id>
 ```
 
+# Navigation
 
+<button style = "height: 40px"> <a href="./01_overview.md"> Previous Overview </a> </button>
+<button style = "height: 40px; float: right"> <a href="./03_build_and_testing.md"> Building and Testing </a> </button>
 
 

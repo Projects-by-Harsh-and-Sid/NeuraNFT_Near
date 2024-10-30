@@ -2,6 +2,8 @@
 
 Welcome to the comprehensive guide for developing on the Near blockchain. This guide will walk you through the entire process of setting up your environment, writing smart contracts, deploying them, and interacting with them using various tools.
 
+Consolidated with ❤️ by the NeuraNFT team.
+
 ## Table of Contents
 
 - [Near Blockchain Development Guide](#near-blockchain-development-guide)
@@ -20,6 +22,7 @@ Welcome to the comprehensive guide for developing on the Near blockchain. This g
     - [Install NEAR CLI](#install-near-cli)
   - [Useful Commands for Development](#useful-commands-for-development)
 - [Troubleshooting](#troubleshooting)
+- [Navigation](#navigation)
 
 
 
@@ -168,3 +171,11 @@ wsl --shutdown
 wsl
 ```
 
+___
+
+# Navigation
+
+<!-- Next button -->
+
+<button style = "height: 40px"> <a href="./02_02_near_js.md"> Near JS Overview </a> </button>
+<button style = "height: 40px; float: right"> <a href="./02_01_rust_near.md"> Near Rust Overview </a> </button>

@@ -29,6 +29,7 @@
     - [Testing Access Control](#testing-access-control)
   - [6. Best Practices](#6-best-practices)
   - [7. Setup VS Code Configuration (Optional)](#7-setup-vs-code-configuration-optional)
+- [Navigation](#navigation)
 
 
 
@@ -544,3 +545,9 @@ This completes the setup for a NEAR JavaScript development environment. You now 
 - Development tools integration
 
 You can start developing your smart contract by modifying the src/index.js file and adding additional functionality as needed.
+
+
+# Navigation
+
+<button style = "height: 40px"> <a href="./02_02_near_js.md"> Previos JS Near </a> </button>
+<button style = "height: 40px; float: right"> <a href="./04_testnet_deployment.md"> Next Test and Deployment </a> </button>
