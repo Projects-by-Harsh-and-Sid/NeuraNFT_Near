@@ -64,12 +64,15 @@ export const getCollectionById = async (collectionId) => {
 
 export const getParticularNFT = async (nftId, collectionAddress) => {
   try {
-    const response = await axios.get(`${baseURL}/get_particular_nft`, {
-      params: { 
-        nft_id: nftId,
-        collection_address: collectionAddress
-      }
-    });
+    // const response = await axios.get(`${baseURL}/get_particular_nft`, {
+    //   params: { 
+    //     nft_id: nftId,
+    //     collection_address: collectionAddress
+    //   }
+    // });
+    const url = `/api/get_particular_nft?nft_id=${nftId}&collection_address=${collectionAddress}`;
+
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     console.error('Error fetching particular NFT:', error);
@@ -105,9 +108,12 @@ export const getCollectionsByAddress = async (address) => {
 
 export const getNFTsByAddress = async (address) => {
   try {
-    const response = await axios.get(`${baseURL}/get_nfts_by_address`, {
-      params: { address }
-    });
+    // const response = await axios.get(`${baseURL}/get_nfts_by_address`, {
+    //   params: { address }
+    // });
+    const url = `/api/get_nfts_by_address?address=${address}`;
+
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     console.error('Error fetching NFTs by address:', error);
@@ -144,9 +150,13 @@ export const getAllDataforAddress = async (address) => {
 
 export const getCompoundedNFTData = async (collectionid,nftid) => {
   try {
-    const response = await axios.get(`${baseURL}/get_compounded_nft_by_collectionid_nft_id`, {
-      params: { "collection_id": collectionid, "nft_id": nftid }
-    });
+    // const response = await axios.get(`${baseURL}/get_compounded_nft_by_collectionid_nft_id`, {
+    //   params: { "collection_id": collectionid, "nft_id": nftid }
+    // });
+    const url = `/api/get_nft_by_collectionid_nft_id?collection_id=${collectionid}&nft_id=${nftid}`;
+
+    const response = await axios.get(url);
+
     return response.data;
   } catch (error) {
     console.error('Error fetching compounded NFT data:', error);

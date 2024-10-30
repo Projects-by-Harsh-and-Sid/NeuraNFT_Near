@@ -482,12 +482,6 @@ function format_data_for_nft_by_collectionid_nft_id(nft_full_data,collection_id)
   };
 
   return formattedNFT;
-
-
-
-
-
-
 };
 
 
