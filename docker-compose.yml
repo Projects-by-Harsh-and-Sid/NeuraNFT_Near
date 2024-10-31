@@ -1,26 +1,6 @@
 version: '1.0'
 services:
 
-  near_neuranft_backend:
-    build:
-      context: ./master_node  # Build the image from the Dockerfile in ./master_node
-    # ports:
-    #   - "0.0.0.0:6010:5500"  # Map host port 6010 to container port 5500
-    volumes:
-      - ./master_node:/app  # Mount the ./master_node folder into the container
-      - ./master_node/.logs:/app/.logs  # Mount the .logs folder to persist logs
-    # environment:
-      # - FLASK_ENV=development  # Optional: Set Flask to development mode
-    command: >
-      gunicorn -w 5 -b 0.0.0.0:5500 app:app
-      --access-logfile /app/.logs/access.log 
-      --error-logfile /app/.logs/error.log
-    networks:
-      - near_neuranft_network
-    
-    container_name: near_neuranft_backend_container
-
-
   near_neuranft_frontend:
     build: 
       context: ./frontend
@@ -38,6 +18,35 @@ services:
 
     networks:
       - near_neuranft_network
+
+  near_neuranft_backend:
+    build:
+      context: ./master_node  # Build the image from the Dockerfile in ./master_node
+    # ports:
+    #   - "0.0.0.0:6010:5500"  # Map host port 6010 to container port 5500
+    volumes:
+      - ./master_node:/app  # Mount the ./master_node folder into the container
+      - ./master_node/.logs:/app/.logs  # Mount the .logs folder to persist logs
+    # environment:
+      # - FLASK_ENV=development  # Optional: Set Flask to development mode
+    command: >
+      gunicorn -w 5 -b 0.0.0.0:5500 app:app
+      --access-logfile /app/.logs/access.log 
+      --error-logfile /app/.logs/error.log
+    networks:
+      - near_neuranft_network
+    environment:
+      # - NODE_ENV=development
+      - DEFAULT_ENV=0
+      - CHAT_URL=http://192.168.0.246:8000/query
+      # - CHAT_URL=http://localhost:8000/query
+      - HPC_ENDPOINT=https://near.backend.neuranft.com
+      - HPC_ENDPOINT_PORT=443
+      - FILESTORAGE_ENDPOINT=https://near.backend.neuranft.com
+      - NEAR_API_ENDPOINT=http://near_neuranft_near_api_container:3000/api/
+    
+    container_name: near_neuranft_backend_container
+
 
   
   near_neuranft_near_api:
@@ -67,7 +76,8 @@ services:
       - "6010:80"
     volumes:
       - ./master_node/nginx_config/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./master_node/nginx_config/default.conf:/etc/nginx/conf.d/default.conf:ro
+      # - ./master_node/nginx_config/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./master_node/nginx_config/default.conf.template:/etc/nginx/templates/default.conf.template:ro
       - ./master_node/app/uploads/images:/usr/share/nginx/images:ro  # Mount images directory
       - ./master_node/app/uploads/images/default.jpg:/usr/share/nginx/html/default.jpg:ro  # Mount default image
       - ./master_node/.nginx_logs:/var/log/nginx  # Mount nginx logs
@@ -76,7 +86,10 @@ services:
     networks:
       - near_neuranft_network
     container_name: neuranft_nginx
-
+    environment:
+      - NEAR_API_ENDPOINT=http://near_neuranft_near_api_container:3000/api/
+      - NEAR_HEALTH_CHECK=http://near_neuranft_near_api_container:3000/health
+      - BACKEND_ENDPOINT=http://near_neuranft_backend_container:5500
 
 
   # goaccess_frontend:

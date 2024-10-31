@@ -22,3 +22,5 @@ gunicorn
 PyJWT
 
 sentence-transformers
+
+python-dotenv
