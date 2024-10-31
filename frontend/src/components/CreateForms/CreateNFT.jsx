@@ -14,6 +14,7 @@ import uploadImage from '../Utils/imageupload';
 import convertPdfToText from '../Utils/upload_data';
 import { createNFT, createNFTWithMetadata } from '../Utils/signData';
 import { extractNFTIdFromTransaction } from '../Utils/signData';
+import { CheckCircle } from 'lucide-react';
 
 import { sha3 } from 'web3-utils';
 
@@ -408,11 +409,29 @@ function CreateNFT ()
         Back to Main
       </button>
 
+
+      {nftCreated ? (
+        <div className={styles.transactionComplete}>  
+          <CheckCircle size={80} color="green" className={styles.successIcon}/>
+        
+          <p>Transaction Completed</p>
+          <button 
+            onClick={() => navigate('/')}
+            className={styles.goToMainButton}
+            
+          >
+            Go to Main
+          </button>
+        </div>
+      ) : (
+
+        <>
+
     <ProgressBar currentStep={currentStep} />
      <div className={`${styles.createNftForm} ${isUploading ? styles.uploading : ''}`}>
         <p className={styles.create_nft_title}>Create NFT</p>
         <div className={styles.formGroup}>
-          <label>NFT Image</label>
+          <label className={styles.namelabel}>NFT Image</label>
           <div className={styles.nftImagePreview}>
             <div className={styles.nftImageCircle}>
               {nftImagePreview ? (
@@ -526,6 +545,8 @@ function CreateNFT ()
           </div>
         </div>
       </div>
+      </>
+      )}
     </div>
   );
 };

@@ -7,6 +7,7 @@ import styles from './styles/nft_collections.module.css';
 import { useAppContext } from '../../WalletContext';
 import uploadImage from '../Utils/imageupload';
 import {createCollection} from '../Utils/signData';
+import { CheckCircle } from 'lucide-react';
 
 const CreateNFTCollection = () => {
   const navigate = useNavigate();
@@ -133,6 +134,23 @@ const CreateNFTCollection = () => {
 
   return (
     <div className={styles['create-nft-container']}>
+
+    {mintResult ? (
+        <div className={styles.transactionComplete}>  
+          <CheckCircle size={80} color="green" className={styles.successIcon}/>
+        
+          <p>Transaction Completed</p>
+          <button 
+            onClick={() => navigate('/')}
+            className={styles.goToMainButton}
+            
+          >
+            Go to Main
+          </button>
+        </div>
+      ) : (
+
+        <>
       <Snackbar 
         open={!!mintResult}
         autoHideDuration={6000} 
@@ -235,6 +253,8 @@ const CreateNFTCollection = () => {
           </button>
         </div>
       </div>
+      </>
+      )}
     </div>
   );
 };
