@@ -19,7 +19,8 @@ import nftsData from '../HomePage/nfts.json';
 
 import axios from 'axios';
 
-const baseURL = endpoints.BACKEND_URL;
+// const baseURL = endpoints.BACKEND_URL;
+const baseURL = endpoints.NEAR_BACKEND_URL;
 
 export const fetchAllCollections = async () => {
   try {

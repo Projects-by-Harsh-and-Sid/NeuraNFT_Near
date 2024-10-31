@@ -1,5 +1,6 @@
 {
     "BACKEND_URL": "https://near.backend.neuranft.com",
     "BACKEND_URL_TEMP": "http://localhost:6010",
-    "CONTRACT_NAME": "neuranft_test1.testnet"
+    "CONTRACT_NAME": "neuranft_test1.testnet",
+    "NEAR_BACKEND_URL": "https://near.backend.neuranft.com"
 }

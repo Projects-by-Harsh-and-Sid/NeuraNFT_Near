@@ -42,6 +42,8 @@ services:
       # - CHAT_URL=http://localhost:8000/query
       - HPC_ENDPOINT=https://near.backend.neuranft.com
       - HPC_ENDPOINT_PORT=443
+      # - HPC_ENDPOINT=http://192.168.0.246
+      # - HPC_ENDPOINT_PORT=6010
       - FILESTORAGE_ENDPOINT=https://near.backend.neuranft.com
       - NEAR_API_ENDPOINT=http://near_neuranft_near_api_container:3000/api/
     
@@ -90,6 +92,8 @@ services:
       - NEAR_API_ENDPOINT=http://near_neuranft_near_api_container:3000/api/
       - NEAR_HEALTH_CHECK=http://near_neuranft_near_api_container:3000/health
       - BACKEND_ENDPOINT=http://near_neuranft_backend_container:5500
+      # - BACKEND_ENDPOINT=http://192.168.0.246:5500
+
 
 
   # goaccess_frontend:
