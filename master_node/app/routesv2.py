@@ -22,6 +22,8 @@ CHAT_URL = app.config['CHAT_URL']
 MASTER_API_KEY = app.config['MASTER_API_KEY']
 UPLOAD_FOLDER = app.config['UPLOAD_FOLDER']
 
+NEAR_API_CONTAINER_ENDPOINT = app.config['NEAR_API_ENDPOINT']
+
 FILE_STORAGE_ENDPOINT = app.config['filestorage_endpoint']
 DATA_FOLDER = os.path.join(UPLOAD_FOLDER,"data")
 
@@ -140,7 +142,16 @@ def generate_key():
     
     # signed_message = info_dict['signed_message']
     
-    nft = blockchain_code.nft_of_a_collection_with_access(int(collection_id), int(nft_id))
+    # nft = blockchain_code.nft_of_a_collection_with_access(int(collection_id), int(nft_id))
+    
+    nft_url = f"{app.config["NEAR_API_ENDPOINT"]}/get_nft_by_collectionid_nft_id?collection_id={collection_id}&nft_id={nft_id}"
+    
+    # request to get the nft data
+    nft = requests.get(nft_url).json()
+    
+    
+    if not nft or "data" not in nft:
+        return jsonify({'error': 'NFT not found'}), 400
     
     data_link = nft['data']
     access_list = nft['accessList']

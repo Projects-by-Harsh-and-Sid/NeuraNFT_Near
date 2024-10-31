@@ -1,6 +1,6 @@
 import { connect, keyStores, WalletConnection, Contract, utils } from 'near-api-js';
 // import { useAppContext } from '../../WalletContext'
-
+import endpoints from '../../endpoints.json';
 
 // Function to sign JSON data
 // async function signJsonData(jsonData) {
@@ -43,7 +43,7 @@ async function createCollection( walletConnection,name, contextWindow, baseModel
   // }
 
   const account = walletConnection.account();
-  const contractId = 'neuranft_test1.testnet'; // Replace with your contract's account ID
+  const contractId = endpoints.CONTRACT_NAME; // Replace with your contract's account ID
 
   const contract = getContract(account, contractId, [], ['createCollection']);
 
@@ -77,7 +77,7 @@ async function createNFT( walletConnection,collectionId, name, levelOfOwnership)
   // }
 
   const account = walletConnection.account();
-  const contractId = 'neuranft_test1.testnet'; // Replace with your contract's account ID
+  const contractId = endpoints.CONTRACT_NAME; // Replace with your contract's account ID
 
   const contract = getContract(account, contractId, [], ['createNFT']);
 
@@ -110,7 +110,7 @@ async function createNFTWithMetadata ( walletConnection,collectionId, name, leve
   // }
 
   const account = walletConnection.account();
-  const contractId = 'neuranft_test1.testnet'; // Replace with your contract's account ID
+  const contractId = endpoints.CONTRACT_NAME; // Replace with your contract's account ID
 
   const contract = getContract(account, contractId, [], ['createNFTWithMetadata']);
 
@@ -148,7 +148,7 @@ async function createNFTMetadata( walletConnection,collectionId, tokenId, metada
   // }
 
   const account = walletConnection.account();
-  const contractId = 'neuranft_test1.testnet'; // Replace with your contract's account ID
+  const contractId = endpoints.CONTRACT_NAME; // Replace with your contract's account ID
 
   const contract = getContract(account, contractId, [], ['setMetadata']);
 
@@ -254,7 +254,7 @@ async function extractNFTIdFromTransaction( walletConnection,transactionHash) {
     // }
   
     const account = walletConnection.account();
-    const contractId = 'neuranft_test1.testnet'; // Replace with your contract's account ID
+    const contractId = endpoints.CONTRACT_NAME; // Replace with your contract's account ID
   
     const contract = getContract(account, contractId, [], ['setAccess']);
   

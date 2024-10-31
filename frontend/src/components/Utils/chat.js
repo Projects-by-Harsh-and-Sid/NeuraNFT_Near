@@ -23,7 +23,6 @@ export async function get_jwt_decoded_response_for_chat(collectionId, nftID){
     const apiKey = API_Keys['apiKey'];
 
 
-
     // post request to get the jwt token and chat url
     console.log("API Keys:", apiKey);
     console.log("URL:", url);

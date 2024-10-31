@@ -12,7 +12,8 @@ CONTRACT_FOLDER = 'contract_data_folder'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'doc', 'docx'}
 
 SECRET_KEY = os.environ.get('JWT_SECRET_KEY', 'chatwithme')
-CHAT_URL = os.environ.get('CHAT_URL', 'http://localhost:8000/query')
+# CHAT_URL = os.environ.get('CHAT_URL', 'http://localhost:8000/query')
+CHAT_URL = os.environ.get('CHAT_URL', 'http://192.168.0.246:8000/query')
 MASTER_API_KEY = os.environ.get('MASTER_API_KEY', '1234567890')
 
 temp_file_path = os.path.join(os.path.dirname(__file__), 'temp')
@@ -31,22 +32,22 @@ app.config['CONTRACT_FOLDER'] = os.path.join(os.path.dirname(__file__), CONTRACT
 
 
 
-app.config["Load_balancer_Endpoints"] = {
-    "hpcEndpoint": "http://localhost",
-    "hpcEndpointPort": "6010",
-}
+# app.config["Load_balancer_Endpoints"] = {
+#     "hpcEndpoint": "http://localhost",
+#     "hpcEndpointPort": "6010",
+# }
 
 # app.config["filestorage_endpoint"] = "http://localhost:6010"
 
 
-# app.config["Load_balancer_Endpoints"] = {
-#     "hpcEndpoint": "https://near.backend.neuranft.com",
-#     "hpcEndpointPort": "443",
-# }
+app.config["Load_balancer_Endpoints"] = {
+    "hpcEndpoint": "https://near.backend.neuranft.com",
+    "hpcEndpointPort": "443",
+}
 
 app.config["filestorage_endpoint"] = "https://near.backend.neuranft.com"
 
-
+app.config["NEAR_API_ENDPOINT"] = "http://near_neuranft_near_api_container:3000/api/"
 
 # from app import routes
 from app import data_fetch

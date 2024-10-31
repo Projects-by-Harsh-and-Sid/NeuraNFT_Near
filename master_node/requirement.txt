@@ -20,3 +20,5 @@ flask-csp
 Flask-Talisman
 gunicorn
 PyJWT
+
+sentence-transformers

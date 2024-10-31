@@ -124,26 +124,28 @@ const Chat = () => {
     }
   };
 
-  async function initializeChat() {
-
-
+async function initializeChat() {
+  try {
     setIsInitializing(true);
-
-  
-
-
-    const {jwt_Token,decoded_response} = await get_jwt_decoded_response_for_chat(collectionId, parseInt(nftID));
-
-
+    
+    const {jwt_Token, decoded_response} = await get_jwt_decoded_response_for_chat(
+      collectionId, 
+      parseInt(nftID)
+    );
+    
+    console.log("Decoded Response:", decoded_response);
     setJwtToken(jwt_Token);
     setChatUrl(decoded_response['url']);
 
-
-
-    // // console.log("Response:", response);
+  } catch (error) {
+    console.error("Failed to initialize chat:", error);
+    // You may want to handle the error appropriately here
+    // For example, showing an error message to the user
+    
+  } finally {
     setIsInitializing(false);
-
-  };
+  }
+}
 
   const onTouchStart = (e) => {
     setTouchEnd(null);
@@ -169,12 +171,14 @@ const Chat = () => {
 
   useEffect(() => {
     const initializeData = async () => {
+      console.log("Collection ID:", collectionId);
       if (collectionId) {
         const task1 = fetchNFTDetails();
-        // const task2 = initializeChat();
-        // await Promise.all([task1, task2]);
-        await Promise.all([task1]);
-        setChatInfo("Chatbot is currently disabled due to resource constraints. Please check back later.");
+        const task2 = initializeChat();
+        await Promise.all([task1, task2]);
+
+        // await Promise.all([task1]);
+        // setChatInfo("Chatbot is currently disabled due to resource constraints. Please check back later.");
         console.log("Collection ID:", collectionId);
 
       } else {
