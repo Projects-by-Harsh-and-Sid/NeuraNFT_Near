@@ -261,6 +261,16 @@ export class NeuraNFT {
     this.nftMetadata.set(this._getTokenKey(collectionId, tokenId), metadata);
   }
 
+  
+  @call({})
+  createNFTWithMetadata({ collectionId, name, levelOfOwnership , metadata } : { collectionId: number;  name: string; levelOfOwnership: number; metadata: Metadata }) : number
+  {
+      const tokenId = this.createNFT({ collectionId, name, levelOfOwnership });
+      this.setMetadata({ collectionId, tokenId, metadata });
+      return tokenId;
+  }
+
+
   // View Methods
   @view({})
   getNFTInfo({ collectionId, tokenId }: { collectionId: number; tokenId: number }): NFTInfo | null {
@@ -501,6 +511,43 @@ export class NeuraNFT {
 
     return userNFTs;
   }
+
+  @view({})
+  getUserAccessibleNFTs({ user }: { user: string }): Array<any> {
+    const userNFTs: Array<any> = [];
+
+    // Iterate through collections
+    const collections = this.collections.toArray();
+    for (const [collectionIdStr, _] of collections) {
+      const collectionId = parseInt(collectionIdStr);
+      const nextTokenId = this.nextTokenId.get(collectionIdStr) || 1;
+
+      // Check each token in the collection
+      for (let tokenId = 1; tokenId < nextTokenId; tokenId++) {
+        const tokenKey = this._getTokenKey(collectionId, tokenId);
+        const nft = this.nftTokens.get(tokenKey);
+
+        const access = this.getAccessLevel({ collectionId, tokenId, user })
+
+        if (nft && access && access > AccessLevel.None) {
+          userNFTs.push({
+            collectionId,
+            tokenId,
+            nftData: nft,
+            metadata: this.nftMetadata.get(tokenKey),
+            accessData: {
+              defaultAccess: this.defaultAccess.get(tokenKey),
+              maxAccess: this.maxAccess.get(tokenKey),
+              userAccess: access
+            }
+          });
+        }
+      }
+    }
+
+    return userNFTs;
+  }
+
 
   @view({})
   getNFTFullData({ collectionId, tokenId }: { collectionId: number; tokenId: number }): any {

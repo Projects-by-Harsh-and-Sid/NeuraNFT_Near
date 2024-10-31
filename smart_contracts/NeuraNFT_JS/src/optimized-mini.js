@@ -302,6 +302,17 @@ export class NeuraNFT {
         this.nftMetadata.set(this._getTokenKey(collectionId, tokenId), metadata);
     }
 
+
+    @call({})
+    createNFTWithMetadata({ collectionId, name, levelOfOwnership, metadata }) {
+
+        tokenId = this.createNFT({ collectionId, name, levelOfOwnership });
+        this.setMetadata({ collectionId, tokenId, metadata });
+        return tokenId;
+    }
+
+
+
     // View Methods
     @view({})
     getNFTInfo({ collectionId, tokenId }) {
@@ -529,6 +540,40 @@ export class NeuraNFT {
                             defaultAccess: this.defaultAccess.get(tokenKey),
                             maxAccess: this.maxAccess.get(tokenKey),
                             userAccess: this.getAccessLevel({ collectionId, tokenId, user })
+                        }
+                    });
+                }
+            }
+        }
+        
+        return userNFTs;
+    }
+
+    @view({})
+    getUserAccessibleNFTs({ user }) {
+        const userNFTs = [];
+        
+        // Iterate through collections
+        const collections = this.collections.toArray();
+        for (const [collectionId, _] of collections) {
+            const nextTokenId = this.nextTokenId.get(collectionId) || 1;
+            
+            // Check each token in the collection
+            for (let tokenId = 1; tokenId < nextTokenId; tokenId++) {
+                const tokenKey = this._getTokenKey(collectionId, tokenId);
+                const nft = this.nftTokens.get(tokenKey);
+                const access = this.getAccessLevel({ collectionId, tokenId, user })
+                
+                if (nft && access && access > AccessLevel.None) {
+                    userNFTs.push({
+                        collectionId,
+                        tokenId,
+                        nftData: nft,
+                        metadata: this.nftMetadata.get(tokenKey),
+                        accessData: {
+                            defaultAccess: this.defaultAccess.get(tokenKey),
+                            maxAccess: this.maxAccess.get(tokenKey),
+                            userAccess: access
                         }
                     });
                 }
