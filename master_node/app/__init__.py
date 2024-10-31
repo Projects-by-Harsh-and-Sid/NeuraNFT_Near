@@ -17,8 +17,8 @@ RANDOM_KEY = randint(100000000000000, 99999999999999999)
 
 SECRET_KEY = os.environ.get('JWT_SECRET_KEY', 'chatwithme')
 
-# MASTER_API_KEY = os.environ.get('MASTER_API_KEY', '1234567890')
-MASTER_API_KEY = os.environ.get('MASTER_API_KEY', str(RANDOM_KEY))
+MASTER_API_KEY = os.environ.get('MASTER_API_KEY', '1234567890')
+# MASTER_API_KEY = os.environ.get('MASTER_API_KEY', str(RANDOM_KEY))
 
 
 temp_file_path = os.path.join(os.path.dirname(__file__), 'temp')
