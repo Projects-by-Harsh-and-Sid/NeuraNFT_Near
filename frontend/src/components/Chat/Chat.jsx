@@ -421,7 +421,7 @@ async function initializeChat() {
           {chatHistory.map((message, index) => (
             <div key={index} className={`${styles.message} ${styles[`${message.type}-message`]}`}>
               {message.type === 'bot' ? (
-                <div className={styles['bot-para']} dangerouslySetInnerHTML={{ __html: message.content }} />
+                <div className={styles['bot-para']} dangerouslySetInnerHTML={{ __html: message.content }} style={{ textWrap: 'auto' ,padding: '10px'}}></div>
               ) : (
                 <p className={styles['message']}>{message.content}</p>
               )}

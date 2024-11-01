@@ -374,6 +374,23 @@
   max-width: 600px;
 }
 
+.bot-response{
+  width: 80%;
+  padding: 10px;
+}
+
+.bot-response p{
+  text-wrap: auto;
+}
+
+.bot-response code{
+  text-wrap: auto;
+}
+
+.bot-message pre{
+  text-wrap: auto;
+}
+
 .bot-message .bot-response h1 { font-size: 1.5em !important; }
 .bot-message .bot-response h2 { font-size: 1.3em !important; }
 .bot-message .bot-response h3 { font-size: 1.1em !important; }
@@ -549,3 +566,4 @@
     top: -55px;
   }
 }
+

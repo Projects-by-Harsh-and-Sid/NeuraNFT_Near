@@ -61,8 +61,8 @@ services:
       - NODE_ENV=production
       - PORT=3000
       - NEAR_NETWORK=testnet
-      # - NEAR_CONTRACT_NAME=neuranft.testnet
-      - NEAR_CONTRACT_NAME=neuranft_test1.testnet
+      - NEAR_CONTRACT_NAME=neuranft.testnet
+      # - NEAR_CONTRACT_NAME=neuranft_test1.testnet
 
     container_name: near_neuranft_near_api_container
     command: npm run start
