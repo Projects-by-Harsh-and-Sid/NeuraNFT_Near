@@ -67,9 +67,9 @@ server {
         proxy_pass ${BACKEND_ENDPOINT};
         
         # # Enable CORS
-        # add_header 'Access-Control-Allow-Origin' '*' always;
-        # add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE' always;
-        # add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization' always;
+        add_header 'Access-Control-Allow-Origin' '*' always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE' always;
+        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization' always;
 
         # Handle OPTIONS method
         if ($request_method = 'OPTIONS') {
