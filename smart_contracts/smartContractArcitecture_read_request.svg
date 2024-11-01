@@ -1,0 +1,889 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="943pt" height="2231pt" viewBox="0.00 0.00 943.15 2230.89">
+<g id="graph0" class="graph" transform="translate(219.98510995376864,2056.780198819629) scale(0.9560700645641639)" data-name="G">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-2226.89 939.15,-2226.89 939.15,4 -4,4"/>
+<g id="clust1" class="cluster" data-name="clusterInitialization">
+
+<path fill="rgb(243, 248, 255)" stroke="rgb(243, 248, 255)" d="M91.5,-544.89C91.5,-544.89 154.5,-544.89 154.5,-544.89 160.5,-544.89 166.5,-550.89 166.5,-556.89 166.5,-556.89 166.5,-609.89 166.5,-609.89 166.5,-615.89 160.5,-621.89 154.5,-621.89 154.5,-621.89 91.5,-621.89 91.5,-621.89 85.5,-621.89 79.5,-615.89 79.5,-609.89 79.5,-609.89 79.5,-556.89 79.5,-556.89 79.5,-550.89 85.5,-544.89 91.5,-544.89"/>
+<text text-anchor="middle" x="123" y="-605.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Initialization</text>
+</g>
+<g id="clust2" class="cluster" data-name="clusterCollectionManagement">
+
+<path fill="rgb(243, 248, 255)" stroke="rgb(243, 248, 255)" d="M28.02,-831.89C28.02,-831.89 216.97,-831.89 216.97,-831.89 222.97,-831.89 228.97,-837.89 228.97,-843.89 228.97,-843.89 228.97,-1112.89 228.97,-1112.89 228.97,-1118.89 222.97,-1124.89 216.97,-1124.89 216.97,-1124.89 28.02,-1124.89 28.02,-1124.89 22.02,-1124.89 16.02,-1118.89 16.02,-1112.89 16.02,-1112.89 16.02,-843.89 16.02,-843.89 16.02,-837.89 22.02,-831.89 28.02,-831.89"/>
+<text text-anchor="middle" x="122.5" y="-1108.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Collection Management</text>
+</g>
+<g id="clust3" class="cluster" data-name="clusterNFTManagement">
+
+<path fill="rgb(243, 248, 255)" stroke="rgb(243, 248, 255)" d="M269,-777.89C269,-777.89 505.13,-777.89 505.13,-777.89 511.13,-777.89 517.13,-783.89 517.13,-789.89 517.13,-789.89 517.13,-1328.89 517.13,-1328.89 517.13,-1334.89 511.13,-1340.89 505.13,-1340.89 505.13,-1340.89 269,-1340.89 269,-1340.89 263,-1340.89 257,-1334.89 257,-1328.89 257,-1328.89 257,-789.89 257,-789.89 257,-783.89 263,-777.89 269,-777.89"/>
+<text text-anchor="middle" x="387.06" y="-1324.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">NFT Management</text>
+</g>
+<g id="clust4" class="cluster" data-name="clusterAccessControl">
+
+<path fill="rgb(243, 248, 255)" stroke="rgb(243, 248, 255)" d="M20,-1487.89C20,-1487.89 455.23,-1487.89 455.23,-1487.89 461.23,-1487.89 467.23,-1493.89 467.23,-1499.89 467.23,-1499.89 467.23,-1822.89 467.23,-1822.89 467.23,-1828.89 461.23,-1834.89 455.23,-1834.89 455.23,-1834.89 20,-1834.89 20,-1834.89 14,-1834.89 8,-1828.89 8,-1822.89 8,-1822.89 8,-1499.89 8,-1499.89 8,-1493.89 14,-1487.89 20,-1487.89"/>
+<text text-anchor="middle" x="237.61" y="-1818.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Access Control</text>
+</g>
+<g id="clust5" class="cluster" data-name="clusterMetadataManagement">
+
+<path fill="rgb(243, 248, 255)" stroke="rgb(243, 248, 255)" d="M327.3,-1348.89C327.3,-1348.89 447.82,-1348.89 447.82,-1348.89 453.82,-1348.89 459.82,-1354.89 459.82,-1360.89 459.82,-1360.89 459.82,-1467.89 459.82,-1467.89 459.82,-1473.89 453.82,-1479.89 447.82,-1479.89 447.82,-1479.89 327.3,-1479.89 327.3,-1479.89 321.3,-1479.89 315.3,-1473.89 315.3,-1467.89 315.3,-1467.89 315.3,-1360.89 315.3,-1360.89 315.3,-1354.89 321.3,-1348.89 327.3,-1348.89"/>
+<text text-anchor="middle" x="387.56" y="-1463.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Metadata Management</text>
+</g>
+<g id="clust6" class="cluster" data-name="clusterHelperFunctions">
+
+<path fill="rgb(243, 248, 255)" stroke="rgb(243, 248, 255)" d="M549.13,-1062.89C549.13,-1062.89 915.15,-1062.89 915.15,-1062.89 921.15,-1062.89 927.15,-1068.89 927.15,-1074.89 927.15,-1074.89 927.15,-1467.89 927.15,-1467.89 927.15,-1473.89 921.15,-1479.89 915.15,-1479.89 915.15,-1479.89 549.13,-1479.89 549.13,-1479.89 543.13,-1479.89 537.13,-1473.89 537.13,-1467.89 537.13,-1467.89 537.13,-1074.89 537.13,-1074.89 537.13,-1068.89 543.13,-1062.89 549.13,-1062.89"/>
+<text text-anchor="middle" x="732.14" y="-1463.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Helper Functions</text>
+</g>
+<g id="clust7" class="cluster" data-name="clusterDataVariables">
+
+<path fill="rgb(243, 248, 255)" stroke="rgb(243, 248, 255)" d="M582.43,-342.89C582.43,-342.89 696.16,-342.89 696.16,-342.89 702.16,-342.89 708.16,-348.89 708.16,-354.89 708.16,-354.89 708.16,-1013.89 708.16,-1013.89 708.16,-1019.89 702.16,-1025.89 696.16,-1025.89 696.16,-1025.89 582.43,-1025.89 582.43,-1025.89 576.43,-1025.89 570.43,-1019.89 570.43,-1013.89 570.43,-1013.89 570.43,-354.89 570.43,-354.89 570.43,-348.89 576.43,-342.89 582.43,-342.89"/>
+<text text-anchor="middle" x="639.29" y="-1009.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Data Variables</text>
+</g>
+<g id="clust8" class="cluster" data-name="cluster_legend">
+
+<polygon fill="white" stroke="black" points="38,-1842.89 38,-2054.89 207,-2054.89 207,-1842.89 38,-1842.89"/>
+<text text-anchor="middle" x="122.5" y="-2032.89" font-family="Times,serif" font-size="20.00">Legend</text>
+</g>
+<g id="clust9" class="cluster" data-name="cluster_edge_legend">
+
+<polygon fill="white" stroke="black" points="48,-2062.89 48,-2214.89 197,-2214.89 197,-2062.89 48,-2062.89"/>
+<text text-anchor="middle" x="122.5" y="-2192.89" font-family="Times,serif" font-size="20.00">Edge Legend</text>
+</g>
+<!-- NeuraNFT.init -->
+<g id="node1" class="node" pointer-events="visible" data-name="NeuraNFT.init">
+
+<ellipse fill="rgb(152, 228, 255)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-570.89" rx="27" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-566.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">init</text>
+</g>
+<!-- NeuraNFT.createCollection -->
+<g id="node2" class="node" pointer-events="visible" data-name="NeuraNFT.createCollection">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-1073.89" rx="74.12" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-1069.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">createCollection</text>
+</g>
+<!-- NeuraNFT.updateCollection -->
+<g id="node3" class="node" pointer-events="visible" data-name="NeuraNFT.updateCollection">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-1019.89" rx="77.02" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-1015.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">updateCollection</text>
+</g>
+<!-- NeuraNFT.getCollection -->
+<g id="node4" class="node" pointer-events="visible" data-name="NeuraNFT.getCollection">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-911.89" rx="63.13" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-907.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getCollection</text>
+</g>
+<!-- NeuraNFT.collections -->
+<g id="node39" class="node" pointer-events="visible" data-name="NeuraNFT.collections">
+
+<polygon fill="#76b7b2" stroke="#2e2e38" stroke-width="3" points="694.64,-572.49 583.95,-572.49 583.95,-531.28 694.64,-531.28 694.64,-572.49"/>
+<text text-anchor="middle" x="639.29" y="-556.09" font-family="Times,serif" font-size="14.00" fill="#0b192c">collections</text>
+<text text-anchor="middle" x="639.29" y="-539.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">(UnorderedMap)</text>
+</g>
+<!-- NeuraNFT.getCollection&#45;&gt;NeuraNFT.collections -->
+<g id="edge1" class="edge" data-name="NeuraNFT.getCollection-&gt;NeuraNFT.collections">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M186.41,-909.07C202.66,-905.17 218.5,-897.92 229,-884.89 283.87,-816.73 194.03,-158.65 257,-97.89 298.59,-57.74 475.3,-57.98 517.13,-97.89 551.26,-130.44 508.04,-484.77 537.13,-521.89 545.48,-532.54 557.44,-539.54 570.22,-544.11"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.16,-547.45 579.75,-546.93 571.15,-540.74 569.16,-547.45"/>
+</g>
+<!-- NeuraNFT.getAllCollections -->
+<g id="node5" class="node" pointer-events="visible" data-name="NeuraNFT.getAllCollections">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-857.89" rx="79.33" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-853.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getAllCollections</text>
+</g>
+<!-- NeuraNFT.getAllCollections&#45;&gt;NeuraNFT.collections -->
+<g id="edge2" class="edge" data-name="NeuraNFT.getAllCollections-&gt;NeuraNFT.collections">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M135.15,-838.93C158.09,-800.45 208.65,-709.73 229,-625.89 243.85,-564.7 211.39,-103.3 257,-59.89 340.74,19.82 433.63,20.08 517.13,-59.89 554.24,-95.42 505.51,-481.39 537.13,-521.89 545.46,-532.55 557.41,-539.56 570.19,-544.14"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.13,-547.47 579.71,-546.96 571.12,-540.76 569.13,-547.47"/>
+</g>
+<!-- NeuraNFT.getCollectionsFullInfo -->
+<g id="node6" class="node" pointer-events="visible" data-name="NeuraNFT.getCollectionsFullInfo">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-965.89" rx="98.45" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-961.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getCollectionsFullInfo</text>
+</g>
+<!-- NeuraNFT.getCollectionNFTCount -->
+<g id="node15" class="node" pointer-events="visible" data-name="NeuraNFT.getCollectionNFTCount">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-1019.89" rx="104.84" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-1015.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getCollectionNFTCount</text>
+</g>
+<!-- NeuraNFT.getCollectionsFullInfo&#45;&gt;NeuraNFT.getCollectionNFTCount -->
+<g id="edge4" class="edge" data-name="NeuraNFT.getCollectionsFullInfo-&gt;NeuraNFT.getCollectionNFTCount">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M205.85,-976.51C242.56,-983.37 285.21,-992.27 319.8,-1000.31"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="318.68,-1003.64 329.21,-1002.53 320.29,-996.82 318.68,-1003.64"/>
+</g>
+<!-- NeuraNFT.getCollectionsFullInfo&#45;&gt;NeuraNFT.getCollectionNFTCount -->
+<g id="edge68" class="edge" data-name="NeuraNFT.getCollectionsFullInfo-&gt;NeuraNFT.getCollectionNFTCount">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M176.32,-982.29C208.27,-989.99 250.02,-998.91 287.85,-1006.24" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="287.06,-1009.65 297.54,-1008.09 288.37,-1002.78 287.06,-1009.65"/>
+</g>
+<!-- NeuraNFT.getCollectionUniqueHolders -->
+<g id="node16" class="node" pointer-events="visible" data-name="NeuraNFT.getCollectionUniqueHolders">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-965.89" rx="122.14" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-961.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getCollectionUniqueHolders</text>
+</g>
+<!-- NeuraNFT.getCollectionsFullInfo&#45;&gt;NeuraNFT.getCollectionUniqueHolders -->
+<g id="edge5" class="edge" data-name="NeuraNFT.getCollectionsFullInfo-&gt;NeuraNFT.getCollectionUniqueHolders">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M216.44,-959.4C229.99,-959.21 244.14,-959.12 258.24,-959.14"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="258.12,-962.64 268.13,-959.17 258.14,-955.64 258.12,-962.64"/>
+</g>
+<!-- NeuraNFT.getCollectionsFullInfo&#45;&gt;NeuraNFT.getCollectionUniqueHolders -->
+<g id="edge69" class="edge" data-name="NeuraNFT.getCollectionsFullInfo-&gt;NeuraNFT.getCollectionUniqueHolders">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M216.44,-972.37C229.99,-972.56 244.14,-972.65 258.24,-972.63" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="258.14,-976.13 268.13,-972.6 258.12,-969.13 258.14,-976.13"/>
+</g>
+<!-- NeuraNFT.getCollectionsFullInfo&#45;&gt;NeuraNFT.collections -->
+<g id="edge3" class="edge" data-name="NeuraNFT.getCollectionsFullInfo-&gt;NeuraNFT.collections">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M207.49,-955.63C215.74,-951.55 223.19,-946.1 229,-938.89 284.96,-869.33 192.78,-197.9 257,-135.89 298.58,-95.73 475.21,-96.08 517.13,-135.89 548.27,-165.46 510.56,-488.15 537.13,-521.89 545.51,-532.52 557.47,-539.51 570.26,-544.08"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.2,-547.42 579.78,-546.9 571.19,-540.71 569.2,-547.42"/>
+</g>
+<!-- NeuraNFT.createNFT -->
+<g id="node7" class="node" pointer-events="visible" data-name="NeuraNFT.createNFT">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-1289.89" rx="52.15" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-1285.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">createNFT</text>
+</g>
+<!-- NeuraNFT.createNFTWithMetadata -->
+<g id="node8" class="node" pointer-events="visible" data-name="NeuraNFT.createNFTWithMetadata">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-1235.89" rx="107.62" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-1231.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">createNFTWithMetadata</text>
+</g>
+<!-- NeuraNFT.transferNFT -->
+<g id="node9" class="node" pointer-events="visible" data-name="NeuraNFT.transferNFT">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-1181.89" rx="58.54" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-1177.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">transferNFT</text>
+</g>
+<!-- NeuraNFT.burnNFT -->
+<g id="node10" class="node" pointer-events="visible" data-name="NeuraNFT.burnNFT">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-1127.89" rx="46.96" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-1123.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">burnNFT</text>
+</g>
+<!-- NeuraNFT.getNFTInfo -->
+<g id="node11" class="node" pointer-events="visible" data-name="NeuraNFT.getNFTInfo">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-1073.89" rx="57.33" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-1069.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getNFTInfo</text>
+</g>
+<!-- NeuraNFT._getTokenKey -->
+<g id="node27" class="node" pointer-events="visible" data-name="NeuraNFT._getTokenKey">
+
+<ellipse fill="rgb(255, 128, 128)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="639.29" cy="-1374.89" rx="68.34" ry="18"/>
+<text text-anchor="middle" x="639.29" y="-1370.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">_getTokenKey</text>
+</g>
+<!-- NeuraNFT.getNFTInfo&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge7" class="edge" data-name="NeuraNFT.getNFTInfo-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M445.23,-1071.35C470.93,-1073.43 499.42,-1080.8 517.13,-1100.89 553.55,-1142.19 501.85,-1305.6 537.13,-1347.89 543.37,-1355.36 551.42,-1360.89 560.25,-1364.96"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="558.81,-1368.15 569.41,-1368.43 561.3,-1361.61 558.81,-1368.15"/>
+</g>
+<!-- NeuraNFT.nftTokens -->
+<g id="node35" class="node" pointer-events="visible" data-name="NeuraNFT.nftTokens">
+
+<polygon fill="#76b7b2" stroke="#2e2e38" stroke-width="3" points="694.64,-932.49 583.95,-932.49 583.95,-891.28 694.64,-891.28 694.64,-932.49"/>
+<text text-anchor="middle" x="639.29" y="-916.09" font-family="Times,serif" font-size="14.00" fill="#0b192c">nftTokens</text>
+<text text-anchor="middle" x="639.29" y="-899.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">(UnorderedMap)</text>
+</g>
+<!-- NeuraNFT.getNFTInfo&#45;&gt;NeuraNFT.nftTokens -->
+<g id="edge6" class="edge" data-name="NeuraNFT.getNFTInfo-&gt;NeuraNFT.nftTokens">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M445.61,-1075.43C470.76,-1073.02 498.68,-1065.67 517.13,-1046.89 550.42,-1012.99 505.26,-977.11 537.13,-941.89 546.03,-932.05 557.98,-925.38 570.54,-920.87"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="571.26,-924.31 579.81,-918.06 569.22,-917.62 571.26,-924.31"/>
+</g>
+<!-- NeuraNFT.getAllNFTsWithMetadata -->
+<g id="node12" class="node" pointer-events="visible" data-name="NeuraNFT.getAllNFTsWithMetadata">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-857.89" rx="112.32" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-853.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getAllNFTsWithMetadata</text>
+</g>
+<!-- NeuraNFT.getAllNFTsWithMetadata&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge14" class="edge" data-name="NeuraNFT.getAllNFTsWithMetadata-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M499.25,-861.05C505.94,-864.98 512.02,-869.86 517.13,-875.89 550.46,-915.14 504.89,-1298.74 537.13,-1338.89 545.41,-1349.2 557.16,-1355.83 569.73,-1360.24"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="568.46,-1363.52 579.04,-1362.99 570.44,-1356.81 568.46,-1363.52"/>
+</g>
+<!-- NeuraNFT.getAllNFTsWithMetadata&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge70" class="edge" data-name="NeuraNFT.getAllNFTsWithMetadata-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M477.69,-869.61C492.82,-874.33 506.91,-881.84 517.13,-893.89 550.46,-933.14 504.89,-1316.74 537.13,-1356.89 542.86,-1364.01 550.24,-1369.38 558.4,-1373.34" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="556.97,-1376.54 567.56,-1376.93 559.52,-1370.02 556.97,-1376.54"/>
+</g>
+<!-- NeuraNFT.getAllNFTsWithMetadata&#45;&gt;NeuraNFT.nftTokens -->
+<g id="edge10" class="edge" data-name="NeuraNFT.getAllNFTsWithMetadata-&gt;NeuraNFT.nftTokens">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M460.12,-872.79C478.7,-876.68 498.67,-880.9 517.13,-884.89 534.25,-888.58 552.72,-892.66 569.94,-896.49"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.05,-899.88 579.58,-898.64 570.58,-893.05 569.05,-899.88"/>
+</g>
+<!-- NeuraNFT.nftMetadata -->
+<g id="node36" class="node" pointer-events="visible" data-name="NeuraNFT.nftMetadata">
+
+<polygon fill="#76b7b2" stroke="#2e2e38" stroke-width="3" points="694.64,-872.49 583.95,-872.49 583.95,-831.28 694.64,-831.28 694.64,-872.49"/>
+<text text-anchor="middle" x="639.29" y="-856.09" font-family="Times,serif" font-size="14.00" fill="#0b192c">nftMetadata</text>
+<text text-anchor="middle" x="639.29" y="-839.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">(UnorderedMap)</text>
+</g>
+<!-- NeuraNFT.getAllNFTsWithMetadata&#45;&gt;NeuraNFT.nftMetadata -->
+<g id="edge11" class="edge" data-name="NeuraNFT.getAllNFTsWithMetadata-&gt;NeuraNFT.nftMetadata">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M499.64,-855.21C523.6,-854.64 548.24,-854.04 569.97,-853.52"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.81,-857.03 579.72,-853.29 569.64,-850.03 569.81,-857.03"/>
+</g>
+<!-- NeuraNFT.getAllNFTsWithMetadata&#45;&gt;NeuraNFT.collections -->
+<g id="edge8" class="edge" data-name="NeuraNFT.getAllNFTsWithMetadata-&gt;NeuraNFT.collections">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M490.52,-849.84C500.6,-845.36 509.79,-839.22 517.13,-830.89 553.83,-789.24 502.17,-625 537.13,-581.89 545.61,-571.43 557.56,-564.5 570.29,-559.94"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="571.16,-563.33 579.75,-557.12 569.16,-556.62 571.16,-563.33"/>
+</g>
+<!-- NeuraNFT.nextTokenId -->
+<g id="node40" class="node" pointer-events="visible" data-name="NeuraNFT.nextTokenId">
+
+<polygon fill="#76b7b2" stroke="#2e2e38" stroke-width="3" points="686.33,-692.49 592.25,-692.49 592.25,-651.28 686.33,-651.28 686.33,-692.49"/>
+<text text-anchor="middle" x="639.29" y="-676.09" font-family="Times,serif" font-size="14.00" fill="#0b192c">nextTokenId</text>
+<text text-anchor="middle" x="639.29" y="-659.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">(LookupMap)</text>
+</g>
+<!-- NeuraNFT.getAllNFTsWithMetadata&#45;&gt;NeuraNFT.nextTokenId -->
+<g id="edge9" class="edge" data-name="NeuraNFT.getAllNFTsWithMetadata-&gt;NeuraNFT.nextTokenId">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M489.61,-849.43C499.92,-845.03 509.41,-839.02 517.13,-830.89 557.07,-788.8 498.96,-745.57 537.13,-701.89 547.74,-689.75 563,-682.41 578.47,-678.01"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="578.97,-681.49 587.89,-675.77 577.35,-674.68 578.97,-681.49"/>
+</g>
+<!-- NeuraNFT.defaultAccess -->
+<g id="node43" class="node" pointer-events="visible" data-name="NeuraNFT.defaultAccess">
+
+<polygon fill="#76b7b2" stroke="#2e2e38" stroke-width="3" points="686.33,-812.49 592.25,-812.49 592.25,-771.28 686.33,-771.28 686.33,-812.49"/>
+<text text-anchor="middle" x="639.29" y="-796.09" font-family="Times,serif" font-size="14.00" fill="#0b192c">defaultAccess</text>
+<text text-anchor="middle" x="639.29" y="-779.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">(LookupMap)</text>
+</g>
+<!-- NeuraNFT.getAllNFTsWithMetadata&#45;&gt;NeuraNFT.defaultAccess -->
+<g id="edge12" class="edge" data-name="NeuraNFT.getAllNFTsWithMetadata-&gt;NeuraNFT.defaultAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M467.27,-844.15C483.92,-840.47 501.24,-836.06 517.13,-830.89 526.4,-827.87 527.99,-825.28 537.13,-821.89 550.35,-816.98 564.75,-812.31 578.45,-808.18"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="579.26,-811.59 587.86,-805.41 577.28,-804.88 579.26,-811.59"/>
+</g>
+<!-- NeuraNFT.maxAccess -->
+<g id="node44" class="node" pointer-events="visible" data-name="NeuraNFT.maxAccess">
+
+<polygon fill="#76b7b2" stroke="#2e2e38" stroke-width="3" points="686.33,-752.49 592.25,-752.49 592.25,-711.28 686.33,-711.28 686.33,-752.49"/>
+<text text-anchor="middle" x="639.29" y="-736.09" font-family="Times,serif" font-size="14.00" fill="#0b192c">maxAccess</text>
+<text text-anchor="middle" x="639.29" y="-719.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">(LookupMap)</text>
+</g>
+<!-- NeuraNFT.getAllNFTsWithMetadata&#45;&gt;NeuraNFT.maxAccess -->
+<g id="edge13" class="edge" data-name="NeuraNFT.getAllNFTsWithMetadata-&gt;NeuraNFT.maxAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M487.65,-848.81C498.5,-844.55 508.65,-838.74 517.13,-830.89 540.55,-809.18 514.62,-784.53 537.13,-761.89 548.23,-750.72 563.28,-743.67 578.37,-739.23"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="579.18,-742.63 588.04,-736.82 577.49,-735.84 579.18,-742.63"/>
+</g>
+<!-- NeuraNFT.getNFTFullData -->
+<g id="node13" class="node" pointer-events="visible" data-name="NeuraNFT.getNFTFullData">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-911.89" rx="74.74" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-907.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getNFTFullData</text>
+</g>
+<!-- NeuraNFT.getNFTAccessUsers -->
+<g id="node21" class="node" pointer-events="visible" data-name="NeuraNFT.getNFTAccessUsers">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-1675.89" rx="90.34" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-1671.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getNFTAccessUsers</text>
+</g>
+<!-- NeuraNFT.getNFTFullData&#45;&gt;NeuraNFT.getNFTAccessUsers -->
+<g id="edge20" class="edge" data-name="NeuraNFT.getNFTFullData-&gt;NeuraNFT.getNFTAccessUsers">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M323.54,-901.19C299.14,-903.04 273.18,-910.74 257,-929.89 206.01,-990.17 278.63,-1578.49 229,-1639.89 222.2,-1648.29 213.19,-1654.28 203.28,-1658.63"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="202.34,-1655.24 194.16,-1661.97 204.75,-1661.82 202.34,-1655.24"/>
+</g>
+<!-- NeuraNFT.getNFTFullData&#45;&gt;NeuraNFT.getNFTAccessUsers -->
+<g id="edge72" class="edge" data-name="NeuraNFT.getNFTFullData-&gt;NeuraNFT.getNFTAccessUsers">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M316.15,-918.91C294.02,-922.7 271.56,-930.67 257,-947.89 206.01,-1008.17 278.63,-1596.49 229,-1657.89 226.99,-1660.37 224.79,-1662.64 222.43,-1664.71" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="220.51,-1661.78 214.39,-1670.43 224.57,-1667.49 220.51,-1661.78"/>
+</g>
+<!-- NeuraNFT.getNFTFullData&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge21" class="edge" data-name="NeuraNFT.getNFTFullData-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M450.83,-901.29C475.12,-903.2 500.93,-910.91 517.13,-929.89 546.68,-964.49 508.54,-1303.49 537.13,-1338.89 545.44,-1349.17 557.2,-1355.79 569.77,-1360.21"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="568.5,-1363.48 579.09,-1362.96 570.48,-1356.77 568.5,-1363.48"/>
+</g>
+<!-- NeuraNFT.getNFTFullData&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge71" class="edge" data-name="NeuraNFT.getNFTFullData-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M457.89,-918.98C480.01,-922.79 502.49,-930.74 517.13,-947.89 546.68,-982.49 508.54,-1321.49 537.13,-1356.89 542.88,-1364 550.27,-1369.36 558.44,-1373.31" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="557.01,-1376.51 567.6,-1376.9 559.56,-1369.99 557.01,-1376.51"/>
+</g>
+<!-- NeuraNFT.getNFTFullData&#45;&gt;NeuraNFT.nftTokens -->
+<g id="edge15" class="edge" data-name="NeuraNFT.getNFTFullData-&gt;NeuraNFT.nftTokens">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M463.14,-911.89C497.07,-911.89 536.89,-911.89 569.97,-911.89"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.74,-915.39 579.74,-911.89 569.73,-908.39 569.74,-915.39"/>
+</g>
+<!-- NeuraNFT.getNFTFullData&#45;&gt;NeuraNFT.nftMetadata -->
+<g id="edge17" class="edge" data-name="NeuraNFT.getNFTFullData-&gt;NeuraNFT.nftMetadata">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M447.67,-900.19C469.57,-895.69 494.54,-890.32 517.13,-884.89 534.44,-880.72 553.04,-875.85 570.34,-871.16"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="571.04,-874.6 579.76,-868.58 569.19,-867.85 571.04,-874.6"/>
+</g>
+<!-- NeuraNFT.getNFTFullData&#45;&gt;NeuraNFT.collections -->
+<g id="edge16" class="edge" data-name="NeuraNFT.getNFTFullData-&gt;NeuraNFT.collections">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M463.11,-912.23C483.43,-908.48 503.54,-900.53 517.13,-884.89 561.38,-833.94 495.01,-634.6 537.13,-581.89 545.54,-571.37 557.46,-564.41 570.18,-559.85"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="571.05,-563.24 579.63,-557.03 569.05,-556.53 571.05,-563.24"/>
+</g>
+<!-- NeuraNFT.getNFTFullData&#45;&gt;NeuraNFT.defaultAccess -->
+<g id="edge18" class="edge" data-name="NeuraNFT.getNFTFullData-&gt;NeuraNFT.defaultAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M462.55,-909.71C482.26,-905.8 502.18,-898.39 517.13,-884.89 538.93,-865.19 516.16,-842.46 537.13,-821.89 548.32,-810.91 563.32,-803.92 578.35,-799.48"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="579.12,-802.89 587.96,-797.05 577.4,-796.11 579.12,-802.89"/>
+</g>
+<!-- NeuraNFT.getNFTFullData&#45;&gt;NeuraNFT.maxAccess -->
+<g id="edge19" class="edge" data-name="NeuraNFT.getNFTFullData-&gt;NeuraNFT.maxAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M463.2,-911.21C483.16,-907.36 503.05,-899.61 517.13,-884.89 555.4,-844.85 500.53,-803.46 537.13,-761.89 547.78,-749.79 563.06,-742.46 578.53,-738.06"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="579.02,-741.54 587.94,-735.82 577.4,-734.73 579.02,-741.54"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTs -->
+<g id="node14" class="node" pointer-events="visible" data-name="NeuraNFT.getCollectionNFTs">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-803.89" rx="85.13" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-799.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getCollectionNFTs</text>
+</g>
+<!-- NeuraNFT.getCollectionNFTs&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge28" class="edge" data-name="NeuraNFT.getCollectionNFTs-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M463.38,-794.71C483.71,-798.05 503.76,-806.06 517.13,-821.89 554.24,-865.79 501.24,-1293.98 537.13,-1338.89 545.39,-1349.22 557.12,-1355.85 569.69,-1360.27"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="568.42,-1363.55 579,-1363.02 570.4,-1356.83 568.42,-1363.55"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTs&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge73" class="edge" data-name="NeuraNFT.getCollectionNFTs-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M465.06,-812.26C484.81,-816.5 504.13,-824.5 517.13,-839.89 554.24,-883.79 501.24,-1311.98 537.13,-1356.89 542.88,-1364.08 550.31,-1369.48 558.53,-1373.45" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="557.19,-1376.68 567.78,-1377.05 559.73,-1370.16 557.19,-1376.68"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTs&#45;&gt;NeuraNFT.nftTokens -->
+<g id="edge24" class="edge" data-name="NeuraNFT.getCollectionNFTs-&gt;NeuraNFT.nftTokens">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M470.72,-808.67C487.51,-812.9 504.02,-819.8 517.13,-830.89 535.73,-846.6 519.2,-865.42 537.13,-881.89 546.49,-890.48 558.21,-896.62 570.32,-901"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.01,-904.26 579.6,-903.92 571.11,-897.58 569.01,-904.26"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTs&#45;&gt;NeuraNFT.nftMetadata -->
+<g id="edge25" class="edge" data-name="NeuraNFT.getCollectionNFTs-&gt;NeuraNFT.nftMetadata">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M453.16,-816.37C489.17,-823.28 533.87,-831.85 570.33,-838.85"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.4,-842.23 579.88,-840.68 570.72,-835.36 569.4,-842.23"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTs&#45;&gt;NeuraNFT.collections -->
+<g id="edge22" class="edge" data-name="NeuraNFT.getCollectionNFTs-&gt;NeuraNFT.collections">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M395.6,-784.56C413.42,-741.44 462.32,-636.88 537.13,-581.89 546.99,-574.64 558.59,-569.13 570.36,-564.95"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="571.25,-568.33 579.72,-561.97 569.13,-561.66 571.25,-568.33"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTs&#45;&gt;NeuraNFT.nextTokenId -->
+<g id="edge23" class="edge" data-name="NeuraNFT.getCollectionNFTs-&gt;NeuraNFT.nextTokenId">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M410.44,-785.24C438.47,-762.7 488.71,-724.93 537.13,-701.89 550.05,-695.74 564.5,-690.55 578.35,-686.31"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="579.3,-689.67 587.92,-683.52 577.34,-682.95 579.3,-689.67"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTs&#45;&gt;NeuraNFT.defaultAccess -->
+<g id="edge26" class="edge" data-name="NeuraNFT.getCollectionNFTs-&gt;NeuraNFT.defaultAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M471.73,-799.87C506.57,-798.2 546.25,-796.3 578.13,-794.77"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="577.99,-798.28 587.81,-794.31 577.66,-791.29 577.99,-798.28"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTs&#45;&gt;NeuraNFT.maxAccess -->
+<g id="edge27" class="edge" data-name="NeuraNFT.getCollectionNFTs-&gt;NeuraNFT.maxAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M440.83,-788.7C481.2,-777.09 536.88,-761.07 578.82,-749"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="579.54,-752.43 588.18,-746.3 577.61,-745.71 579.54,-752.43"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTCount&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge31" class="edge" data-name="NeuraNFT.getCollectionNFTCount-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M493.1,-1020.02C502.19,-1024.36 510.45,-1030.2 517.13,-1037.89 561.1,-1088.48 494.56,-1287.11 537.13,-1338.89 545.53,-1349.1 557.33,-1355.69 569.91,-1360.1"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="568.64,-1363.37 579.22,-1362.84 570.62,-1356.66 568.64,-1363.37"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTCount&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge74" class="edge" data-name="NeuraNFT.getCollectionNFTCount-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M474.49,-1030.91C490.76,-1035.55 506.09,-1043.19 517.13,-1055.89 561.1,-1106.48 494.56,-1305.11 537.13,-1356.89 542.9,-1363.9 550.27,-1369.2 558.39,-1373.13" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="556.89,-1376.3 567.48,-1376.7 559.45,-1369.79 556.89,-1376.3"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTCount&#45;&gt;NeuraNFT.nftTokens -->
+<g id="edge30" class="edge" data-name="NeuraNFT.getCollectionNFTCount-&gt;NeuraNFT.nftTokens">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M482.72,-1011.57C495.24,-1007.32 507.16,-1001.31 517.13,-992.89 535.73,-977.17 519.2,-958.35 537.13,-941.89 546.49,-933.29 558.21,-927.15 570.32,-922.77"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="571.11,-926.19 579.6,-919.85 569.01,-919.51 571.11,-926.19"/>
+</g>
+<!-- NeuraNFT.getCollectionNFTCount&#45;&gt;NeuraNFT.nextTokenId -->
+<g id="edge29" class="edge" data-name="NeuraNFT.getCollectionNFTCount-&gt;NeuraNFT.nextTokenId">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M487.16,-1013.39C498.57,-1008.8 509.01,-1002.21 517.13,-992.89 559.71,-944.01 496.6,-752.47 537.13,-701.89 547.35,-689.14 562.72,-681.63 578.41,-677.26"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="579.06,-680.7 588.03,-675.06 577.5,-673.88 579.06,-680.7"/>
+</g>
+<!-- NeuraNFT.getCollectionUniqueHolders&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge34" class="edge" data-name="NeuraNFT.getCollectionUniqueHolders-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M504.01,-972.19C508.83,-975.5 513.25,-979.37 517.13,-983.89 568.66,-1043.78 487.26,-1277.6 537.13,-1338.89 545.48,-1349.14 557.25,-1355.75 569.83,-1360.16"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="568.56,-1363.44 579.14,-1362.91 570.54,-1356.72 568.56,-1363.44"/>
+</g>
+<!-- NeuraNFT.getCollectionUniqueHolders&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge75" class="edge" data-name="NeuraNFT.getCollectionUniqueHolders-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M480.19,-978.56C494.33,-983.31 507.43,-990.6 517.13,-1001.89 568.66,-1061.78 487.26,-1295.6 537.13,-1356.89 542.9,-1363.98 550.31,-1369.32 558.49,-1373.27" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="557.07,-1376.47 567.66,-1376.85 559.62,-1369.95 557.07,-1376.47"/>
+</g>
+<!-- NeuraNFT.getCollectionUniqueHolders&#45;&gt;NeuraNFT.nftTokens -->
+<g id="edge33" class="edge" data-name="NeuraNFT.getCollectionUniqueHolders-&gt;NeuraNFT.nftTokens">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M462.49,-950.49C480.4,-946.74 499.45,-942.7 517.13,-938.89 534.25,-935.19 552.72,-931.12 569.94,-927.28"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="570.58,-930.72 579.58,-925.13 569.05,-923.89 570.58,-930.72"/>
+</g>
+<!-- NeuraNFT.getCollectionUniqueHolders&#45;&gt;NeuraNFT.nextTokenId -->
+<g id="edge32" class="edge" data-name="NeuraNFT.getCollectionUniqueHolders-&gt;NeuraNFT.nextTokenId">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M493.88,-956.23C502.63,-951.91 510.61,-946.26 517.13,-938.89 552.16,-899.3 503.76,-742.87 537.13,-701.89 547.4,-689.28 562.71,-681.8 578.33,-677.42"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="578.93,-680.88 587.89,-675.21 577.36,-674.06 578.93,-680.88"/>
+</g>
+<!-- NeuraNFT.setAccess -->
+<g id="node17" class="node" pointer-events="visible" data-name="NeuraNFT.setAccess">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-1783.89" rx="49.23" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-1779.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">setAccess</text>
+</g>
+<!-- NeuraNFT._setAccess -->
+<g id="node18" class="node" pointer-events="visible" data-name="NeuraNFT._setAccess">
+
+<ellipse fill="rgb(255, 128, 128)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-1729.89" rx="53.88" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-1725.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">_setAccess</text>
+</g>
+<!-- NeuraNFT.getAccessLevel -->
+<g id="node19" class="node" pointer-events="visible" data-name="NeuraNFT.getAccessLevel">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-1513.89" rx="72.33" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-1509.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getAccessLevel</text>
+</g>
+<!-- NeuraNFT.getAccessLevel&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge38" class="edge" data-name="NeuraNFT.getAccessLevel-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M451.22,-1504.36C474.69,-1500.13 499.8,-1492.03 517.13,-1474.89 543.8,-1448.5 510.89,-1419.7 537.13,-1392.89 543.04,-1386.85 550.14,-1382.11 557.8,-1378.46"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="558.96,-1381.76 566.97,-1374.83 556.38,-1375.26 558.96,-1381.76"/>
+</g>
+<!-- NeuraNFT.getAccessLevel&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge77" class="edge" data-name="NeuraNFT.getAccessLevel-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M456.55,-1520.32C478.43,-1516.85 501.1,-1508.74 517.13,-1492.89 543.8,-1466.5 510.89,-1437.7 537.13,-1410.89 546.72,-1401.09 559.44,-1394.72 572.61,-1390.38" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="573.18,-1393.86 581.85,-1387.75 571.27,-1387.12 573.18,-1393.86"/>
+</g>
+<!-- NeuraNFT._getAccessKey -->
+<g id="node28" class="node" pointer-events="visible" data-name="NeuraNFT._getAccessKey">
+
+<ellipse fill="rgb(255, 128, 128)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="639.29" cy="-1428.89" rx="71.2" ry="18"/>
+<text text-anchor="middle" x="639.29" y="-1424.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">_getAccessKey</text>
+</g>
+<!-- NeuraNFT.getAccessLevel&#45;&gt;NeuraNFT._getAccessKey -->
+<g id="edge37" class="edge" data-name="NeuraNFT.getAccessLevel-&gt;NeuraNFT._getAccessKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M431.09,-1498.26C456.48,-1491.97 489.03,-1484.42 517.13,-1474.89 538.61,-1467.59 561.43,-1457.81 581.41,-1449.02"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="582.63,-1452.31 590.36,-1445.07 579.8,-1445.9 582.63,-1452.31"/>
+</g>
+<!-- NeuraNFT.getAccessLevel&#45;&gt;NeuraNFT._getAccessKey -->
+<g id="edge76" class="edge" data-name="NeuraNFT.getAccessLevel-&gt;NeuraNFT._getAccessKey">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M458.1,-1508.91C477.44,-1504.78 498.29,-1499.28 517.13,-1492.89 547.77,-1482.48 581.16,-1467 605.11,-1453.63" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="606.55,-1456.84 613.44,-1448.79 603.04,-1450.79 606.55,-1456.84"/>
+</g>
+<!-- NeuraNFT.nftAccess -->
+<g id="node42" class="node" pointer-events="visible" data-name="NeuraNFT.nftAccess">
+
+<polygon fill="#76b7b2" stroke="#2e2e38" stroke-width="3" points="686.33,-992.49 592.25,-992.49 592.25,-951.28 686.33,-951.28 686.33,-992.49"/>
+<text text-anchor="middle" x="639.29" y="-976.09" font-family="Times,serif" font-size="14.00" fill="#0b192c">nftAccess</text>
+<text text-anchor="middle" x="639.29" y="-959.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">(LookupMap)</text>
+</g>
+<!-- NeuraNFT.getAccessLevel&#45;&gt;NeuraNFT.nftAccess -->
+<g id="edge35" class="edge" data-name="NeuraNFT.getAccessLevel-&gt;NeuraNFT.nftAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M460.74,-1513.07C481.98,-1509.05 503.21,-1500.59 517.13,-1483.89 547.4,-1447.57 516.41,-1101.38 537.13,-1058.89 548.54,-1035.5 569.41,-1015.89 589.24,-1001.24"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="591.13,-1004.19 597.3,-995.57 587.1,-998.46 591.13,-1004.19"/>
+</g>
+<!-- NeuraNFT.getAccessLevel&#45;&gt;NeuraNFT.defaultAccess -->
+<g id="edge36" class="edge" data-name="NeuraNFT.getAccessLevel-&gt;NeuraNFT.defaultAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M460.57,-1513.27C481.94,-1509.28 503.28,-1500.79 517.13,-1483.89 563.76,-1426.96 492.22,-880.18 537.13,-821.89 547.14,-808.89 562.53,-801.31 578.31,-796.96"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="579.01,-800.39 588,-794.78 577.47,-793.56 579.01,-800.39"/>
+</g>
+<!-- NeuraNFT.getAllUserAccessLevels -->
+<g id="node20" class="node" pointer-events="visible" data-name="NeuraNFT.getAllUserAccessLevels">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-1513.89" rx="106.5" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-1509.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getAllUserAccessLevels</text>
+</g>
+<!-- NeuraNFT.getAllUserAccessLevels&#45;&gt;NeuraNFT.getAccessLevel -->
+<g id="edge41" class="edge" data-name="NeuraNFT.getAllUserAccessLevels-&gt;NeuraNFT.getAccessLevel">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M223.89,-1507.3C250.39,-1507.01 278.68,-1507.1 304.08,-1507.58"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="303.98,-1511.08 314.06,-1507.8 304.13,-1504.08 303.98,-1511.08"/>
+</g>
+<!-- NeuraNFT.getAllUserAccessLevels&#45;&gt;NeuraNFT.getAccessLevel -->
+<g id="edge78" class="edge" data-name="NeuraNFT.getAllUserAccessLevels-&gt;NeuraNFT.getAccessLevel">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M223.89,-1520.47C250.39,-1520.76 278.68,-1520.67 304.08,-1520.19" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="304.13,-1523.69 314.06,-1519.97 303.98,-1516.69 304.13,-1523.69"/>
+</g>
+<!-- NeuraNFT.getAllUserAccessLevels&#45;&gt;NeuraNFT.collections -->
+<g id="edge39" class="edge" data-name="NeuraNFT.getAllUserAccessLevels-&gt;NeuraNFT.collections">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M130.55,-1494.61C150.54,-1438.89 207.51,-1272.48 229,-1128.89 236.76,-1077 219.35,-221.43 257,-184.89 298.47,-144.62 475.06,-145.24 517.13,-184.89 571.73,-236.34 490.49,-463.12 537.13,-521.89 545.5,-532.43 557.41,-539.4 570.13,-543.96"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569,-547.28 579.58,-546.78 571,-540.57 569,-547.28"/>
+</g>
+<!-- NeuraNFT.getAllUserAccessLevels&#45;&gt;NeuraNFT.nextTokenId -->
+<g id="edge40" class="edge" data-name="NeuraNFT.getAllUserAccessLevels-&gt;NeuraNFT.nextTokenId">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M130.53,-1494.6C150.48,-1438.88 207.35,-1272.46 229,-1128.89 236.28,-1080.57 221.9,-283.88 257,-249.89 340.04,-169.44 433.32,-170.24 517.13,-249.89 548.75,-279.93 510.16,-607.61 537.13,-641.89 547.23,-654.72 562.57,-662.26 578.27,-666.62"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="577.37,-670.01 587.89,-668.82 578.92,-663.18 577.37,-670.01"/>
+</g>
+<!-- NeuraNFT.getNFTAccessUsers&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge46" class="edge" data-name="NeuraNFT.getNFTAccessUsers-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M212.26,-1679.68C314.87,-1686.6 475.09,-1694.14 517.13,-1653.89 559.15,-1613.66 499.96,-1437.63 537.13,-1392.89 542.93,-1385.9 550.32,-1380.61 558.46,-1376.69"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="559.52,-1380.04 567.56,-1373.13 556.97,-1373.52 559.52,-1380.04"/>
+</g>
+<!-- NeuraNFT.getNFTAccessUsers&#45;&gt;NeuraNFT._getTokenKey -->
+
+<!-- NeuraNFT.getNFTAccessUsers&#45;&gt;NeuraNFT.nftTokens -->
+<g id="edge42" class="edge" data-name="NeuraNFT.getNFTAccessUsers-&gt;NeuraNFT.nftTokens">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M204.45,-1667.1C213.92,-1662.87 222.49,-1657 229,-1648.89 292.18,-1570.03 184.45,-810.23 257,-739.89 298.5,-699.64 473.5,-701.97 517.13,-739.89 565.24,-781.69 495.53,-833.6 537.13,-881.89 545.83,-891.98 557.76,-898.76 570.37,-903.3"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.11,-906.57 579.69,-906.11 571.13,-899.87 569.11,-906.57"/>
+</g>
+<!-- NeuraNFT.getNFTAccessUsers&#45;&gt;NeuraNFT.nftAccess -->
+<g id="edge44" class="edge" data-name="NeuraNFT.getNFTAccessUsers-&gt;NeuraNFT.nftAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M204.45,-1667.09C213.91,-1662.87 222.49,-1657 229,-1648.89 289.87,-1573.01 187.12,-841.56 257,-773.89 298.52,-733.67 473.91,-735.5 517.13,-773.89 545.24,-798.85 512.9,-913.14 537.13,-941.89 547.57,-954.26 562.85,-961.67 578.4,-966.06"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="577.35,-969.41 587.88,-968.29 578.95,-962.6 577.35,-969.41"/>
+</g><g id="edge79" class="edge" data-name="NeuraNFT.getNFTAccessUsers-&gt;NeuraNFT._getTokenKey" data-comment="NeuraNFT.getNFTAccessUsers-&gt;NeuraNFT.nftAccess">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M188.61,-1689.36C288.22,-1703.07 471.69,-1715.39 517.13,-1671.89 559.15,-1631.66 499.96,-1455.63 537.13,-1410.89 545.63,-1400.66 557.52,-1394.07 570.18,-1389.67" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="570.95,-1393.09 579.57,-1386.92 568.99,-1386.38 570.95,-1393.09"/>
+</g>
+<!-- NeuraNFT.getNFTAccessUsers&#45;&gt;NeuraNFT.defaultAccess -->
+<g id="edge45" class="edge" data-name="NeuraNFT.getNFTAccessUsers-&gt;NeuraNFT.defaultAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M204.46,-1667.1C213.92,-1662.88 222.5,-1657 229,-1648.89 294.5,-1567.05 181.78,-778.9 257,-705.89 339.95,-625.35 422.63,-639.29 517.13,-705.89 538.73,-721.11 517.94,-743.72 537.13,-761.89 548.46,-772.61 563.45,-779.52 578.4,-783.96"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="577.39,-787.32 587.94,-786.4 579.12,-780.54 577.39,-787.32"/>
+</g>
+<!-- NeuraNFT.nftAccess._keys -->
+<g id="node24" class="node" pointer-events="visible" data-name="NeuraNFT.nftAccess_keys" data-comment="NeuraNFT.nftAccess._keys">
+
+<ellipse fill="rgb(255, 128, 128)" stroke="#2e2e38" stroke-width="3" cx="387.06" cy="-1567.89" rx="71.78" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-1563.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">nftAccess_keys</text>
+</g>
+<!-- NeuraNFT.getNFTAccessUsers&#45;&gt;NeuraNFT.nftAccess._keys -->
+<g id="edge43" class="edge" data-name="NeuraNFT.getNFTAccessUsers-&gt;NeuraNFT.nftAccess_keys" data-comment="NeuraNFT.getNFTAccessUsers-&gt;NeuraNFT.nftAccess._keys">
+
+<path fill="none" stroke="blue" stroke-width="2" d="M186.98,-1662.11C201.01,-1658.39 215.65,-1653.96 229,-1648.89 270.19,-1633.22 314.61,-1609.63 345.66,-1591.94"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="347.34,-1595.02 354.25,-1586.99 343.84,-1588.96 347.34,-1595.02"/>
+</g>
+<!-- NeuraNFT.getUserNFTs -->
+<g id="node22" class="node" pointer-events="visible" data-name="NeuraNFT.getUserNFTs">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-1621.89" rx="63.14" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-1617.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getUserNFTs</text>
+</g>
+<!-- NeuraNFT.getUserNFTs&#45;&gt;NeuraNFT.getAccessLevel -->
+<g id="edge53" class="edge" data-name="NeuraNFT.getUserNFTs-&gt;NeuraNFT.getAccessLevel">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M172.48,-1609.66C191.74,-1605.38 213.01,-1598.59 229,-1585.89 250.16,-1569.07 235.46,-1548.23 257,-1531.89 270.44,-1521.68 286.84,-1515.12 303.38,-1511.15"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="303.93,-1514.61 313.04,-1509.21 302.55,-1507.75 303.93,-1514.61"/>
+</g>
+<!-- NeuraNFT.getUserNFTs&#45;&gt;NeuraNFT.getAccessLevel -->
+<g id="edge81" class="edge" data-name="NeuraNFT.getUserNFTs-&gt;NeuraNFT.getAccessLevel">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M186.91,-1623.42C201.86,-1619.69 216.93,-1613.47 229,-1603.89 250.16,-1587.07 235.46,-1566.23 257,-1549.89 272.78,-1537.91 292.64,-1530.94 312.02,-1526.62" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="312.53,-1530.09 321.66,-1524.72 311.18,-1523.22 312.53,-1530.09"/>
+</g>
+<!-- NeuraNFT.getUserNFTs&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge54" class="edge" data-name="NeuraNFT.getUserNFTs-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M184.78,-1627.02C283.19,-1639.13 470.18,-1661.86 517.13,-1618.89 554.32,-1584.84 504.68,-1431.48 537.13,-1392.89 542.87,-1386.06 550.12,-1380.86 558.1,-1376.98"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="559.38,-1380.23 567.39,-1373.3 556.81,-1373.72 559.38,-1380.23"/>
+</g>
+<!-- NeuraNFT.getUserNFTs&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge80" class="edge" data-name="NeuraNFT.getUserNFTs-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M169.73,-1635.06C262.71,-1654.5 467.66,-1682.17 517.13,-1636.89 554.32,-1602.84 504.68,-1449.48 537.13,-1410.89 545.69,-1400.71 557.61,-1394.15 570.28,-1389.75" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="571.05,-1393.17 579.66,-1387 569.08,-1386.45 571.05,-1393.17"/>
+</g>
+<!-- NeuraNFT.getUserNFTs&#45;&gt;NeuraNFT.nftTokens -->
+<g id="edge49" class="edge" data-name="NeuraNFT.getUserNFTs-&gt;NeuraNFT.nftTokens">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M186.45,-1619.1C202.69,-1615.19 218.53,-1607.94 229,-1594.89 290.82,-1517.78 186.02,-774.66 257,-705.89 340.03,-625.43 430.89,-628.89 517.13,-705.89 546.49,-732.1 511.84,-851.72 537.13,-881.89 545.74,-892.15 557.68,-899 570.36,-903.54"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.16,-906.84 579.75,-906.36 571.18,-900.14 569.16,-906.84"/>
+</g>
+<!-- NeuraNFT.getUserNFTs&#45;&gt;NeuraNFT.nftMetadata -->
+<g id="edge50" class="edge" data-name="NeuraNFT.getUserNFTs-&gt;NeuraNFT.nftMetadata">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M186.46,-1619.11C202.71,-1615.21 218.54,-1607.95 229,-1594.89 295.18,-1512.17 181,-715.68 257,-641.89 339.94,-561.34 430.98,-564.78 517.13,-641.89 547.12,-668.73 511.31,-791.01 537.13,-821.89 545.73,-832.16 557.67,-839.01 570.34,-843.56"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.14,-846.86 579.73,-846.38 571.16,-840.15 569.14,-846.86"/>
+</g>
+<!-- NeuraNFT.getUserNFTs&#45;&gt;NeuraNFT.collections -->
+<g id="edge47" class="edge" data-name="NeuraNFT.getUserNFTs-&gt;NeuraNFT.collections">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M186.22,-1619.21C202.57,-1615.32 218.51,-1608.05 229,-1594.89 267.6,-1546.42 212.63,-523.15 257,-479.89 339.77,-399.17 419.37,-418.16 517.13,-479.89 534.61,-490.92 521.42,-508.45 537.13,-521.89 546.74,-530.1 558.52,-536.06 570.6,-540.4"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.23,-543.64 579.82,-543.3 571.33,-536.96 569.23,-543.64"/>
+</g>
+<!-- NeuraNFT.getUserNFTs&#45;&gt;NeuraNFT.nextTokenId -->
+<g id="edge48" class="edge" data-name="NeuraNFT.getUserNFTs-&gt;NeuraNFT.nextTokenId">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M186.49,-1619.14C202.74,-1615.23 218.57,-1607.97 229,-1594.89 266.45,-1547.91 213.97,-555.81 257,-513.89 298.4,-473.54 473.21,-476.3 517.13,-513.89 560.88,-551.33 499.22,-598.55 537.13,-641.89 547.74,-654.02 563.01,-661.35 578.48,-665.76"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="577.36,-669.09 587.9,-667.99 578.98,-662.28 577.36,-669.09"/>
+</g>
+<!-- NeuraNFT.getUserNFTs&#45;&gt;NeuraNFT.defaultAccess -->
+<g id="edge51" class="edge" data-name="NeuraNFT.getUserNFTs-&gt;NeuraNFT.defaultAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M186.48,-1619.13C202.72,-1615.22 218.55,-1607.96 229,-1594.89 264.13,-1550.89 216.64,-621.14 257,-581.89 298.43,-541.58 474.06,-543.33 517.13,-581.89 547.12,-608.73 511.31,-731.01 537.13,-761.89 547.52,-774.3 562.79,-781.72 578.34,-786.11"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="577.29,-789.46 587.83,-788.34 578.89,-782.65 577.29,-789.46"/>
+</g>
+<!-- NeuraNFT.getUserNFTs&#45;&gt;NeuraNFT.maxAccess -->
+<g id="edge52" class="edge" data-name="NeuraNFT.getUserNFTs-&gt;NeuraNFT.maxAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M186.49,-1619.13C202.73,-1615.23 218.56,-1607.96 229,-1594.89 265.29,-1549.4 215.3,-588.48 257,-547.89 298.41,-507.56 473.7,-509.73 517.13,-547.89 568.98,-593.44 492.36,-649.36 537.13,-701.89 547.63,-714.21 562.94,-721.6 578.48,-725.99"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="577.43,-729.34 587.96,-728.22 579.03,-722.52 577.43,-729.34"/>
+</g>
+<!-- NeuraNFT.getUserAccessibleNFTs -->
+<g id="node23" class="node" pointer-events="visible" data-name="NeuraNFT.getUserAccessibleNFTs">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="122.5" cy="-1567.89" rx="104.8" ry="18"/>
+<text text-anchor="middle" x="122.5" y="-1563.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getUserAccessibleNFTs</text>
+</g>
+<!-- NeuraNFT.getUserAccessibleNFTs&#45;&gt;NeuraNFT.getAccessLevel -->
+<g id="edge61" class="edge" data-name="NeuraNFT.getUserAccessibleNFTs-&gt;NeuraNFT.getAccessLevel">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M177.27,-1551.26C214.66,-1542.27 265.12,-1531.66 307.07,-1523.88"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="307.6,-1527.34 316.81,-1522.11 306.34,-1520.46 307.6,-1527.34"/>
+</g>
+<!-- NeuraNFT.getUserAccessibleNFTs&#45;&gt;NeuraNFT.getAccessLevel -->
+<g id="edge83" class="edge" data-name="NeuraNFT.getUserAccessibleNFTs-&gt;NeuraNFT.getAccessLevel">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M209.11,-1556.65C247.76,-1549.37 292.45,-1539.96 327.24,-1531.72" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="327.74,-1535.2 336.64,-1529.45 326.1,-1528.39 327.74,-1535.2"/>
+</g>
+<!-- NeuraNFT.getUserAccessibleNFTs&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge62" class="edge" data-name="NeuraNFT.getUserAccessibleNFTs-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M203.85,-1580.29C305.5,-1598.75 472.68,-1625.97 517.13,-1585.89 549.15,-1557.01 509.14,-1425.68 537.13,-1392.89 542.88,-1386.15 550.1,-1381 558.03,-1377.14"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="559.25,-1380.42 567.25,-1373.49 556.67,-1373.92 559.25,-1380.42"/>
+</g>
+<!-- NeuraNFT.getUserAccessibleNFTs&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge82" class="edge" data-name="NeuraNFT.getUserAccessibleNFTs-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M173.63,-1584.98C268.21,-1610.13 467.91,-1648.27 517.13,-1603.89 549.15,-1575.01 509.14,-1443.68 537.13,-1410.89 545.76,-1400.78 557.72,-1394.24 570.39,-1389.85" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="571.16,-1393.27 579.78,-1387.1 569.2,-1386.55 571.16,-1393.27"/>
+</g>
+<!-- NeuraNFT.getUserAccessibleNFTs&#45;&gt;NeuraNFT.nftTokens -->
+<g id="edge57" class="edge" data-name="NeuraNFT.getUserAccessibleNFTs-&gt;NeuraNFT.nftTokens">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M209.02,-1556.89C216.67,-1552.89 223.56,-1547.67 229,-1540.89 292.32,-1461.85 184.3,-700.39 257,-629.89 339.99,-549.4 432.21,-551.43 517.13,-629.89 558.4,-668 501.77,-838.23 537.13,-881.89 545.61,-892.35 557.56,-899.28 570.29,-903.84"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.16,-907.15 579.74,-906.66 571.16,-900.44 569.16,-907.15"/>
+</g>
+<!-- NeuraNFT.getUserAccessibleNFTs&#45;&gt;NeuraNFT.nftMetadata -->
+<g id="edge58" class="edge" data-name="NeuraNFT.getUserAccessibleNFTs-&gt;NeuraNFT.nftMetadata">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M209.04,-1556.9C216.68,-1552.9 223.56,-1547.68 229,-1540.89 296.68,-1456.24 179.27,-641.41 257,-565.89 339.91,-485.31 432.25,-487.38 517.13,-565.89 559.02,-604.63 501.24,-777.52 537.13,-821.89 545.6,-832.35 557.55,-839.28 570.28,-843.84"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.15,-847.16 579.73,-846.66 571.15,-840.45 569.15,-847.16"/>
+</g>
+<!-- NeuraNFT.getUserAccessibleNFTs&#45;&gt;NeuraNFT.collections -->
+<g id="edge55" class="edge" data-name="NeuraNFT.getUserAccessibleNFTs-&gt;NeuraNFT.collections">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M209.08,-1556.93C216.71,-1552.93 223.58,-1547.69 229,-1540.89 271.56,-1487.33 208.08,-357.7 257,-309.89 339.67,-229.07 431.63,-232.07 517.13,-309.89 552.13,-341.74 507.07,-485.34 537.13,-521.89 545.64,-532.23 557.54,-539.12 570.21,-543.67"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="569.01,-546.97 579.6,-546.49 571.03,-540.26 569.01,-546.97"/>
+</g>
+<!-- NeuraNFT.getUserAccessibleNFTs&#45;&gt;NeuraNFT.nextTokenId -->
+<g id="edge56" class="edge" data-name="NeuraNFT.getUserAccessibleNFTs-&gt;NeuraNFT.nextTokenId">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M209.07,-1556.93C216.71,-1552.92 223.58,-1547.69 229,-1540.89 269.38,-1490.14 210.59,-419.19 257,-373.89 339.72,-293.12 432.39,-295.23 517.13,-373.89 560.9,-414.51 499.65,-595.39 537.13,-641.89 547.34,-654.55 562.63,-662.03 578.25,-666.41"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="577.28,-669.78 587.81,-668.62 578.86,-662.96 577.28,-669.78"/>
+</g>
+<!-- NeuraNFT.getUserAccessibleNFTs&#45;&gt;NeuraNFT.defaultAccess -->
+<g id="edge59" class="edge" data-name="NeuraNFT.getUserAccessibleNFTs-&gt;NeuraNFT.defaultAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M209.05,-1556.91C216.69,-1552.91 223.57,-1547.68 229,-1540.89 265.02,-1495.75 215.62,-542.16 257,-501.89 339.84,-421.24 432.3,-423.33 517.13,-501.89 559.65,-541.26 500.71,-716.81 537.13,-761.89 547.35,-774.53 562.65,-782.02 578.27,-786.4"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="577.3,-789.77 587.83,-788.6 578.87,-782.94 577.3,-789.77"/>
+</g>
+<!-- NeuraNFT.getUserAccessibleNFTs&#45;&gt;NeuraNFT.maxAccess -->
+<g id="edge60" class="edge" data-name="NeuraNFT.getUserAccessibleNFTs-&gt;NeuraNFT.maxAccess">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M209.06,-1556.92C216.7,-1552.92 223.58,-1547.69 229,-1540.89 267.2,-1492.95 213.11,-480.68 257,-437.89 339.78,-357.18 432.35,-359.28 517.13,-437.89 560.28,-477.89 500.18,-656.1 537.13,-701.89 547.34,-714.54 562.64,-722.03 578.26,-726.41"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="577.29,-729.77 587.82,-728.61 578.86,-722.95 577.29,-729.77"/>
+</g>
+<!-- NeuraNFT.setMetadata -->
+<g id="node25" class="node" pointer-events="visible" data-name="NeuraNFT.setMetadata">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-1428.89" rx="57.88" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-1424.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">setMetadata</text>
+</g>
+<!-- NeuraNFT.getMetadata -->
+<g id="node26" class="node" pointer-events="visible" data-name="NeuraNFT.getMetadata">
+
+<ellipse fill="rgb(255, 191, 120)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="387.06" cy="-1374.89" rx="58.52" ry="18"/>
+<text text-anchor="middle" x="387.06" y="-1370.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getMetadata</text>
+</g>
+<!-- NeuraNFT.getMetadata&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge64" class="edge" data-name="NeuraNFT.getMetadata-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M444.22,-1369.14C478.38,-1368.03 522.51,-1367.84 560.05,-1368.58"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="559.93,-1372.07 570.01,-1368.81 560.09,-1365.08 559.93,-1372.07"/>
+</g>
+<!-- NeuraNFT.getMetadata&#45;&gt;NeuraNFT._getTokenKey -->
+<g id="edge84" class="edge" data-name="NeuraNFT.getMetadata-&gt;NeuraNFT._getTokenKey">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M444.22,-1380.63C478.38,-1381.74 522.51,-1381.93 560.05,-1381.2" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="560.09,-1384.7 570.01,-1380.97 559.93,-1377.7 560.09,-1384.7"/>
+</g>
+<!-- NeuraNFT.getMetadata&#45;&gt;NeuraNFT.nftMetadata -->
+<g id="edge63" class="edge" data-name="NeuraNFT.getMetadata-&gt;NeuraNFT.nftMetadata">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M446.69,-1376.17C472.23,-1373.43 500.16,-1365.33 517.13,-1344.89 550.02,-1305.26 505.45,-922.47 537.13,-881.89 545.46,-871.22 557.41,-864.21 570.19,-859.63"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="571.12,-863.01 579.71,-856.81 569.13,-856.3 571.12,-863.01"/>
+</g>
+<!-- NeuraNFT._getBalanceKey -->
+<g id="node29" class="node" pointer-events="visible" data-name="NeuraNFT._getBalanceKey">
+
+<ellipse fill="rgb(255, 128, 128)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="844.31" cy="-1266.89" rx="74.7" ry="18"/>
+<text text-anchor="middle" x="844.31" y="-1262.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">_getBalanceKey</text>
+</g>
+<!-- NeuraNFT.getBalanceKey -->
+
+<!-- NeuraNFT._assertOwner -->
+<g id="node32" class="node" pointer-events="visible" data-name="NeuraNFT._assertOwner">
+
+<polygon fill="#73ec8b" stroke="#2e2e38" stroke-width="3" points="708.63,-1201.43 708.63,-1216.34 668.01,-1226.89 610.57,-1226.89 569.96,-1216.34 569.96,-1201.43 610.57,-1190.89 668.01,-1190.89 708.63,-1201.43"/>
+<polygon fill="none" stroke="#2e2e38" stroke-width="3" points="712.62,-1198.33 712.62,-1219.44 668.52,-1230.89 610.07,-1230.89 565.96,-1219.44 565.96,-1198.33 610.07,-1186.89 668.52,-1186.89 712.62,-1198.33"/>
+<text text-anchor="middle" x="639.29" y="-1204.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">_assertOwner</text>
+</g>
+<!-- NeuraNFT._assertNFTOwner -->
+<g id="node33" class="node" pointer-events="visible" data-name="NeuraNFT._assertNFTOwner">
+
+<polygon fill="#73ec8b" stroke="#2e2e38" stroke-width="3" points="728.61,-1139.43 728.61,-1154.34 676.29,-1164.89 602.3,-1164.89 549.98,-1154.34 549.98,-1139.43 602.3,-1128.89 676.29,-1128.89 728.61,-1139.43"/>
+<polygon fill="none" stroke="#2e2e38" stroke-width="3" points="732.62,-1136.16 732.62,-1157.61 676.69,-1168.89 601.9,-1168.89 545.97,-1157.61 545.97,-1136.16 601.9,-1124.89 676.69,-1124.89 732.62,-1136.16"/>
+<text text-anchor="middle" x="639.29" y="-1142.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">_assertNFTOwner</text>
+</g>
+<!-- NeuraNFT._assertValidInputs -->
+<g id="node34" class="node" pointer-events="visible" data-name="NeuraNFT._assertValidInputs">
+
+<ellipse fill="rgb(255, 128, 128)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="639.29" cy="-1088.89" rx="83.4" ry="18"/>
+<text text-anchor="middle" x="639.29" y="-1084.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">_assertValidInputs</text>
+</g>
+<!-- NeuraNFT.tokenBalances -->
+<g id="node37" class="node" pointer-events="visible" data-name="NeuraNFT.tokenBalances">
+
+<polygon fill="#76b7b2" stroke="#2e2e38" stroke-width="3" points="687.93,-512.49 590.66,-512.49 590.66,-471.28 687.93,-471.28 687.93,-512.49"/>
+<text text-anchor="middle" x="639.29" y="-496.09" font-family="Times,serif" font-size="14.00" fill="#0b192c">tokenBalances</text>
+<text text-anchor="middle" x="639.29" y="-479.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">(LookupMap)</text>
+</g>
+<!-- NeuraNFT.collectionBalances -->
+<g id="node38" class="node" pointer-events="visible" data-name="NeuraNFT.collectionBalances">
+
+<polygon fill="#76b7b2" stroke="#2e2e38" stroke-width="3" points="700.03,-452.49 578.56,-452.49 578.56,-411.28 700.03,-411.28 700.03,-452.49"/>
+<text text-anchor="middle" x="639.29" y="-436.09" font-family="Times,serif" font-size="14.00" fill="#0b192c">collectionBalances</text>
+<text text-anchor="middle" x="639.29" y="-419.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">(LookupMap)</text>
+</g><g id="edge67" class="edge" data-name="NeuraNFT.getCollectionBalance-&gt;NeuraNFT._getBalanceKey" data-comment="NeuraNFT.collectionBalances">
+
+<path fill="none" stroke="rgb(11, 25, 44)" stroke-width="2" d="M729.04,-1260.18C739.32,-1260.11 749.77,-1260.12 759.98,-1260.23"/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="759.65,-1263.73 769.7,-1260.38 759.76,-1256.73 759.65,-1263.73"/>
+</g><g id="edge85" class="edge" data-name="NeuraNFT.getCollectionBalance-&gt;NeuraNFT._getBalanceKey" data-comment="NeuraNFT.collectionBalances">
+
+<path fill="none" stroke="#0b192c" stroke-width="2" d="M729.04,-1273.59C739.32,-1273.66 749.77,-1273.65 759.98,-1273.54" style=""/>
+<polygon fill="#0b192c" stroke="#0b192c" stroke-width="2" points="759.76,-1277.04 769.7,-1273.39 759.65,-1270.04 759.76,-1277.04"/>
+</g>
+<!-- NeuraNFT.nextCollectionId -->
+<g id="node41" class="node" pointer-events="visible" data-name="NeuraNFT.nextCollectionId">
+
+<polygon fill="#76b7b2" stroke="#2e2e38" stroke-width="3" points="694.38,-632.49 584.2,-632.49 584.2,-591.28 694.38,-591.28 694.38,-632.49"/>
+<text text-anchor="middle" x="639.29" y="-616.09" font-family="Times,serif" font-size="14.00" fill="#0b192c">nextCollectionId</text>
+<text text-anchor="middle" x="639.29" y="-599.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">(number)</text>
+</g>
+<!-- NeuraNFT.owner -->
+<g id="node45" class="node" pointer-events="visible" data-name="NeuraNFT.owner">
+
+<polygon fill="#76b7b2" stroke="#2e2e38" stroke-width="3" points="668.01,-392.49 610.58,-392.49 610.58,-351.28 668.01,-351.28 668.01,-392.49"/>
+<text text-anchor="middle" x="639.29" y="-376.09" font-family="Times,serif" font-size="14.00" fill="#0b192c">owner</text>
+<text text-anchor="middle" x="639.29" y="-359.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">(string)</text>
+</g>
+<!-- NeuraNFT.getBalance -->
+<g id="node30" class="node" pointer-events="visible" data-name="NeuraNFT.getBalance">
+
+<ellipse fill="rgb(255, 128, 128)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="639.29" cy="-1320.89" rx="53.86" ry="18"/>
+<text text-anchor="middle" x="639.29" y="-1316.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getBalance</text>
+</g>
+<!-- NeuraNFT.getBalance&#45;&gt;NeuraNFT.tokenBalances -->
+<g id="edge65" class="edge" data-name="NeuraNFT.getBalance-&gt;NeuraNFT.tokenBalances">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M584.31,-1319.85C560.92,-1316.06 536.82,-1306.65 527.13,-1284.89 518.61,-1265.75 518.61,-550.02 527.13,-530.89 535.82,-511.38 555.84,-501.27 576.6,-496.15"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="577.1,-499.62 586.21,-494.22 575.72,-492.76 577.1,-499.62"/>
+</g>
+<!-- NeuraNFT.getCollectionBalance -->
+<g id="node31" class="node" pointer-events="visible" data-name="NeuraNFT.getCollectionBalance">
+
+<ellipse fill="rgb(255, 128, 128)" stroke="rgb(46, 46, 56)" stroke-width="3" cx="639.29" cy="-1266.89" rx="94.33" ry="18"/>
+<text text-anchor="middle" x="639.29" y="-1262.69" font-family="Times,serif" font-size="14.00" fill="#0b192c">getCollectionBalance</text>
+</g>
+<!-- NeuraNFT.getCollectionBalance&#45;&gt;NeuraNFT._getBalanceKey -->
+
+<!-- NeuraNFT.getCollectionBalance&#45;&gt;NeuraNFT._getBalanceKey -->
+
+<!-- NeuraNFT.getCollectionBalance&#45;&gt;NeuraNFT.collectionBalances -->
+<g id="edge66" class="edge" data-name="NeuraNFT.getCollectionBalance-&gt;NeuraNFT.collectionBalances">
+
+<path fill="none" stroke="rgb(0, 0, 255)" stroke-width="2" d="M555.55,-1257.59C543.2,-1251.96 532.75,-1243.5 527.13,-1230.89 518.54,-1211.6 518.54,-490.17 527.13,-470.89 534.18,-455.05 548.71,-445.41 565.03,-439.6"/>
+<polygon fill="blue" stroke="blue" stroke-width="2" points="565.65,-443.07 574.25,-436.88 563.67,-436.35 565.65,-443.07"/>
+</g>
+<!-- legend -->
+<g id="node46" class="node" pointer-events="visible" data-name="legend">
+
+<polygon fill="#ede8dc" stroke="none" stroke-width="3" points="199,-2014.89 46,-2014.89 46,-1850.89 199,-1850.89 199,-2014.89"/>
+<polygon fill="none" stroke="#2e2e38" points="54.5,-1984.89 54.5,-2010.89 191.5,-2010.89 191.5,-1984.89 54.5,-1984.89"/>
+<text text-anchor="start" x="100.83" y="-1994.29" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#0b192c">Legend</text>
+<polygon fill="#98e4ff" stroke="none" points="54.5,-1958.89 54.5,-1984.89 85.5,-1984.89 85.5,-1958.89 54.5,-1958.89"/>
+<polygon fill="none" stroke="#2e2e38" points="54.5,-1958.89 54.5,-1984.89 85.5,-1984.89 85.5,-1958.89 54.5,-1958.89"/>
+<text text-anchor="start" x="59.5" y="-1967.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">   </text>
+<polygon fill="none" stroke="#2e2e38" points="85.5,-1958.89 85.5,-1984.89 191.5,-1984.89 191.5,-1958.89 85.5,-1958.89"/>
+<text text-anchor="start" x="105.45" y="-1967.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Constructor</text>
+<polygon fill="#73ec8b" stroke="none" points="54.5,-1932.89 54.5,-1958.89 85.5,-1958.89 85.5,-1932.89 54.5,-1932.89"/>
+<polygon fill="none" stroke="#2e2e38" points="54.5,-1932.89 54.5,-1958.89 85.5,-1958.89 85.5,-1932.89 54.5,-1932.89"/>
+<text text-anchor="start" x="59.5" y="-1941.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">   </text>
+<polygon fill="none" stroke="#2e2e38" points="85.5,-1932.89 85.5,-1958.89 191.5,-1958.89 191.5,-1932.89 85.5,-1932.89"/>
+<text text-anchor="start" x="113.62" y="-1941.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Modifier</text>
+<polygon fill="#ffbf78" stroke="none" points="54.5,-1906.89 54.5,-1932.89 85.5,-1932.89 85.5,-1906.89 54.5,-1906.89"/>
+<polygon fill="none" stroke="#2e2e38" points="54.5,-1906.89 54.5,-1932.89 85.5,-1932.89 85.5,-1906.89 54.5,-1906.89"/>
+<text text-anchor="start" x="59.5" y="-1915.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">   </text>
+<polygon fill="none" stroke="#2e2e38" points="85.5,-1906.89 85.5,-1932.89 191.5,-1932.89 191.5,-1906.89 85.5,-1906.89"/>
+<text text-anchor="start" x="113.61" y="-1915.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Function</text>
+<polygon fill="#ff8080" stroke="none" points="54.5,-1880.89 54.5,-1906.89 85.5,-1906.89 85.5,-1880.89 54.5,-1880.89"/>
+<polygon fill="none" stroke="#2e2e38" points="54.5,-1880.89 54.5,-1906.89 85.5,-1906.89 85.5,-1880.89 54.5,-1880.89"/>
+<text text-anchor="start" x="59.5" y="-1889.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">   </text>
+<polygon fill="none" stroke="#2e2e38" points="85.5,-1880.89 85.5,-1906.89 191.5,-1906.89 191.5,-1880.89 85.5,-1880.89"/>
+<text text-anchor="start" x="90.09" y="-1889.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Internal Function</text>
+<polygon fill="#76b7b2" stroke="none" points="54.5,-1854.89 54.5,-1880.89 85.5,-1880.89 85.5,-1854.89 54.5,-1854.89"/>
+<polygon fill="none" stroke="#2e2e38" points="54.5,-1854.89 54.5,-1880.89 85.5,-1880.89 85.5,-1854.89 54.5,-1854.89"/>
+<text text-anchor="start" x="59.5" y="-1863.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">   </text>
+<polygon fill="none" stroke="#2e2e38" points="85.5,-1854.89 85.5,-1880.89 191.5,-1880.89 191.5,-1854.89 85.5,-1854.89"/>
+<text text-anchor="start" x="99.44" y="-1863.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Data Variable</text>
+</g>
+<g id="node47" class="node" pointer-events="visible" data-name="edge_legend" data-comment="legend">
+
+<polygon fill="#ede8dc" stroke="none" stroke-width="3" points="189,-2174.89 56,-2174.89 56,-2070.89 189,-2070.89 189,-2174.89"/>
+<text text-anchor="start" x="83.91" y="-2155.29" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#0b192c">Edge Legend</text>
+<text text-anchor="start" x="68.5" y="-2130.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Function Call</text>
+<text text-anchor="start" x="167.25" y="-2130.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">→</text>
+<text text-anchor="start" x="68.32" y="-2106.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Write Operation</text>
+<text text-anchor="start" x="167.25" y="-2106.29" font-family="Times,serif" font-size="14.00" fill="#73ec8b">→</text>
+<text text-anchor="start" x="68.5" y="-2082.29" font-family="Times,serif" font-size="14.00" fill="#0b192c">Read Operation</text>
+<text text-anchor="start" x="167.25" y="-2082.29" font-family="Times,serif" font-size="14.00" fill="blue">←</text>
+</g></g>
+</svg>
