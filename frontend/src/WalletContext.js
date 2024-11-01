@@ -61,9 +61,11 @@ export const AppProvider = ({ children }) => {
       }
 
       const currentDomain = window.location.origin;
+      const currentPath = window.location.href; // Gets full URL including path
+      
       await walletConnection.requestSignIn({
-        successUrl: `${currentDomain}/`,
-        failureUrl: `${currentDomain}/`,
+        successUrl: currentPath,
+        failureUrl: currentPath,
       });
 
       if (walletConnection.isSignedIn()) {

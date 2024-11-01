@@ -10,6 +10,7 @@ import { marked } from 'marked';
 import AddAccessDialog from './AddAccessDialog';
 import UpdateAccessDialog from './UpdateAccessDialog';
 import Loading from './Loading';
+
 import {UpdateAcceess} from '../Utils/signData';
 
 import APIDialog from './ApiDialog';
@@ -79,7 +80,7 @@ const FullNFTPage = () => {
     // Implement the logic to add access
     // get nftis and collection id and address and accesslevel
 
-    await UpdateAcceess(nft.collectionId, nft.id, address, parseInt(accessLevel));
+    await UpdateAcceess(walletConnection,nft.collectionId, nft.id, address, parseInt(accessLevel));
 
     console.log(`Adding access for ${address} with level ${accessLevel}`);
   };
@@ -88,7 +89,7 @@ const FullNFTPage = () => {
   async function handleUpdateAccess (address, newAccessLevel) {
     // Implement the logic to update access
     // get nftis and collection id and address and accesslevel
-    await UpdateAcceess(nft.collectionId, nft.id, address, parseInt(newAccessLevel));
+    await UpdateAcceess(walletConnection,nft.collectionId, nft.id, address, parseInt(newAccessLevel));
     console.log(`Updating access for ${address} to level ${newAccessLevel}`);
 };
 

@@ -252,8 +252,10 @@ async function extractNFTIdFromTransaction( walletConnection,transactionHash) {
     // if (!nearState.loggedIn) {
     //   throw new Error('Wallet not connected');
     // }
-  
+    
+    console.log("Update Access",walletConnection);
     const account = walletConnection.account();
+
     const contractId = endpoints.CONTRACT_NAME; // Replace with your contract's account ID
   
     const contract = getContract(account, contractId, [], ['setAccess']);

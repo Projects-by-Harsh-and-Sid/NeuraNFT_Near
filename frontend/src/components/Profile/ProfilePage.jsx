@@ -80,9 +80,9 @@ const ProfilePage = () => {
   };
 
 
-  const formatAddress = (addr) => {
+  const checkaddress = (addr) => {
     if (addr && addr.length > 10) {
-      return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
+      return `${addr}`;
     }
     return addr || 'Connect to Wallet';
   };
@@ -160,7 +160,7 @@ const ProfilePage = () => {
       <div className={styles.profileInfo}>
         <img src={DefaultImage} alt="Profile" className={styles.profileImage} />
         <div className={styles.profileDetails}>
-          <h1 className={styles.profileAddress}>{address}</h1>
+          <h1 className={styles.profileAddress}>{checkaddress(address)}</h1>
           {/* <button className={styles.editButton}>Edit Profile</button> */}
           <div className={styles.profileStats}>
           <p>Total Collections: {collections.length}</p>

@@ -399,7 +399,7 @@ async function initializeChat() {
 
     // Add a custom sanitize configuration for DOMPurify
     const sanitizeConfig = {
-      ALLOWED_TAGS: ['pre', 'code', 'span', 'p', 'br', 'div', 'h4', 'h5', 'h6', 'ul', 'ol', 'li',],
+      ALLOWED_TAGS: ['pre', 'code', 'span', 'p', 'br', 'div', 'h4', 'h5', 'h6', 'ul', 'ol', 'li','a'],
       ALLOWED_ATTR: ['class', 'style'],
       ADD_ATTR: ['class']
     };

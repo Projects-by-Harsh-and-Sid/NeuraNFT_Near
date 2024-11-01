@@ -263,6 +263,7 @@
   background-color: #007bff;
   color: white;
   min-width: 100px;
+  max-width: 30%;
   /* align-items: right; */
 }
 
