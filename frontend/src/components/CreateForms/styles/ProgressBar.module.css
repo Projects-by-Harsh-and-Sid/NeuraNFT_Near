@@ -128,4 +128,8 @@
       transform: none;
       margin-top: 5px;
     }
+
+    .progress{
+      display: none;
+    }
   }
