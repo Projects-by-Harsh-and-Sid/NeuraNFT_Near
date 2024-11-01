@@ -492,6 +492,10 @@
       
     }
 
+    .progressBar{
+      display: none;
+    }
+
 }
 
 .transactionComplete {
