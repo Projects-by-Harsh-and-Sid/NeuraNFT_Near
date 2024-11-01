@@ -24,3 +24,7 @@ PyJWT
 sentence-transformers
 
 python-dotenv
+
+PyMuPDF
+
+pdfminer.six

@@ -81,8 +81,8 @@ services:
       - ./master_node/app/uploads/images:/usr/share/nginx/images:ro  # Mount images directory
       - ./master_node/app/uploads/images/default.jpg:/usr/share/nginx/html/default.jpg:ro  # Mount default image
       - ./master_node/.nginx_logs:/var/log/nginx  # Mount nginx logs
-    depends_on:
-      - near_neuranft_backend
+    # depends_on:
+    #   - near_neuranft_backend
     networks:
       - near_neuranft_network
     container_name: neuranft_nginx
@@ -90,7 +90,9 @@ services:
       - NEAR_API_ENDPOINT=http://near_neuranft_near_api_container:3000/api/
       - NEAR_HEALTH_CHECK=http://near_neuranft_near_api_container:3000/health
       # - BACKEND_ENDPOINT=http://near_neuranft_backend_container:5500
-      - BACKEND_ENDPOINT=http://192.168.0.142:5500
+      - BACKEND_ENDPOINT=http://host.docker.internal:5500
+      # - BACKEND_ENDPOINT=http://192.168.0.142:5500
+
 
 
 

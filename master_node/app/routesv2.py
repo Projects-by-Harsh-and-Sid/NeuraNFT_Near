@@ -51,6 +51,33 @@ def convert_pdf_to_text(file):
         raise Exception(f"Error processing PDF: {str(e)}")
 
 
+# # import fitz  # PyMuPDF
+
+# # def convert_pdf_to_text(file):
+# #     try:
+# #         text = ""
+# #         with fitz.open(file) as doc:
+# #             for page in doc:
+# #                 text += page.get_text()
+# #         return text
+# #     except Exception as e:
+# #         raise Exception(f"Error processing PDF: {str(e)}")
+
+
+# from io import BytesIO
+# from pdfminer.high_level import extract_text
+
+# def convert_pdf_to_text(file):
+#     # Ensure the file stream is at the beginning
+#     file.seek(0)
+#     # Read the file into a bytes buffer
+#     file_bytes = BytesIO(file.read())
+#     # Extract text using pdfminer.six
+#     text = extract_text(file_bytes)
+#     return text
+
+
+
 
 def sanitize_text(text):
     # return ''.join(ch for ch in text if unicodedata.category(ch)[0] != 'C')
@@ -169,9 +196,14 @@ def generate_key():
     
     if not check_urk_format(data_link) :
         data_link = f"{FILE_STORAGE_ENDPOINT}/data/default.data"
-
-    data = requests.get(data_link).json()
+        
     
+    if int(app.config['LOCAL_ENV']) == 1:
+        local_endpoint  = f"{app.config["Load_balancer_Endpoints"]['hpcEndpoint']}:{app.config["Load_balancer_Endpoints"]['hpcEndpointPort']}"
+        data_link       = str(data_link).lower().replace(str(FILE_STORAGE_ENDPOINT).lower(), local_endpoint)  
+        
+        
+    data = requests.get(data_link).json()
     
     # also get rag data etc
     

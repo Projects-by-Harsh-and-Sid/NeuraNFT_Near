@@ -35,6 +35,28 @@ NeuraNFT is a pioneering platform built on the Base blockchain that aims to toke
    ```bash
    docker-compose down
    ```
+6. Compose a specific service
+
+   ```bash
+   docker-compose up <service_name>
+   ```
+7. compose a specific service in detached mode
+
+   ```bash
+   docker-compose up -d <service_name>
+   ```
+
+8. compose a specific file
+
+   ```bash
+   docker-compose -f <file_name> up
+   ```
+
+   eg
+
+   ```
+   docker compose -f  docker-compose-local-debug.yml up --build
+   ```
 
 ### Note check these files for local deployment
 

@@ -1,14 +1,18 @@
-
 import endpoints from '../../endpoints.json';
+import axios from 'axios';
+
 
 const baseURL = endpoints.BACKEND_URL;
 
 
+
 export async function get_api_key(collectionId, nftID){ 
 
-    const response = await fetch(`${baseURL}/generate_key?collection_id=${collectionId}&nft_id=${nftID}`);
+    const response = await axios.get(`${baseURL}/generate_key?collection_id=${collectionId}&nft_id=${nftID}`);
     console.log("Response:", response);
-    const data = response.json();
+    // const data = response.data();
+    const data = response["data"];
+
     return data;
     
 }
@@ -27,15 +31,16 @@ export async function get_jwt_decoded_response_for_chat(collectionId, nftID){
     console.log("API Keys:", apiKey);
     console.log("URL:", url);
 
-        const response = await fetch(url, {
-      method: 'POST',
+        const response = await axios.post(url, {},{
       headers: {
         'Content-Type': 'application/json',
         'X-API-Key': apiKey
       },}
 
         );
-    const decoded_response = await response.json();
+    // const decoded_response = response.data();
+    const decoded_response = response["data"];
+
 
     const jwt_Token = decoded_response['jwt_token'];
 

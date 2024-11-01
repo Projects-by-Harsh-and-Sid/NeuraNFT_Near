@@ -28,7 +28,8 @@ def init_config():
         "HPC_ENDPOINT"          : "http://localhost",
         "HPC_ENDPOINT_PORT"     : "6010",
         "FILESTORAGE_ENDPOINT"  : "http://localhost:6010",
-        "NEAR_API_ENDPOINT"     : "http://localhost:3000/api/"
+        "NEAR_API_ENDPOINT"     : "http://localhost:3000/api/",
+        "LOCAL_ENV"             : "1",   
     }
 
     # Get configuration from environment variables with fallback to defaults
@@ -41,6 +42,7 @@ def init_config():
             },
         "filestorage_endpoint"  : os.getenv("FILESTORAGE_ENDPOINT", default_config["FILESTORAGE_ENDPOINT"]),
         "NEAR_API_ENDPOINT"     : os.getenv("NEAR_API_ENDPOINT", default_config["NEAR_API_ENDPOINT"]),
+        "LOCAL_ENV"             : os.getenv("LOCAL_ENV", default_config["LOCAL_ENV"]),
     }
     
     return config
