@@ -11,6 +11,16 @@ import styles from './styles/Chat.module.css';
 // import {get_api_key} from './helper_functions/get_chat_data';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import Prism from 'prismjs';
+import 'prismjs/themes/prism-tomorrow.css'; // Choose your preferred theme
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-python';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-css';
+import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-bash';  // For bash/shell commands
+import 'prismjs/components/prism-shell-session';  // For shell sessions with prompts
 
 // import {get_collection_data , get_nft_data} from './helper_functions/get_chain_data';
 const baseURL = endpoints.BACKEND_URL;
@@ -76,6 +86,8 @@ const NFTImage = ({ nftImage, name }) => {
 
 
 
+
+
 const Chat = () => {
   // const { actor, authClient } = useAppContext();
   const { collectionId, nftID } = useParams(); // Get nftId from URL
@@ -108,6 +120,23 @@ const Chat = () => {
   const sidebarRef = useRef(null);
 
   const minSwipeDistance = 50;
+
+  useEffect(() => {
+    marked.setOptions({
+      highlight: function(code, lang) {
+        if (Prism.languages[lang]) {
+          try {
+            return Prism.highlight(code, Prism.languages[lang], lang);
+          } catch (e) {
+            console.error('Prism highlighting error:', e);
+            return code;
+          }
+        }
+        return code;
+      }
+    });
+  }, []);
+
 
   const handleCloseAlert = () => {
     setChatInfo('');
@@ -240,7 +269,30 @@ async function initializeChat() {
         const newHistory = [...prevHistory];
         newHistory[newHistory.length - 1] = { 
           type: 'bot', 
-          content: `<div class={styles['bot-response']}>${typedMessage.trim()}</div>`
+          content: `<div class="bot-response" style="white-space: pre-wrap; overflow-x: auto; max-width: 100%; 
+          scrollbar-width: thin; 
+          scrollbar-color: #666 #1e1e1e;
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+          &::-webkit-scrollbar {
+            display: none;  /* Chrome, Safari and Opera */
+          }
+          &:hover::-webkit-scrollbar {
+            display: block;
+            height: 8px;
+          }
+          &::-webkit-scrollbar-track {
+            background: #1e1e1e;
+            border-radius: 4px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: #666;
+            border-radius: 4px;
+          }
+          &::-webkit-scrollbar-thumb:hover {
+            background: #888;
+          }
+        ">${typedMessage.trim()}</div>`
         };
         return newHistory;
       });
@@ -326,10 +378,16 @@ async function initializeChat() {
       const responseData = await response.json();
       const rawMarkdown = responseData.answer || 'No answer provided';
       const sanitizedHtml = DOMPurify.sanitize(marked(rawMarkdown));
+
+      
       
       setChatHistory(prevHistory => [...prevHistory, { type: 'bot', content: '' }]);
-      await simulateTyping(`<div class={styles['bot-response']}>${sanitizedHtml}</div>`);
+      await simulateTyping(`<div class={styles['bot-response'] styles={{textWrap: 'auto'}}}>${sanitizedHtml}</div>`);
 
+
+      Prism.highlightAll();
+
+      
     } catch (error) {
       console.error('Error sending message:', error);
       const errorMessage = `An error occurred: ${error.message}`;
@@ -338,6 +396,61 @@ async function initializeChat() {
       setIsLoading(false);
     }
   };
+
+    // Add a custom sanitize configuration for DOMPurify
+    const sanitizeConfig = {
+      ALLOWED_TAGS: ['pre', 'code', 'span', 'p', 'br', 'div', 'h4', 'h5', 'h6', 'ul', 'ol', 'li',],
+      ALLOWED_ATTR: ['class', 'style'],
+      ADD_ATTR: ['class']
+    };
+  
+    // Modify your message rendering to handle code blocks
+    const renderMessage = (message) => {
+      if (message.type === 'bot') {
+        const processedContent = typeof message.content === 'string' 
+          ? message.content 
+          : message.content.props.children;
+  
+        // Parse the content with marked
+        const htmlContent = marked(processedContent);
+        
+        // Sanitize the HTML content
+        const sanitizedContent = DOMPurify.sanitize(htmlContent, sanitizeConfig);
+  
+        return (
+          <div 
+            className={styles['bot-para']} 
+            dangerouslySetInnerHTML={{ __html: sanitizedContent }}
+            style={{ textWrap: 'auto', padding: '10px' }}
+          />
+        );
+      }
+      return <p className={styles['message']}>{message.content}</p>;
+    };
+  
+    // Modify your message list rendering
+    const renderChatMessages = () => (
+      <div className={styles['chat-messages']}>
+        {chatHistory.map((message, index) => (
+          <div 
+            key={index} 
+            className={`${styles.message} ${styles[`${message.type}-message`]}`}
+          >
+            {renderMessage(message)}
+          </div>
+        ))}
+        {isTyping && (
+          <div className={styles['message bot-message']}>
+            <div className="typing-indicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        )}
+        <div ref={chatEndRef} />
+      </div>
+    );
 
   return (
   <div className={styles['chat-page']}>
@@ -418,25 +531,7 @@ async function initializeChat() {
       <h2 className={styles['chat-header']}>{nftDetails.name}</h2>
       <div className={styles['chat-messages']}>
       <div className={styles['chat-messages']}>
-          {chatHistory.map((message, index) => (
-            <div key={index} className={`${styles.message} ${styles[`${message.type}-message`]}`}>
-              {message.type === 'bot' ? (
-                <div className={styles['bot-para']} dangerouslySetInnerHTML={{ __html: message.content }} style={{ textWrap: 'auto' ,padding: '10px'}}></div>
-              ) : (
-                <p className={styles['message']}>{message.content}</p>
-              )}
-            </div>
-          ))}
-          {isTyping && (
-            <div className={styles['message bot-message']}>
-              <div className="typing-indicator">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-          )}
-          <div ref={chatEndRef} />
+        {renderChatMessages()}
         </div>
         {isLoading && (
           <div className={styles['loading-indicator']}></div>
