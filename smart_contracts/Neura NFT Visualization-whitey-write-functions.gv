@@ -1,0 +1,230 @@
+digraph G {
+  graph [ratio="auto", page="100", compound=true, bgcolor="white"];
+  node [style="filled", fillcolor="#2E2E38", color="#2E2E38", penwidth=3, fontcolor="#0B192C"];
+  edge [color="#FFFFFF", penwidth=2, fontname="Helvetica", fontcolor="#0B192C"];
+  rankdir=LR;
+
+  // ---------------------------- Subgraphs ---------------------------- //
+
+  subgraph "clusterInitialization" {
+    graph [label="Initialization", color="#F3F8FF", fontcolor="#0B192C", style="rounded", bgcolor="#F3F8FF"];
+    "NeuraNFT.init" [label="init", fillcolor="#98E4FF", fontcolor="#0B192C"];
+  }
+
+  subgraph "clusterCollectionManagement" {
+    graph [label="Collection Management", color="#F3F8FF", fontcolor="#0B192C", style="rounded", bgcolor="#F3F8FF"];
+    "NeuraNFT.createCollection" [label="createCollection", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.updateCollection" [label="updateCollection", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getCollection" [label="getCollection", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getAllCollections" [label="getAllCollections", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getCollectionsFullInfo" [label="getCollectionsFullInfo", fillcolor="#FFBF78", fontcolor="#0B192C"];
+  }
+
+  subgraph "clusterNFTManagement" {
+    graph [label="NFT Management", color="#F3F8FF", fontcolor="#0B192C", style="rounded", bgcolor="#F3F8FF"];
+    "NeuraNFT.createNFT" [label="createNFT", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.createNFTWithMetadata" [label="createNFTWithMetadata", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.transferNFT" [label="transferNFT", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.burnNFT" [label="burnNFT", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getNFTInfo" [label="getNFTInfo", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getAllNFTsWithMetadata" [label="getAllNFTsWithMetadata", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getNFTFullData" [label="getNFTFullData", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getCollectionNFTs" [label="getCollectionNFTs", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getCollectionNFTCount" [label="getCollectionNFTCount", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getCollectionUniqueHolders" [label="getCollectionUniqueHolders", fillcolor="#FFBF78", fontcolor="#0B192C"];
+  }
+
+  subgraph "clusterAccessControl" {
+    graph [label="Access Control", color="#F3F8FF", fontcolor="#0B192C", style="rounded", bgcolor="#F3F8FF"];
+    "NeuraNFT.setAccess" [label="setAccess", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT._setAccess" [label="_setAccess", fillcolor="#FF8080", fontcolor="#0B192C"];
+    "NeuraNFT.getAccessLevel" [label="getAccessLevel", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getAllUserAccessLevels" [label="getAllUserAccessLevels", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getNFTAccessUsers" [label="getNFTAccessUsers", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getUserNFTs" [label="getUserNFTs", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getUserAccessibleNFTs" [label="getUserAccessibleNFTs", fillcolor="#FFBF78", fontcolor="#0B192C"];
+  }
+
+  subgraph "clusterMetadataManagement" {
+    graph [label="Metadata Management", color="#F3F8FF", fontcolor="#0B192C", style="rounded", bgcolor="#F3F8FF"];
+    "NeuraNFT.setMetadata" [label="setMetadata", fillcolor="#FFBF78", fontcolor="#0B192C"];
+    "NeuraNFT.getMetadata" [label="getMetadata", fillcolor="#FFBF78", fontcolor="#0B192C"];
+  }
+
+  subgraph "clusterHelperFunctions" {
+    graph [label="Helper Functions", color="#F3F8FF", fontcolor="#0B192C", style="rounded", bgcolor="#F3F8FF"];
+    "NeuraNFT._getTokenKey" [label="_getTokenKey", fillcolor="#FF8080", fontcolor="#0B192C"];
+    "NeuraNFT._getAccessKey" [label="_getAccessKey", fillcolor="#FF8080", fontcolor="#0B192C"];
+    "NeuraNFT._getBalanceKey" [label="_getBalanceKey", fillcolor="#FF8080", fontcolor="#0B192C"];
+    "NeuraNFT._assertOwner" [label="_assertOwner", fillcolor="#73EC8B", fontcolor="#0B192C", shape=doubleoctagon];
+    "NeuraNFT._assertNFTOwner" [label="_assertNFTOwner", fillcolor="#73EC8B", fontcolor="#0B192C", shape=doubleoctagon];
+    "NeuraNFT._assertValidInputs" [label="_assertValidInputs", fillcolor="#FF8080", fontcolor="#0B192C"];
+  }
+
+  subgraph "clusterDataVariables" {
+    graph [label="Data Variables", color="#F3F8FF", fontcolor="#0B192C", style="rounded", bgcolor="#F3F8FF"];
+    "NeuraNFT.nftTokens" [label="nftTokens\n(UnorderedMap)", shape="rectangle", fillcolor="#76B7B2", fontcolor="#0B192C"];
+    "NeuraNFT.nftMetadata" [label="nftMetadata\n(UnorderedMap)", shape="rectangle", fillcolor="#76B7B2", fontcolor="#0B192C"];
+    "NeuraNFT.tokenBalances" [label="tokenBalances\n(LookupMap)", shape="rectangle", fillcolor="#76B7B2", fontcolor="#0B192C"];
+    "NeuraNFT.collectionBalances" [label="collectionBalances\n(LookupMap)", shape="rectangle", fillcolor="#76B7B2", fontcolor="#0B192C"];
+    "NeuraNFT.collections" [label="collections\n(UnorderedMap)", shape="rectangle", fillcolor="#76B7B2", fontcolor="#0B192C"];
+    "NeuraNFT.nextTokenId" [label="nextTokenId\n(LookupMap)", shape="rectangle", fillcolor="#76B7B2", fontcolor="#0B192C"];
+    "NeuraNFT.nextCollectionId" [label="nextCollectionId\n(number)", shape="rectangle", fillcolor="#76B7B2", fontcolor="#0B192C"];
+    "NeuraNFT.nftAccess" [label="nftAccess\n(LookupMap)", shape="rectangle", fillcolor="#76B7B2", fontcolor="#0B192C"];
+    "NeuraNFT.defaultAccess" [label="defaultAccess\n(LookupMap)", shape="rectangle", fillcolor="#76B7B2", fontcolor="#0B192C"];
+    "NeuraNFT.maxAccess" [label="maxAccess\n(LookupMap)", shape="rectangle", fillcolor="#76B7B2", fontcolor="#0B192C"];
+    "NeuraNFT.owner" [label="owner\n(string)", shape="rectangle", fillcolor="#76B7B2", fontcolor="#0B192C"];
+  }
+
+  // ---------------------------- Function Calls ---------------------------- //
+
+  "NeuraNFT.init" -> "near.predecessorAccountId" [color="#0B192C"];
+
+  "NeuraNFT.createCollection" -> "NeuraNFT._assertValidInputs" [color="#0B192C"];
+  "NeuraNFT.createCollection" -> "near.predecessorAccountId" [color="#0B192C"];
+
+  "NeuraNFT.updateCollection" -> "NeuraNFT.collections" [color="#0B192C"];
+  "NeuraNFT.updateCollection" -> "near.predecessorAccountId" [color="#0B192C"];
+
+  "NeuraNFT.createNFT" -> "NeuraNFT.collections" [color="#0B192C"];
+  "NeuraNFT.createNFT" -> "near.predecessorAccountId" [color="#0B192C"];
+  "NeuraNFT.createNFT" -> "NeuraNFT.nextTokenId" [color="#0B192C"];
+  "NeuraNFT.createNFT" -> "NeuraNFT._getTokenKey" [color="#0B192C"];
+  "NeuraNFT.createNFT" -> "NeuraNFT._setAccess" [color="#0B192C"];
+
+  "NeuraNFT.transferNFT" -> "NeuraNFT._assertNFTOwner" [color="#0B192C"];
+  "NeuraNFT.transferNFT" -> "NeuraNFT._getTokenKey" [color="#0B192C"];
+  "NeuraNFT.transferNFT" -> "NeuraNFT.nftTokens" [color="#0B192C"];
+  "NeuraNFT.transferNFT" -> "NeuraNFT.getAccessLevel" [color="#0B192C"];
+  "NeuraNFT.transferNFT" -> "NeuraNFT._setAccess" [color="#0B192C"];
+
+  "NeuraNFT.setAccess" -> "NeuraNFT._assertNFTOwner" [color="#0B192C"];
+  "NeuraNFT.setAccess" -> "NeuraNFT._setAccess" [color="#0B192C"];
+
+  "NeuraNFT._setAccess" -> "NeuraNFT._getAccessKey" [color="#0B192C"];
+  "NeuraNFT._setAccess" -> "NeuraNFT.nftAccess" [color="#0B192C"];
+
+  "NeuraNFT.getAccessLevel" -> "NeuraNFT._getAccessKey" [color="#0B192C"];
+  "NeuraNFT.getAccessLevel" -> "NeuraNFT.nftAccess" [color="#0B192C"];
+  "NeuraNFT.getAccessLevel" -> "NeuraNFT.defaultAccess" [color="#0B192C"];
+
+  "NeuraNFT.setMetadata" -> "NeuraNFT._assertNFTOwner" [color="#0B192C"];
+  "NeuraNFT.setMetadata" -> "NeuraNFT._assertValidInputs" [color="#0B192C"];
+  "NeuraNFT.setMetadata" -> "NeuraNFT.nftMetadata" [color="#0B192C"];
+  "NeuraNFT.setMetadata" -> "NeuraNFT._getTokenKey" [color="#0B192C"];
+
+  "NeuraNFT.createNFTWithMetadata" -> "NeuraNFT.createNFT" [color="#0B192C"];
+  "NeuraNFT.createNFTWithMetadata" -> "NeuraNFT.setMetadata" [color="#0B192C"];
+
+  "NeuraNFT.burnNFT" -> "NeuraNFT._assertNFTOwner" [color="#0B192C"];
+  "NeuraNFT.burnNFT" -> "NeuraNFT._getTokenKey" [color="#0B192C"];
+  "NeuraNFT.burnNFT" -> "NeuraNFT.nftTokens" [color="#0B192C"];
+  "NeuraNFT.burnNFT" -> "NeuraNFT.tokenBalances" [color="#0B192C"];
+  "NeuraNFT.burnNFT" -> "NeuraNFT.collectionBalances" [color="#0B192C"];
+  "NeuraNFT.burnNFT" -> "NeuraNFT.nftMetadata" [color="#0B192C"];
+
+  // ---------------------------- Data Variable Access ---------------------------- //
+
+  // NeuraNFT.createCollection
+  "NeuraNFT.createCollection" -> "NeuraNFT.collections" [color="#73EC8B"]; // write
+  "NeuraNFT.createCollection" -> "NeuraNFT.nextCollectionId" [color="#73EC8B"]; // write
+  "NeuraNFT.nextCollectionId" -> "NeuraNFT.createCollection" [color="blue"]; // read
+
+  // NeuraNFT.updateCollection
+  "NeuraNFT.updateCollection" -> "NeuraNFT.collections" [color="#73EC8B"]; // write
+  "NeuraNFT.collections" -> "NeuraNFT.updateCollection" [color="blue"]; // read
+
+  // NeuraNFT.createNFT
+  "NeuraNFT.createNFT" -> "NeuraNFT.nftTokens" [color="#73EC8B"];
+  "NeuraNFT.createNFT" -> "NeuraNFT.nextTokenId" [color="#73EC8B"];
+  "NeuraNFT.createNFT" -> "NeuraNFT.tokenBalances" [color="#73EC8B"];
+  "NeuraNFT.createNFT" -> "NeuraNFT.collectionBalances" [color="#73EC8B"];
+  "NeuraNFT.collections" -> "NeuraNFT.createNFT" [color="blue"];
+  "NeuraNFT.nextTokenId" -> "NeuraNFT.createNFT" [color="blue"];
+  "NeuraNFT.tokenBalances" -> "NeuraNFT.createNFT" [color="blue"];
+  "NeuraNFT.collectionBalances" -> "NeuraNFT.createNFT" [color="blue"];
+
+  // NeuraNFT.transferNFT
+  "NeuraNFT.transferNFT" -> "NeuraNFT.nftTokens" [color="#73EC8B"]; // write
+  "NeuraNFT.transferNFT" -> "NeuraNFT.tokenBalances" [color="#73EC8B"];
+  "NeuraNFT.transferNFT" -> "NeuraNFT.collectionBalances" [color="#73EC8B"];
+  "NeuraNFT.nftTokens" -> "NeuraNFT.transferNFT" [color="blue"];
+  "NeuraNFT.tokenBalances" -> "NeuraNFT.transferNFT" [color="blue"];
+  "NeuraNFT.collectionBalances" -> "NeuraNFT.transferNFT" [color="blue"];
+
+  // NeuraNFT.setAccess
+  "NeuraNFT.setAccess" -> "NeuraNFT.nftAccess" [color="#73EC8B"]; // via _setAccess
+
+  // NeuraNFT.setMetadata
+  "NeuraNFT.setMetadata" -> "NeuraNFT.nftMetadata" [color="#73EC8B"];
+
+  // NeuraNFT.burnNFT
+  "NeuraNFT.burnNFT" -> "NeuraNFT.nftTokens" [color="#73EC8B"]; // remove
+  "NeuraNFT.burnNFT" -> "NeuraNFT.nftMetadata" [color="#73EC8B"]; // remove
+  "NeuraNFT.burnNFT" -> "NeuraNFT.tokenBalances" [color="#73EC8B"];
+  "NeuraNFT.burnNFT" -> "NeuraNFT.collectionBalances" [color="#73EC8B"];
+
+  // ---------------------------- Legend ---------------------------- //
+
+  subgraph cluster_legend {
+    label="Legend";
+    fontsize=20;
+    node [shape=plaintext, fillcolor="#EDE8DC"];
+
+    legend [label=<
+      <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD COLSPAN="2"><B>Legend</B></TD></TR>
+        <TR>
+          <TD BGCOLOR="#98E4FF">&nbsp;&nbsp;&nbsp;</TD>
+          <TD>Constructor</TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#73EC8B">&nbsp;&nbsp;&nbsp;</TD>
+          <TD>Modifier</TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FFBF78">&nbsp;&nbsp;&nbsp;</TD>
+          <TD>Function</TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#FF8080">&nbsp;&nbsp;&nbsp;</TD>
+          <TD>Internal Function</TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR="#76B7B2">&nbsp;&nbsp;&nbsp;</TD>
+          <TD>Data Variable</TD>
+        </TR>
+      </TABLE>
+    >];
+  }
+
+
+
+
+
+  // ---------------------------- Edge Legend ---------------------------- //
+
+  subgraph cluster_edge_legend {
+    label = "Edge Legend";
+    fontsize=20;
+    node [shape=plaintext, fillcolor="#EDE8DC"];
+
+    edge_legend [label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4">
+        <TR><TD COLSPAN="2"><B>Edge Legend</B></TD></TR>
+        <TR>
+          <TD ALIGN="LEFT">Function Call</TD>
+          <TD><FONT COLOR="#0B192C">&#8594;</FONT></TD>
+        </TR>
+        <TR>
+          <TD ALIGN="LEFT">Write Operation</TD>
+          <TD><FONT COLOR="#73EC8B">&#8594;</FONT></TD>
+        </TR>
+        <TR>
+          <TD ALIGN="LEFT">Read Operation</TD>
+          <TD><FONT COLOR="blue">&#8592;</FONT></TD>
+        </TR>
+      </TABLE>
+    >];
+  }
+}
