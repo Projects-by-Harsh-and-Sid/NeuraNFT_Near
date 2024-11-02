@@ -69,7 +69,9 @@ server {
         # # Enable CORS
         add_header 'Access-Control-Allow-Origin' '*' always;
         add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE' always;
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization' always;
+        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,X-API-Key,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization' always;
+        add_header 'Content-Type' 'text/plain charset=UTF-8, application/json charset=UTF-8';
+
 
         # Handle OPTIONS method
         if ($request_method = 'OPTIONS') {

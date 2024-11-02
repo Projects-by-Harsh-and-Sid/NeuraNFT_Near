@@ -16,17 +16,7 @@ MAX_RETRIES = 3
 BATCH_SIZE = 50
 
 # Optimized Web3 connection
-# w3 = Web3(Web3.HTTPProvider("https://base-sepolia-rpc.publicnode.com",
-#     request_kwargs={
-#         'timeout': 30,
-#         'headers': {
-#             'Content-Type': 'application/json',
-#             'keep-alive': 'timeout=10, max=1000'
-#         }
-#     }
-# ))
-
-w3 = Web3(Web3.HTTPProvider("https://quick-greatest-gadget.base-sepolia.quiknode.pro/e3a2ca7bc26b0e2ea14d4c85a29716930958d908",
+w3 = Web3(Web3.HTTPProvider("https://base-sepolia-rpc.publicnode.com",
     request_kwargs={
         'timeout': 30,
         'headers': {
