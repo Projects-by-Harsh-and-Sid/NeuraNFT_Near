@@ -1,8 +1,9 @@
-import endpoints from '../../endpoints.json';
+// import endpoints from '../../endpoints.json';
 import axios from 'axios';
 
 
-const baseURL = endpoints.BACKEND_URL;
+// const baseURL = endpoints.BACKEND_URL;
+const baseURL = process.env.REACT_APP_BACKEND_URL;
 
 
 

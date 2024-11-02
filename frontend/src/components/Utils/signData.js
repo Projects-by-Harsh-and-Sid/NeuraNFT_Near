@@ -1,6 +1,6 @@
 import { connect, keyStores, WalletConnection, Contract, utils } from 'near-api-js';
 // import { useAppContext } from '../../WalletContext'
-import endpoints from '../../endpoints.json';
+// import endpoints from '../../endpoints.json';
 
 // Function to sign JSON data
 // async function signJsonData(jsonData) {
@@ -28,6 +28,8 @@ import endpoints from '../../endpoints.json';
 //     }
 //   }
 
+const CONTRACT_NAME = process.env.REACT_APP_CONTRACT_NAME;
+
 function getContract(account, contractId, viewMethods, changeMethods) {
   return new Contract(account, contractId, {
     viewMethods: viewMethods || [],
@@ -43,7 +45,7 @@ async function createCollection( walletConnection,name, contextWindow, baseModel
   // }
 
   const account = walletConnection.account();
-  const contractId = endpoints.CONTRACT_NAME; // Replace with your contract's account ID
+  const contractId = CONTRACT_NAME; // Replace with your contract's account ID
 
   const contract = getContract(account, contractId, [], ['createCollection']);
 
@@ -77,7 +79,7 @@ async function createNFT( walletConnection,collectionId, name, levelOfOwnership)
   // }
 
   const account = walletConnection.account();
-  const contractId = endpoints.CONTRACT_NAME; // Replace with your contract's account ID
+  const contractId = CONTRACT_NAME; // Replace with your contract's account ID
 
   const contract = getContract(account, contractId, [], ['createNFT']);
 
@@ -110,7 +112,7 @@ async function createNFTWithMetadata ( walletConnection,collectionId, name, leve
   // }
 
   const account = walletConnection.account();
-  const contractId = endpoints.CONTRACT_NAME; // Replace with your contract's account ID
+  const contractId = CONTRACT_NAME; // Replace with your contract's account ID
 
   const contract = getContract(account, contractId, [], ['createNFTWithMetadata']);
 
@@ -148,7 +150,7 @@ async function createNFTMetadata( walletConnection,collectionId, tokenId, metada
   // }
 
   const account = walletConnection.account();
-  const contractId = endpoints.CONTRACT_NAME; // Replace with your contract's account ID
+  const contractId = CONTRACT_NAME; // Replace with your contract's account ID
 
   const contract = getContract(account, contractId, [], ['setMetadata']);
 
@@ -256,7 +258,7 @@ async function extractNFTIdFromTransaction( walletConnection,transactionHash) {
     console.log("Update Access",walletConnection);
     const account = walletConnection.account();
 
-    const contractId = endpoints.CONTRACT_NAME; // Replace with your contract's account ID
+    const contractId = CONTRACT_NAME; // Replace with your contract's account ID
   
     const contract = getContract(account, contractId, [], ['setAccess']);
   

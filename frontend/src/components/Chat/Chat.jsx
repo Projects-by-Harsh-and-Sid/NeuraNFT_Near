@@ -3,7 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import DOMPurify from 'dompurify'; // Import DOMPurify for sanitization
 import { marked } from 'marked'; // Import the marked library
 import { useNavigate, useParams } from 'react-router-dom';
-import endpoints from '../../endpoints.json';
+// import endpoints from '../../endpoints.json';
+
 import Loading from '../NFTs/Loading';
 import { get_jwt_decoded_response_for_chat } from '../Utils/chat';
 import { fetchData } from '../Utils/datafetch';
@@ -23,7 +24,9 @@ import 'prismjs/components/prism-bash';  // For bash/shell commands
 import 'prismjs/components/prism-shell-session';  // For shell sessions with prompts
 
 // import {get_collection_data , get_nft_data} from './helper_functions/get_chain_data';
-const baseURL = endpoints.BACKEND_URL;
+// const baseURL = endpoints.BACKEND_URL;
+const baseURL = process.env.REACT_APP_BACKEND_URL;
+
 
 const NFTImage = ({ nftImage, name }) => {
   const [imageError, setImageError] = React.useState(false);
