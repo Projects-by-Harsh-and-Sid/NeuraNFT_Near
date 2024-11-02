@@ -206,6 +206,9 @@ async function initializeChat() {
       console.log("Collection ID:", collectionId);
       if (collectionId) {
         const task1 = fetchNFTDetails();
+
+        
+
         const task2 = initializeChat();
         await Promise.all([task1, task2]);
 

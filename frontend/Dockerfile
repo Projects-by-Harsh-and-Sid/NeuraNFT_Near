@@ -2,9 +2,24 @@ FROM node:22-alpine3.18 as build
 
 WORKDIR /app
 
+
 # Copy only necessary files for npm install
 COPY package*.json ./
 COPY config-overrides.js ./
+
+
+# Define build arguments
+ARG CONTRACT_NAME
+ARG NEAR_NETWORK
+ARG NEAR_BACKEND_URL
+ARG BACKEND_URL
+
+# Set as environment variables
+ENV REACT_APP_CONTRACT_NAME=$CONTRACT_NAME
+ENV REACT_APP_NEAR_NETWORK=$NEAR_NETWORK
+ENV REACT_APP_NEAR_BACKEND_URL=$NEAR_BACKEND_URL
+ENV REACT_APP_BACKEND_URL=$BACKEND_URL
+
 
 RUN npm install
 

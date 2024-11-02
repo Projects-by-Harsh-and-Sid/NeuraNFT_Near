@@ -27,6 +27,46 @@ services:
 
 
 
+  ollama:
+    build:
+      context: ./hpc_node
+      dockerfile: Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    command: ["serve"]
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./hpc_node/ollama_data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    # networks:
+    #   - near_neuranft_network
+
+  rag_service:
+    build:
+      context: ./hpc_node
+      dockerfile: Dockerfile.rag
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./hpc_node/documents:/app/documents
+    # networks:
+    #   - near_neuranft_network
+    # container_name: near_ollama_rag_service
+    
+
+volumes:
+  ollama_data:
+
 networks:
   near_neuranft_network:
     driver: bridge
