@@ -27,10 +27,11 @@
     "react-scripts": "5.0.1",
     "serve": "^14.2.4",
     "web-vitals": "^2.1.4",
-    "web3": "^4.13.0"
+    "web3": "^4.13.0",
+    "dotenv": "^5.0.1"
   },
   "scripts": {
-    "start": "set PORT=3001 && react-app-rewired start",
+    "start": "react-app-rewired start dotenv_config_path=.env",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
