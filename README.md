@@ -60,6 +60,20 @@ NeuraNFT represents a perfect synergy between AI and Web3 technologies, addressi
    docker compose -f  docker-compose-local-debug.yml up --build
    ```
 
+#### Running the application in debug mode
+
+1. Run the HPC node
+2. Run the ` docker compose -f  docker-compose-debug.yml up --build` command to start the frontend, backend and nginx server
+3. `npm start` in react
+4. start debugging in vscode (node+flask+reactweb debug) - dropdown in debug tab in vscode
+
+
+#### Running the application in local host mode 
+1. docker compose -f  docker-compose-local-.yml up --build
+
+
+
+
 ### Note check these files for local deployment
 
 <u>__Frontend__</u>
@@ -114,23 +128,24 @@ _____
 
 - [NeuraNFT](#neuranft)
   - [How to run the project](#how-to-run-the-project)
+      - [Running the application in debug mode](#running-the-application-in-debug-mode)
+      - [Running the application in local host mode](#running-the-application-in-local-host-mode)
     - [Note check these files for local deployment](#note-check-these-files-for-local-deployment)
   - [Table of Contents](#table-of-contents)
   - [Documentation](#documentation)
   - [Key Features](#key-features)
   - [Problem Statement](#problem-statement)
   - [Architecture](#architecture)
-    - [Smart Contracts](#smart-contracts)
+    - [React Frontend and Near Wallet Integration](#react-frontend-and-near-wallet-integration)
+    - [Flask, Express backend and Federated AI Learning System](#flask-express-backend-and-federated-ai-learning-system)
+    - [Smart Contract](#smart-contract)
     - [Balancer Nodes](#balancer-nodes)
     - [Frontend](#frontend)
     - [Backend](#backend)
     - [Operational Flow](#operational-flow)
   - [Technologies Used](#technologies-used)
-  - [Smart Contracts](#smart-contracts-1)
-  - [Future Developments](#future-developments)
-  - [Architecture Diagram](#architecture-diagram)
-    - [Smart Contract Architecture](#smart-contract-architecture)
-- [Migration Output](#migration-output)
+  - [Smart Contracts](#smart-contracts)
+  - [What's next for NeuraNFT](#whats-next-for-neuranft)
 
 ## Documentation
 

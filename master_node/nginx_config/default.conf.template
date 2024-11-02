@@ -19,12 +19,10 @@ server {
     index index.html;
 
     # Special handling for image requests
-    location ~ ^/image/(?<image_name>)$ {
-        # Set the path to your mounted images folder
-        alias /usr/share/nginx/images/$image_name;
-        
-        # Try to serve the requested image, if not found serve default.jpg
-        try_files $uri /default.jpg =404;
+    location ~ ^/image/(.*)$ {
+        alias /usr/share/nginx/images/;
+        try_files $1 /image/default.jpg;
+
 
         # Cache control for images
         expires 7d;
@@ -67,10 +65,10 @@ server {
         proxy_pass ${BACKEND_ENDPOINT};
         
         # # Enable CORS
-        add_header 'Access-Control-Allow-Origin' '*' always;
-        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE' always;
-        add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,X-API-Key,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization' always;
-        add_header 'Content-Type' 'text/plain charset=UTF-8, application/json charset=UTF-8';
+        # add_header 'Access-Control-Allow-Origin' '*' always;
+        # add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS, PUT, DELETE' always;
+        # add_header 'Access-Control-Allow-Headers' 'DNT,User-Agent,X-Requested-With,X-API-Key,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization' always;
+        # add_header 'Content-Type' 'text/plain charset=UTF-8, application/json charset=UTF-8';
 
 
         # Handle OPTIONS method
@@ -84,7 +82,7 @@ server {
             return 204;
         }
 
-        client_max_body_size 30M;
+        # client_max_body_size 30M;
     }
 
     # Gzip compression

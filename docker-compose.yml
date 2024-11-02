@@ -51,8 +51,8 @@ services:
     build:
       context: ./node_scripts
       dockerfile: Dockerfile
-    ports:
-      - "0.0.0.0:6020:3000"  # Map host port 6010 to container port 5500
+    # ports:
+    #   - "0.0.0.0:6020:3000"  # Map host port 6010 to container port 5500
     volumes:
       # - ./node_scripts:/app
       - ./node_scripts/.logs:/app/.logs

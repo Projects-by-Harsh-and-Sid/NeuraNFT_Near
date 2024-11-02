@@ -1,0 +1,33 @@
+version: '1.0'
+services:
+  
+  near_backend_nginx:
+    image: nginx:alpine
+    ports:
+      - "6010:80"
+    volumes:
+      - ./master_node/nginx_config/nginx.conf:/etc/nginx/nginx.conf:ro
+      # - ./master_node/nginx_config/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./master_node/nginx_config/default.conf.template:/etc/nginx/templates/default.conf.template:ro
+      - ./master_node/app/uploads/images:/usr/share/nginx/images:ro  # Mount images directory
+      - ./master_node/app/uploads/images/default.jpg:/usr/share/nginx/html/default.jpg:ro  # Mount default image
+      - ./master_node/.nginx_logs:/var/log/nginx  # Mount nginx logs
+    # depends_on:
+      # - near_neuranft_backend
+      # - near_neuranft_near_api
+    networks:
+      - near_neuranft_network
+    container_name: neuranft_nginx
+    environment:
+      - NEAR_API_ENDPOINT=http://host.docker.internal:4000/api/
+      - NEAR_HEALTH_CHECK=http://host.docker.internal:4000/health
+      # - BACKEND_ENDPOINT=http://near_neuranft_backend_container:5500 # this is for internal docker network
+      - BACKEND_ENDPOINT=http://host.docker.internal:5500 # this is for local development ie docker accesing host machine localhost
+      # - BACKEND_ENDPOINT=http://192.168.0.142:5500
+
+
+
+networks:
+  near_neuranft_network:
+    driver: bridge
+
