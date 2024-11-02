@@ -200,7 +200,7 @@ def generate_key():
     
     if int(app.config['LOCAL_ENV']) == 1:
         local_endpoint  = f"{app.config["Load_balancer_Endpoints"]['hpcEndpoint']}:{app.config["Load_balancer_Endpoints"]['hpcEndpointPort']}"
-        data_link       = str(data_link).lower().replace(str(FILE_STORAGE_ENDPOINT).lower(), local_endpoint)  
+        data_link       = str(data_link).replace(str(FILE_STORAGE_ENDPOINT).lower(), local_endpoint)  
         
         
     data = requests.get(data_link).json()
