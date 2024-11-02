@@ -1,12 +1,16 @@
 # NeuraNFT
 
-NeuraNFT is a platform built on the Near blockchain that aims to tokenize intelligence. It enables the creation of NFTs representing AI models and data, with a permission management system for granular control over access and usage rights. By addressing key challenges in the current AI ecosystem, NeuraNFT seeks to create a more equitable, secure, and innovative environment for AI development and deployment.
+NeuraNFT is a blockchain-based platform built on the NEAR Protocol that revolutionizes how AI models and datasets are managed, shared, and monetized. By leveraging NEAR's infrastructure, NeuraNFT transforms AI assets into unique digital tokens (NFTs), allowing creators to maintain ownership while providing a secure way to share and trade their intellectual property.
+
+Through smart contract, the platform implements detailed permission controls that let owners specify exactly how their AI models and data can be used. At its core is a decentralized marketplace where developers, data scientists, data owners and organizations can confidently buy, sell, or lease these tokenized assets, knowing their intellectual property rights are protected.
+
+NeuraNFT represents a perfect synergy between AI and Web3 technologies, addressing critical challenges in both spaces. By tokenizing AI models and datasets, we're not just creating a marketplace - we're building a new ecosystem where AI development becomes more transparent, accessible, and secure. Our platform ensures secure model deployment and inference, enabling users to utilize AI models without exposing the underlying code or data, thus maintaining the delicate balance between accessibility and security in the ecosystem.
 
 
 ## How to run the project
 
 1. Clone the repository:
-  ```bash
+    ```bash
       git clone git@github.com:Projects-by-Harsh-and-Sid/NeuraNFT_Near.git
    ```
 
@@ -175,41 +179,47 @@ NeuraNFT addresses several key challenges in the current AI ecosystem:
 - Limited true ownership and transferability of AI assets
 - Inefficient resource management for personalized AI
 
+
 ## Architecture
 
-NeuraNFT's architecture is designed with security, scalability, and user control at its forefront. It consists of several key components:
 
-```mermaid
+NeuraNFT project can be divided into 4 components. 
 
-graph TB
-    subgraph Core Contracts
-        MC[Master Contract]
-        NC[NFT Contract]
-        CC[Collection Contract]
-    end
-    
-    subgraph Storage Contracts
-        MS[Metadata Storage]
-        AS[Access Control Storage]
-    end
-    
-    MC --> NC
-    MC --> CC
-    NC --> MS
-    NC --> AS
-    CC --> NC
-    
-    subgraph Storage Types
-        CMS[Collection Metadata]
-        NMS[NFT Metadata]
-        ACS[Access Control State]
-    end
-    
-    MS --> CMS
-    MS --> NMS
-    AS --> ACS
+1.	Frontend: build on react
+2.	Backends: Flask (Python) and Express(Node)
+3.	Smart Contract: Type Script, Java Script and Rust(Under Development)
+4.	HPC Node: High Performance Computing Node for AI model inference (soon to be replaced by decentralized nodes with DRM)
 
-```
+
+### React Frontend and Near Wallet Integration
+The frontend is built in react and integrates with NEAR Wallet. When we deploy the code in production the frontend code is compiled, and the static build is exported to nginx container from where it is deployed. This makes the frontend request comparatively faster than running a native npm server build. 
+
+### Flask, Express backend and Federated AI Learning System
+The backend infrastructure employs a distributed Python framework (Flask) orchestrated through Docker containers. The master node architecture handles model deployment and encryption through a implementation of asymmetric cryptography(ECDH + AES). We developed a custom balancer system for signature verification and permission validation, which runs as a separate microservice. Currently this system is centralized but we are developing a distributed DRM layer that will enable secure model deployment enabling users to participate in the network. This layer will combine with the HPC node network to also manage encryption keys like Shamir secrete. 
+
+
+
+We also created a nginx server that acts a reverse proxy for these request and enables metadata request caching. All of these are deployed using docker with a single exposed nginx endpoint. 
+
+
+
+
+### Smart Contract
+
+
+We built a specialized NFT smart contract for AI models that solves the tricky problem of managing AI model ownership and access rights on the blockchain. Instead of just basic ownership like regular NFTs, we created a more nuanced system where different users can have varying levels of access to the same model - from basic usage rights all the way up to full ownership and editing capabilities.
+
+We organized everything into collections to keep it clean and manageable. Each collection can represent a family of related AI models, and within each collection, we can mint individual NFTs. What's cool is that we built in a really flexible access control system - so model creators can grant specific permissions to different users. For example, you might let some users just use the model, while others can create derivatives, and others might have full editing rights.
+
+> Kindly open the image in a new tab to see in detail
+
+![Smart Contract Read functions](https://raw.githubusercontent.com/Projects-by-Harsh-and-Sid/NeuraNFT_Near/refs/heads/main/smart_contracts/smartContractArcitecture_read_request.svg)
+
+For the technical implementation, we used NEAR's blockchain and built everything with security in mind. We made sure to add proper checks so only authorized users can do sensitive stuff like transferring NFTs or updating model data. We also added comprehensive view methods so users can easily see what models they have access to, what permissions they have, and all the associated metadata about the models.
+
+> Kindly open the image in a new tab to see in detail
+
+![Smart Contract Write](https://raw.githubusercontent.com/Projects-by-Harsh-and-Sid/NeuraNFT_Near/refs/heads/main/smart_contracts/smartContractArcitecture_write_request.svg)
 
 
 ### Balancer Nodes
@@ -248,98 +258,20 @@ The following smart contracts have been deployed on the Near testnet:
 
 - [neuranft.testnet](https://testnet.nearblocks.io/address/neuranft.testnet)(Main contract deployed on TestNet)
 
-## Future Developments
+## What's next for NeuraNFT
 
-1. **Smart Contract Optimization**: Refine contracts for better performance and lower fees.
-2. **Advanced NFT Functionalities**: Implement model combination and fractional ownership features.
-3. **Robust Marketplace Development**: Create a comprehensive marketplace with advanced search and discovery features.
-4. **Governance Mechanisms**: Introduce decentralized governance for community-driven decision-making.
-5. **Expanded Compute Network**: Develop a more efficient decentralized compute network for model deployment.
-6. **AI-to-AI Interaction Protocols**: Enable secure interactions between AI models within the ecosystem.
-7. **Cross-chain Interoperability**: Explore integration with other blockchain networks.
-8. **Industry Partnerships**: Establish partnerships with AI researchers, companies, and institutions.
+1.	**Smart Contract Optimization**: Refine contracts for better performance.
+2.	**Advanced NFT Functionalities**: Implement model combination and fractional/shared ownership features.
+3.	**Robust Marketplace Development**: Create a comprehensive marketplace with advanced search and discovery features.
+4.	**AI Agents**: Developing a platform to enable users to leverage neuranft and develop custom AI agents and AI workflows. Something like ComfyUI but decentralized.
+5. 	**Neura Bridge**: Enabling users to wrap NFTs in popular token standards and monetize them on multiple chain and market places
+6.	**Governance Mechanisms**: Introduce decentralized governance for community-driven decision-making.
+7.	**Expanded Compute Network**: Develop a more efficient decentralized compute network for model deployment.
+8.	**AI-to-AI Interaction Protocols**: Enable secure interactions between AI models within the ecosystem.
+9.	**Cross-chain Interoperability**: Explore integration with other blockchain networks.
+10.	**Industry Partnerships**: Establish partnerships with AI researchers, companies, and institutions.
 
-## Architecture Diagram
 
-```mermaid
-graph LR
-    UI[User Interface]
-    TW[Base Wallet]
 
-    UI --> TW
-    UI --"User Actions"-->BS
-    TW --"Sign & Execute Contracts"-->SC
 
-    subgraph "User Interaction Layer"
-        UI --"UI Webpage"--- UI
-        TW --"NFT Creation & Metadata Update"--- TW
-    end
-
-    subgraph "Backend Services"
-        direction TB
-        BS[Backend System]
-        UV[User Verification]
-        AC[Access Check]
-        ED[Data Encryption/Decryption]
-        MI[Model Interface]
-        API[Other APIs]
-        BS --> UV
-        BS --> AC
-        BS --> ED
-        BS --> MI
-        BS --> API
-    end
-
-    BS --"Data Storage/Retrieval"-->BTFS
-    BS --"Compute Tasks"-->HPC
-    AC --"Verify Permissions"-->SC
-
-    BTFS[BTFS Storage]
-
-    subgraph "HPC Nodes"
-        HPC[High-Performance Computing]
-        SN1[Node 1: Model Training]
-        SN2[Node 2: Inference]
-        SN3[Node 3: Fine-tuning]
-        HPC --> SN1
-        HPC --> SN2
-        HPC --> SN3
-    end
-
-    subgraph "Base Network Smart Contracts"
-        SC[Smart Contracts]
-        NFT[NFT Contract]
-        ACC[Access Control Contract]
-        MD[Metadata Contract]
-        CC[Collection Contract]
-        MAC[Master Access Control]
-        SC --> NFT
-        SC --> ACC
-        SC --> MD
-        SC --> CC
-        SC --> MAC
-        NFT --"ownerOf()"-->NFT
-        ACC --"checkAccess()"-->MAC
-        MD --"getMetadata()"-->MD
-        CC --"getCollectionInfo()"-->CC
-        MAC --"hasAccess()"-->MAC
-    end
-
-    classDef default fill:#f0f0f0,stroke:#333,stroke-width:2px,color:#000;
-    classDef Base fill:#ffd700,stroke:#333,stroke-width:2px,color:#000;
-    classDef computing fill:#87cefa,stroke:#333,stroke-width:2px,color:#000;
-    classDef storage fill:#90EE90,stroke:#333,stroke-width:2px,color:#000;
-    classDef backend fill:#ff6347,stroke:#333,stroke-width:2px,color:#000;
-    classDef user fill:#c8a2c8,stroke:#333,stroke-width:2px,color:#000;
-
-    class SC,NFT,ACC,MD,CC,MAC Base;
-    class HPC,SN1,SN2,SN3 computing;
-    class BTFS storage;
-    class BS,UV,AC,ED,MI,API backend;
-    class UI,TW user;
-```
-
-### Smart Contract Architecture
-> Kindly open the image in a new tab to see in detial
-![Smart Contract Architecture](https://raw.githubusercontent.com/Projects-by-Harsh-and-Sid/NeuraNFT_Near/refs/heads/main/smart_contracts/smartContractFlow-white.svg?token=GHSAT0AAAAAACVLNDR6PMXCJJLL6R7VZZBSZYFBSBA? "Smart Contract Architecture")
 
