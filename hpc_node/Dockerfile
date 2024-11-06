@@ -1,5 +1,6 @@
 # Use the official Ollama image
-FROM ollama/ollama:latest
+# FROM ollama/ollama:latest
+FROM ollama/ollama:0.3.13
 
 # Set the working directory
 WORKDIR /app
