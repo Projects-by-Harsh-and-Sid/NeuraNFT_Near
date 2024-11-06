@@ -193,7 +193,7 @@ def test_data_model():
     documents = get_documents([optional_content, content_main])
 
  
-    request_data = make_request ("Give a jist of the data", embeddings, documents, CHAT_URL)
+    request_data = make_request ("Tell me a breif description about the data without revealing the content and hide sensetive information, just give a basic jist about the data and the model", embeddings, documents, CHAT_URL)
     
     
 
