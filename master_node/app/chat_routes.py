@@ -67,23 +67,113 @@ def make_request(query, embeddings, documents, url):
         }
         
 
-@app.route('/test_model', methods=['POST'])
+# @app.route('/test_model', methods=['POST'])
+# def test_data_model():
+    
+#     # return jsonify("test_data_model"), 200
+
+#     data = request.get_json()
+    
+#     if not data or 'AI_Data' not in data or 'baseModel' not in data or 'test query' not in data:
+#         return jsonify({'error': 'AI_Data and baseModel are required'}), 400
+
+#     # Prepare the content for the temporary file
+#     content_main    = f"AI_Data: {data['AI_Data']}\n"
+    
+#     optional_content = " "
+    
+#     model_to_use= data['baseModel']
+
+#     # Add optional fields if they exist
+#     optional_fields = [
+#         'collection owner', 'collection name', 'collection description',
+#         'nft name', 'nft description', 'nft owner'
+#     ]
+    
+#     additional_content = []
+#     for field in optional_fields:
+#         if field in data:
+#             additional_content.append(f"{field}: {data[field]}")
+    
+#     if additional_content:
+#         optional_content += "Additional Data: " + ", ".join(additional_content) + "\n"
+
+
+
+#     embeddings = get_embeddings([optional_content, content_main])
+#     documents = get_documents([optional_content, content_main])
+ 
+#     request_data = make_request (data['test query'], embeddings, documents, CHAT_URL)
+    
+    
+
+#     return jsonify(str(request_data["answer"])), 200
+
+
+FILE_STORAGE_ENDPOINT = app.config['filestorage_endpoint']
+from app.routesv2 import check_urk_format
+
+
+@app.route('/test_model', methods=['POST', 'GET'])
 def test_data_model():
     
     # return jsonify("test_data_model"), 200
 
-    data = request.get_json()
+    collection_id = 1
+    nft_id = 1
+    if request.method == 'POST':
+        
+        info_dict = request.get_json()
+        
+        if not info_dict or 'collection_id' not in info_dict or 'nft_id' not in info_dict:
+            return jsonify({'error': 'collection_id and nft_id are required'}), 400
+        
+        collection_id = info_dict['collection_id']
+        nft_id = info_dict['nft_id']
     
-    if not data or 'AI_Data' not in data or 'baseModel' not in data or 'test query' not in data:
+    if request.method == 'GET':
+        collection_id =(request.args.get('collection_id'))
+        nft_id = request.args.get('nft_id')
+
+    nft_url = f"{app.config["NEAR_API_ENDPOINT"]}/get_nft_by_collectionid_nft_id?collection_id={collection_id}&nft_id={nft_id}"
+    
+    # request to get the nft data
+    nft = requests.get(nft_url).json()
+    
+    
+    if not nft or "data" not in nft:
+        return jsonify({'error': 'NFT not found'}), 400
+    
+    data_link = nft['data']
+    access_list = nft['accessList']
+    
+    
+        
+    if not check_urk_format(data_link) :
+        data_link = f"{FILE_STORAGE_ENDPOINT}/data/default.data"
+        
+    
+    if int(app.config['LOCAL_ENV']) == 1:
+        local_endpoint  = f"{app.config["Load_balancer_Endpoints"]['hpcEndpoint']}:{app.config["Load_balancer_Endpoints"]['hpcEndpointPort']}"
+        data_link       = str(data_link).lower().replace(str(FILE_STORAGE_ENDPOINT).lower(), local_endpoint)  
+        
+        
+    data = requests.get(data_link).json()
+    
+    
+
+    
+    # also get rag data etc
+    
+    if not data or 'data' not in data:
         return jsonify({'error': 'AI_Data and baseModel are required'}), 400
 
-    # Prepare the content for the temporary file
-    content_main    = f"AI_Data: {data['AI_Data']}\n"
+            # Prepare the content for the temporary file
+    content_main    = f"AI_Data: {data['data']}\n"
     
+
     optional_content = " "
     
-    model_to_use= data['baseModel']
-
     # Add optional fields if they exist
     optional_fields = [
         'collection owner', 'collection name', 'collection description',
@@ -92,20 +182,19 @@ def test_data_model():
     
     additional_content = []
     for field in optional_fields:
-        if field in data:
-            additional_content.append(f"{field}: {data[field]}")
+        if field in nft:
+            additional_content.append(f"{field}: {nft[field]}")
     
     if additional_content:
         optional_content += "Additional Data: " + ", ".join(additional_content) + "\n"
 
 
-
     embeddings = get_embeddings([optional_content, content_main])
     documents = get_documents([optional_content, content_main])
+
  
-    request_data = make_request (data['test query'], embeddings, documents, CHAT_URL)
+    request_data = make_request ("Give a jist of the data", embeddings, documents, CHAT_URL)
     
     
 
     return jsonify(str(request_data["answer"])), 200
-
