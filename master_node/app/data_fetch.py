@@ -21,7 +21,7 @@ from io import BytesIO
 
 import requests
 
-from app.pinata import upload_to_pinata
+from app.pinata import upload_to_pinata , sign_url, get_file_info
 
 CHAT_URL = app.config['CHAT_URL']
 MASTER_API_KEY = app.config['MASTER_API_KEY']
@@ -75,17 +75,13 @@ def upload_image():
         return 'No selected file', 400
     
     if file:
-        # Get the file extension and generate random filename
-        _, ext = os.path.splitext(file.filename)
-        random_filename = f"{generate_random_string()}{ext}"
-        filename = secure_filename(random_filename)
-        
         try:
-            # Upload to Pinata and get IPFS URL
-            ipfs_url = upload_to_pinata(file, filename)
-            return ipfs_url, 200
+            # Upload to Pinata
+            result = upload_to_pinata(file)
+            return result, 200
         except Exception as e:
             return str(e), 500
+
     
 # @app.route('/upload_image_url', methods=['POST'])
 # def upload_image_url():
@@ -139,51 +135,18 @@ def upload_image_url():
 #         return send_from_directory(path_to_file, 'default.jpg')
 #     print("filename, UPLOAD_FOLDER", filename, UPLOAD_FOLDER)
 #     return send_from_directory(path_to_file, filename)
-@app.route('/image/<ipfs_hash>')
-def get_image(ipfs_hash):
+@app.route('/image/<file_id>')
+def get_image(file_id):
     try:
-        # If no hash provided or "default" requested, return default image
-        if not ipfs_hash or ipfs_hash == "default":
-            default_ipfs_hash = app.config.get('DEFAULT_IMAGE_HASH', 'your-default-image-hash')
-            ipfs_hash = default_ipfs_hash
+        # Get file info
+        file_info = get_file_info(file_id)
         
-        # Construct Pinata gateway URL
-        ipfs_url = f"https://gateway.pinata.cloud/ipfs/{ipfs_hash}"
+        # Sign URL for access
+        signed_url = sign_url(file_info['pinataUrl'])
         
-        # Fetch image from Pinata
-        response = requests.get(ipfs_url)
-        
-        if response.status_code == 200:
-            # Create a file-like object from the image data
-            image_data = BytesIO(response.content)
-            
-            # Get content type from response headers or default to 'image/jpeg'
-            content_type = response.headers.get('Content-Type', 'image/jpeg')
-            
-            # Return the image with appropriate mime type
-            return send_file(
-                image_data,
-                mimetype=content_type,
-                as_attachment=False
-            )
-        else:
-            # If image not found on Pinata, return default image
-            default_ipfs_hash = app.config.get('DEFAULT_IMAGE_HASH', 'your-default-image-hash')
-            default_url = f"https://gateway.pinata.cloud/ipfs/{default_ipfs_hash}"
-            default_response = requests.get(default_url)
-            
-            if default_response.status_code == 200:
-                image_data = BytesIO(default_response.content)
-                return send_file(
-                    image_data,
-                    mimetype=default_response.headers.get('Content-Type', 'image/jpeg'),
-                    as_attachment=False
-                )
-            else:
-                return jsonify({"error": "Failed to fetch image from IPFS"}), 500
-            
+        return signed_url, 200
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        return str(e), 500
 
 
 # ############################################################################################################

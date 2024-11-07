@@ -24,6 +24,9 @@ from app.pinata import upload_to_pinata
 CHAT_URL = app.config['CHAT_URL']
 MASTER_API_KEY = app.config['MASTER_API_KEY']
 UPLOAD_FOLDER = app.config['UPLOAD_FOLDER']
+PINATA_API_KEY = app.config['PINATA_API_KEY'] 
+PINATA_SECRET_KEY = app.config['PINATA_SECRET_KEY']
+PINATA_JWT =   app.config['PINATA_JWT']
 
 NEAR_API_CONTAINER_ENDPOINT = app.config['NEAR_API_ENDPOINT']
 
@@ -120,32 +123,15 @@ def convert_pdf_to_link():
 
     file = request.files['file']
     
-    if file and allowed_file(file.filename):
+    if file and file.filename.endswith('.pdf'):
         try:
-            # Convert PDF to text
-            text = convert_pdf_to_text(file)
-            text = sanitize_text(text)
-            
-            # Create a temporary text file
-            random_filename = f"{generate_random_string()}.data"
-            temp_file_path = os.path.join('/tmp', random_filename)
-            
-            with open(temp_file_path, 'w') as f:
-                f.write(text)
-            
-            # Upload the text file to Pinata
-            with open(temp_file_path, 'rb') as f:
-                ipfs_url = upload_to_pinata(f, random_filename)
-            
-            # Clean up temporary file
-            os.remove(temp_file_path)
-            
-            return ipfs_url, 200
+            # Upload PDF to Pinata
+            result = upload_to_pinata(file)
+            return result, 200
         except Exception as e:
             return jsonify({'error': str(e)}), 500
     else:
-        return jsonify({'error': 'Invalid file type. Only PDF files are allowed for this endpoint.'}), 400
-    
+        return jsonify({'error': 'Invalid file type. Only PDF files are allowed.'}), 400
 
 # @app.route('/data', methods=['GET'])
 # @app.route('/data/<datafile>', methods=['GET'])
@@ -174,20 +160,57 @@ def convert_pdf_to_link():
 #     return False
 
 @app.route('/data', methods=['GET'])
-@app.route('/data/<ipfs_hash>', methods=['GET'])
-def get_data(ipfs_hash="default"):
+@app.route('/data/<file_id>', methods=['GET'])
+def get_data(file_id="default"):
     try:
-        if not ipfs_hash or ipfs_hash == "default":
-            return jsonify({"error": "Invalid IPFS hash"}), 400
+        if not file_id or file_id == "default":
+            return jsonify({"error": "Invalid file ID"}), 400
             
-        # Fetch data from IPFS gateway
-        ipfs_url = f"https://gateway.pinata.cloud/ipfs/{ipfs_hash}"
-        response = requests.get(ipfs_url)
+        # First get file info from Pinata
+        info_url = f"https://api.pinata.cloud/v3/files/{file_id}"
+        info_headers = {
+            'Authorization': f'Bearer {PINATA_JWT}'
+        }
         
-        if response.status_code == 200:
-            return jsonify({"data": response.text}), 200
+        info_response = requests.get(info_url, headers=info_headers)
+        
+        if info_response.status_code != 200:
+            return jsonify({"error": "File not found"}), 404
+            
+        file_info = info_response.json()
+        
+        # Get signed URL for the file
+        sign_url = "https://api.pinata.cloud/v3/files/sign"
+        sign_headers = {
+            'Authorization': f'Bearer {PINATA_JWT}',
+            'Content-Type': 'application/json'
+        }
+        
+        sign_payload = {
+            'url': file_info['pinataUrl'],
+            'expires': 300000,  # 5 minutes
+            'date': 1724875300,  # You might want to generate this dynamically
+            'method': 'GET'
+        }
+        
+        sign_response = requests.post(
+            sign_url,
+            headers=sign_headers,
+            json=sign_payload
+        )
+        
+        if sign_response.status_code != 200:
+            return jsonify({"error": "Failed to generate access URL"}), 500
+            
+        signed_url = sign_response.json()['signedUrl']
+        
+        # Finally, fetch the actual data
+        data_response = requests.get(signed_url)
+        
+        if data_response.status_code == 200:
+            return jsonify({"data": data_response.text}), 200
         else:
-            return jsonify({"error": "Failed to fetch data from IPFS"}), 500
+            return jsonify({"error": "Failed to fetch data"}), 500
             
     except Exception as e:
         return jsonify({"error": str(e)}), 500
