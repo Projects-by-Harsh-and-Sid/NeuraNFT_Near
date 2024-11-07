@@ -58,7 +58,9 @@ app.config['API_KEYS'] = {}
 app.config['CHAT_SESSIONS'] = {}
 app.config['TEMP_FILE_PATH'] = temp_file_path
 app.config['CONTRACT_FOLDER'] = os.path.join(os.path.dirname(__file__), CONTRACT_FOLDER)
-
+app.config['PINATA_API_KEY'] = 'd73ed61684c7102841c2'
+app.config['PINATA_SECRET_KEY'] = 'd86656ea55e13d88072f9d8b77d6a9dbf82f19a84e093a0de28b7ac302aa135d'
+app.config['PINATA_JWT'] = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJhMGU4NWU4Mi01ZjE4LTRhZWYtODM3My1kMTJhOWNjMWJmNzIiLCJlbWFpbCI6ImhhcnNoLnBvZGRhcjE2MDVAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiRlJBMSJ9LHsiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjEsImlkIjoiTllDMSJ9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImQ3M2VkNjE2ODRjNzEwMjg0MWMyIiwic2NvcGVkS2V5U2VjcmV0IjoiZDg2NjU2ZWE1NWUxM2Q4ODA3MmY5ZDhiNzdkNmE5ZGJmODJmMTlhODRlMDkzYTBkZTI4YjdhYzMwMmFhMTM1ZCIsImV4cCI6MTc2MjUwNTM1MX0.HZ5Hu55bxJBL5yPD1dJu_isJ4gXJFmYmsSfwVit4Ax0'
 
 
 
@@ -71,3 +73,4 @@ app.config['CONTRACT_FOLDER'] = os.path.join(os.path.dirname(__file__), CONTRACT
 from app import data_fetch
 from app import routesv2
 from app import chat_routes
+from app import pinata

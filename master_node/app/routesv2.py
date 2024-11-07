@@ -18,6 +18,9 @@ from app.data_fetch import generate_random_string
 
 import os
 
+
+from app.pinata import upload_to_pinata
+
 CHAT_URL = app.config['CHAT_URL']
 MASTER_API_KEY = app.config['MASTER_API_KEY']
 UPLOAD_FOLDER = app.config['UPLOAD_FOLDER']
@@ -83,6 +86,33 @@ def sanitize_text(text):
     # return ''.join(ch for ch in text if unicodedata.category(ch)[0] != 'C')
     return ''.join(ch  if ord(ch) < 128 else " " for ch in text)
 
+# @app.route('/convertpdfToLink', methods=['POST'])
+# def convert_pdf_to_link():
+#     if 'file' not in request.files:
+#         return jsonify({'error': 'No file part provided'}), 400
+
+#     file = request.files['file']
+    
+#     if file and allowed_file(file.filename):
+#         try:
+#             text = convert_pdf_to_text(file)
+#             text = sanitize_text(text)
+            
+            
+#             random_filename = f"{generate_random_string()}.data"
+            
+#             # store the text in a file and return the file path
+#             with open(os.path.join(DATA_FOLDER,random_filename), 'w') as f:
+#                 f.write(text)
+            
+#             data_url = f"{FILE_STORAGE_ENDPOINT}/data/{random_filename}"
+            
+#             return data_url, 200
+#         except Exception as e:
+#             return jsonify({'error': str(e)}), 500
+#     else:
+#         return jsonify({'error': 'Invalid file type. Only PDF files are allowed for this endpoint.'}), 400
+
 @app.route('/convertpdfToLink', methods=['POST'])
 def convert_pdf_to_link():
     if 'file' not in request.files:
@@ -92,50 +122,75 @@ def convert_pdf_to_link():
     
     if file and allowed_file(file.filename):
         try:
+            # Convert PDF to text
             text = convert_pdf_to_text(file)
             text = sanitize_text(text)
             
-            
+            # Create a temporary text file
             random_filename = f"{generate_random_string()}.data"
+            temp_file_path = os.path.join('/tmp', random_filename)
             
-            # store the text in a file and return the file path
-            with open(os.path.join(DATA_FOLDER,random_filename), 'w') as f:
+            with open(temp_file_path, 'w') as f:
                 f.write(text)
             
-            data_url = f"{FILE_STORAGE_ENDPOINT}/data/{random_filename}"
+            # Upload the text file to Pinata
+            with open(temp_file_path, 'rb') as f:
+                ipfs_url = upload_to_pinata(f, random_filename)
             
-            return data_url, 200
+            # Clean up temporary file
+            os.remove(temp_file_path)
+            
+            return ipfs_url, 200
         except Exception as e:
             return jsonify({'error': str(e)}), 500
     else:
         return jsonify({'error': 'Invalid file type. Only PDF files are allowed for this endpoint.'}), 400
     
 
+# @app.route('/data', methods=['GET'])
+# @app.route('/data/<datafile>', methods=['GET'])
+# def get_data(datafile="default.data"):
+
+
+#     path_to_file = os.path.join(app.config['UPLOAD_FOLDER'],"data")
+#     if not os.path.exists(os.path.join(path_to_file, datafile)):
+#         return "No data found"
+    
+#     print("filename, UPLOAD_FOLDER", datafile, UPLOAD_FOLDER)
+    
+    
+#     with open(os.path.join(path_to_file, datafile), 'r') as f:
+#         data = f.read()
+    
+#     return jsonify({"data": data}), 200
+
+
+# def check_access(access_list, signed_message):
+# # TODO : Implement this function to check if the messenge is signed by the owner of the access_list and the timestam in the message     
+    
+#     for access in access_list:
+#         if access['signature'] == signed_message:
+#             return True
+#     return False
+
 @app.route('/data', methods=['GET'])
-@app.route('/data/<datafile>', methods=['GET'])
-def get_data(datafile="default.data"):
-
-
-    path_to_file = os.path.join(app.config['UPLOAD_FOLDER'],"data")
-    if not os.path.exists(os.path.join(path_to_file, datafile)):
-        return "No data found"
-    
-    print("filename, UPLOAD_FOLDER", datafile, UPLOAD_FOLDER)
-    
-    
-    with open(os.path.join(path_to_file, datafile), 'r') as f:
-        data = f.read()
-    
-    return jsonify({"data": data}), 200
-
-
-def check_access(access_list, signed_message):
-# TODO : Implement this function to check if the messenge is signed by the owner of the access_list and the timestam in the message     
-    
-    for access in access_list:
-        if access['signature'] == signed_message:
-            return True
-    return False
+@app.route('/data/<ipfs_hash>', methods=['GET'])
+def get_data(ipfs_hash="default"):
+    try:
+        if not ipfs_hash or ipfs_hash == "default":
+            return jsonify({"error": "Invalid IPFS hash"}), 400
+            
+        # Fetch data from IPFS gateway
+        ipfs_url = f"https://gateway.pinata.cloud/ipfs/{ipfs_hash}"
+        response = requests.get(ipfs_url)
+        
+        if response.status_code == 200:
+            return jsonify({"data": response.text}), 200
+        else:
+            return jsonify({"error": "Failed to fetch data from IPFS"}), 500
+            
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 

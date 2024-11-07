@@ -15,6 +15,9 @@ import os
 CHAT_URL = app.config['CHAT_URL']
 MASTER_API_KEY = app.config['MASTER_API_KEY']
 UPLOAD_FOLDER = app.config['UPLOAD_FOLDER']
+PINATA_API_KEY = app.config['PINATA_API_KEY'] 
+PINATA_SECRET_KEY = app.config['PINATA_SECRET_KEY']
+PINATA_JWT =   app.config['PINATA_JWT']
 
 
 #  to be replace by reddis or on chain session management storage
@@ -22,6 +25,7 @@ api_keys            = app.config['API_KEYS']
 chat_sessions       = app.config['CHAT_SESSIONS']
 temp_folder         = app.config['TEMP_FILE_PATH']
 
+PINATA_ENDPOINT = 'https://uploads.pinata.cloud/v3/files'
 
 ########################## converting PDF to text ##########################
 
