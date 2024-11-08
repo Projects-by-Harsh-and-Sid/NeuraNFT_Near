@@ -142,9 +142,9 @@ def get_image(file_id):
         file_info = get_file_info(file_id)
         
         # Sign URL for access
-        signed_url = sign_url(file_info['pinataUrl'])
+        # signed_url = sign_url(file_info['pinataUrl'])
         
-        return signed_url, 200
+        return file_info, 200
     except Exception as e:
         return str(e), 500
 

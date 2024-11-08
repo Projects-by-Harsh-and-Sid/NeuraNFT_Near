@@ -11,7 +11,7 @@ PINATA_ENDPOINT = 'https://uploads.pinata.cloud/v3/files'
 
 PINATA_ENDPOINTS = {
     'upload': 'https://uploads.pinata.cloud/v3/files',
-    'get_file': 'https://api.pinata.cloud/v3/files/',
+    'get_file': 'https://salmon-payable-mastodon-183.mypinata.cloud/files',
     'sign_url': 'https://api.pinata.cloud/v3/files/sign'
 }
 
@@ -71,16 +71,25 @@ def sign_url(pinata_url, expires=500000):
     
 def get_file_info(file_id):
     """Get file information from Pinata"""
+    url = "https://api.pinata.cloud/v3/files/sign"
+    
+    # Construct the file URL using the file ID and your Pinata subdomain
+    file_url = f"https://salmon-payable-mastodon-183.mypinata.cloud/files/{file_id}"
+    
+    payload = {
+        "expires": 10000000,
+        "date": 1724875300,
+        "method": "GET",
+        "url": file_url
+    }
+    
     headers = {
-        'Authorization': f'Bearer {PINATA_JWT}'
+        "Authorization": f"Bearer {PINATA_JWT}",
+        "Content-Type": "application/json"
     }
     
     try:
-        response = requests.get(
-            f"{PINATA_ENDPOINTS['get_file']}{file_id}",
-            headers=headers
-        )
-        
+        response = requests.request("POST", url, json=payload, headers=headers)
         if response.status_code == 200:
             return response.json()
         else:
